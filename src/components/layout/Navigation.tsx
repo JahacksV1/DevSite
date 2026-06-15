@@ -5,15 +5,14 @@ import Link from 'next/link'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { BookCall } from '@/components/ui'
 import { NavLink } from './NavLink'
 import { MobileMenu } from './MobileMenu'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/how-we-build', label: 'How We Build' },
   { href: '/projects', label: 'Projects' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/how-we-build', label: 'How We Build' },
+  { href: '/upwork', label: 'Portfolio' },
 ]
 
 /**
@@ -90,9 +89,12 @@ export const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:block">
-            <BookCall variant="primary" size="sm">
-              Book a Call
-            </BookCall>
+            <Link
+              href="/upwork"
+              className="px-4 py-2 rounded-lg bg-primary/10 border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/20 transition-all duration-200"
+            >
+              View Portfolio
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}

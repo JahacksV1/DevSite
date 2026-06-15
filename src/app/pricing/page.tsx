@@ -1,6 +1,5 @@
-/**
- * Pricing Page Route
- * Re-exports the PricingPage component from the pricing module
- */
-export { default } from '@/modules/pricing'
+import { redirect } from 'next/navigation'
 
+export default function PricingPage() {
+  redirect('/upwork')
+}

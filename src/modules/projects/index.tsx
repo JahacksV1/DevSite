@@ -26,10 +26,9 @@ const ProjectsPage = () => {
   // Timeline filter
   if (selectedTimeline !== 'All Projects') {
     filteredProjects = filteredProjects.filter((p) => {
-      if (selectedTimeline === 'Under 1 Week') return p.timelineDays < 7
-      if (selectedTimeline === '1-2 Weeks') return p.timelineDays >= 7 && p.timelineDays <= 14
-      if (selectedTimeline === '2-4 Weeks') return p.timelineDays > 14 && p.timelineDays <= 28
-      if (selectedTimeline === '4+ Weeks') return p.timelineDays > 28
+      if (selectedTimeline === 'Production-Grade') return p.productionGrade
+      if (selectedTimeline === 'With Live Demo') return p.demoStatus === 'Live — Public'
+      if (selectedTimeline === 'Private Projects') return p.demoStatus === 'Private — Case Study Only'
       return true
     })
   }
@@ -69,7 +68,7 @@ const ProjectsPage = () => {
             {/* Timeline Filters */}
             <div className="mb-6">
               <div className="text-sm font-semibold text-text-muted uppercase tracking-wide mb-3 text-center">
-                Filter by Timeline
+                Filter by Type
               </div>
               <div className="flex flex-wrap items-center justify-center gap-3">
                 {timelineFilters.map((filter) => (
