@@ -13,12 +13,13 @@ Each feature/page gets its own module containing everything needed for that feat
 ```
 src/modules/[feature]/
   ├── components/          # Feature-specific components
-  ├── hooks/              # Feature-specific custom hooks  
+  ├── hooks/              # Feature-specific custom hooks
   ├── lib/                # Feature utilities, services, data
   └── index.ts            # Re-export the page component
 ```
 
 ### **Why This Structure:**
+
 - **Co-location:** Related code stays together
 - **Scalability:** Easy to add new features without conflicts
 - **Team Collaboration:** Clear ownership boundaries
@@ -68,7 +69,7 @@ src/
 │   │   ├── lib/
 │   │   │   ├── projectsData.ts
 │   │   │   └── filterLogic.ts
-│   │   ├── index.tsx      # ProjectsPage component  
+│   │   ├── index.tsx      # ProjectsPage component
 │   │   └── detail.tsx     # ProjectDetailPage component
 │   │
 │   ├── about/
@@ -132,14 +133,16 @@ src/
 ### **1. Atomic Design + 150 Line Rule**
 
 **Component Hierarchy:**
+
 ```
 Atoms (≤50 lines)     → Button, Badge, Input
-Molecules (≤100 lines) → SearchBar, ProjectCard  
+Molecules (≤100 lines) → SearchBar, ProjectCard
 Organisms (≤150 lines) → Navigation, HeroSection
 Templates (≤150 lines) → PageLayout, GridLayout
 ```
 
 **Enforcement Rules:**
+
 - **No component over 150 lines**
 - If approaching limit → extract sub-components
 - Prefer composition over large monolithic components
@@ -160,6 +163,7 @@ export const SubmitButton = () => {}
 ```
 
 **Rules:**
+
 - **PascalCase** for components
 - **Descriptive names** that explain purpose
 - **Prefix with context** when needed (Hero-, Project-, Contact-)
@@ -190,13 +194,13 @@ const buttonVariants: Variants = {
 }
 
 // ✅ Main component (keep under 150 lines)
-export const Button = ({ 
-  children, 
-  variant = 'primary', 
+export const Button = ({
+  children,
+  variant = 'primary',
   size = 'md',
   onClick,
   className,
-  disabled = false 
+  disabled = false
 }: ButtonProps) => {
   // ✅ Computed classes
   const baseClasses = 'font-semibold rounded-lg transition-all duration-200'
@@ -207,7 +211,7 @@ export const Button = ({
   }
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base', 
+    md: 'px-6 py-3 text-base',
     lg: 'px-8 py-4 text-lg'
   }
 
@@ -243,15 +247,15 @@ export default Button
 
 ```typescript
 // ✅ Global hooks (src/hooks/)
-useScrollReveal()     // Global scroll animations
-useBreakpoint()       // Responsive utilities  
-useLocalStorage()     // Browser APIs
-useDebounce()         // General utilities
+useScrollReveal() // Global scroll animations
+useBreakpoint() // Responsive utilities
+useLocalStorage() // Browser APIs
+useDebounce() // General utilities
 
 // ✅ Feature hooks (src/modules/[feature]/hooks/)
-useProjectFilters()   // Projects-specific logic
-useContactForm()      // Contact-specific logic
-useHeroAnimations()   // Home-specific logic
+useProjectFilters() // Projects-specific logic
+useContactForm() // Contact-specific logic
+useHeroAnimations() // Home-specific logic
 ```
 
 ### **Hook Structure Template**
@@ -266,24 +270,27 @@ interface UseProjectFiltersProps {
   initialCategory?: ProjectCategory
 }
 
-export const useProjectFilters = ({ 
-  projects, 
-  initialCategory = 'all' 
+export const useProjectFilters = ({
+  projects,
+  initialCategory = 'all',
 }: UseProjectFiltersProps) => {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>(initialCategory)
+  const [selectedCategory, setSelectedCategory] =
+    useState<ProjectCategory>(initialCategory)
   const [searchTerm, setSearchTerm] = useState('')
 
   // ✅ Memoize expensive computations
   const filteredProjects = useMemo(() => {
     return projects
-      .filter(project => {
+      .filter((project) => {
         if (selectedCategory === 'all') return true
         return project.category === selectedCategory
       })
-      .filter(project => {
+      .filter((project) => {
         if (!searchTerm) return true
-        return project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-               project.description.toLowerCase().includes(searchTerm.toLowerCase())
+        return (
+          project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          project.description.toLowerCase().includes(searchTerm.toLowerCase())
+        )
       })
   }, [projects, selectedCategory, searchTerm])
 
@@ -307,16 +314,16 @@ export const useProjectFilters = ({
     selectedCategory,
     searchTerm,
     filteredProjects,
-    
+
     // Actions
     handleCategoryChange,
     handleSearchChange,
     clearFilters,
-    
+
     // Computed
     totalCount: projects.length,
     filteredCount: filteredProjects.length,
-    hasActiveFilters: selectedCategory !== 'all' || searchTerm !== ''
+    hasActiveFilters: selectedCategory !== 'all' || searchTerm !== '',
   }
 }
 ```
@@ -331,7 +338,7 @@ export const useProjectFilters = ({
 // app/page.tsx (Next.js App Router)
 export { default } from '@/modules/home'
 
-// app/projects/page.tsx  
+// app/projects/page.tsx
 export { default } from '@/modules/projects'
 
 // app/projects/[slug]/page.tsx
@@ -367,7 +374,7 @@ export default HomePage
 ```typescript
 // components/ui/index.ts
 export { Button } from './Button'
-export { Card } from './Card'  
+export { Card } from './Card'
 export { Badge } from './Badge'
 export { Input } from './Input'
 export type { ButtonProps } from './Button'
@@ -402,7 +409,7 @@ export const HeroSection = () => (
 )
 
 // HeroContent.tsx (~80 lines)
-// HeroBackground.tsx (~40 lines) 
+// HeroBackground.tsx (~40 lines)
 // HeroAnimations.tsx (~60 lines)
 ```
 
@@ -468,12 +475,12 @@ export interface Project {
   results?: ProjectResults
 }
 
-export type ProjectCategory = 
-  | 'saas' 
-  | 'ai' 
-  | 'automation' 
-  | 'integration' 
-  | 'video' 
+export type ProjectCategory =
+  | 'saas'
+  | 'ai'
+  | 'automation'
+  | 'integration'
+  | 'video'
   | 'legal'
 
 export interface ProjectResults {
@@ -485,11 +492,11 @@ export interface ProjectResults {
 // ✅ Use const assertions for better DX
 export const PROJECT_CATEGORIES = [
   'saas',
-  'ai', 
+  'ai',
   'automation',
   'integration',
   'video',
-  'legal'
+  'legal',
 ] as const
 ```
 
@@ -559,21 +566,24 @@ touch src/modules/new-feature/hooks/useFeatureLogic.ts
 module.exports = {
   rules: {
     // Enforce 150 line limit
-    'max-lines': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
-    
+    'max-lines': [
+      'error',
+      { max: 150, skipBlankLines: true, skipComments: true },
+    ],
+
     // Enforce hook naming
     'react-hooks/rules-of-hooks': 'error',
-    
+
     // Enforce component naming
     '@typescript-eslint/naming-convention': [
       'error',
       {
         selector: 'function',
         format: ['PascalCase'],
-        filter: { regex: '^use[A-Z]', match: false }
-      }
-    ]
-  }
+        filter: { regex: '^use[A-Z]', match: false },
+      },
+    ],
+  },
 }
 ```
 
@@ -582,15 +592,17 @@ module.exports = {
 ## 📚 Best Practices Checklist
 
 ### **Component Quality**
+
 - [ ] Component under 150 lines
 - [ ] Single responsibility principle
-- [ ] Proper TypeScript types  
+- [ ] Proper TypeScript types
 - [ ] Memoized when appropriate
 - [ ] Accessible (ARIA labels, keyboard nav)
 - [ ] Responsive design
 - [ ] Animation respects `prefers-reduced-motion`
 
 ### **Module Quality**
+
 - [ ] Clear module boundaries
 - [ ] No circular dependencies
 - [ ] Feature-specific code co-located
@@ -598,6 +610,7 @@ module.exports = {
 - [ ] Tests for complex logic
 
 ### **Performance**
+
 - [ ] Lazy load below-fold components
 - [ ] Optimize images with Next.js Image
 - [ ] Minimize bundle size
@@ -605,6 +618,7 @@ module.exports = {
 - [ ] Debounce expensive operations
 
 ### **Developer Experience**
+
 - [ ] Clear naming conventions
 - [ ] Comprehensive TypeScript types
 - [ ] JSDoc for complex functions

@@ -47,7 +47,7 @@ export const Footer = () => {
                 Enterprise software for complex problems.
               </p>
             </div>
-            
+
             {/* Tech Stack */}
             <div className="flex flex-wrap gap-2">
               {['Next.js', 'TypeScript', 'PostgreSQL'].map((tech) => (
@@ -95,7 +95,7 @@ export const Footer = () => {
             <h3 className="text-sm font-semibold text-text-primary mb-4">
               Let&apos;s Talk
             </h3>
-            
+
             {/* Email */}
             <a
               href={`mailto:${contact.email}`}
@@ -154,9 +154,7 @@ export const Footer = () => {
           className="pt-8 border-t border-border-subtle"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted">
-            <p>
-              © {currentYear} DevSite. All rights reserved.
-            </p>
+            <p>© {currentYear} DevSite. All rights reserved.</p>
             <p className="flex items-center gap-2">
               Built with{' '}
               <span className="text-primary font-semibold">Next.js</span> &{' '}

@@ -28,11 +28,7 @@ export const BookCall = ({
 }: BookCallProps) => {
   return (
     <Link href="/book-call">
-      <Button
-        variant={variant}
-        size={size}
-        className={className}
-      >
+      <Button variant={variant} size={size} className={className}>
         {children}
       </Button>
     </Link>
@@ -40,4 +36,3 @@ export const BookCall = ({
 }
 
 export default BookCall
-

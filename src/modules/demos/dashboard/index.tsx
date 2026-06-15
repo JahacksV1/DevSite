@@ -1,13 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import {
-  DollarSign,
-  Users,
-  TrendingUp,
-  Clock,
-  ArrowLeft,
-} from 'lucide-react'
+import { DollarSign, Users, TrendingUp, Clock, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { MetricCard } from './components/MetricCard'
 import { LineChart } from './components/LineChart'
@@ -101,18 +95,10 @@ export const DashboardDemo = () => {
             🚀 This Demo Built in 3 Hours
           </h3>
           <div className="space-y-2 text-text-secondary">
-            <p>
-              ✅ Real-time data updates (simulated with random values)
-            </p>
-            <p>
-              ✅ Responsive design (works on mobile, tablet, desktop)
-            </p>
-            <p>
-              ✅ Smooth animations with Framer Motion
-            </p>
-            <p>
-              ✅ No backend required (client-side only)
-            </p>
+            <p>✅ Real-time data updates (simulated with random values)</p>
+            <p>✅ Responsive design (works on mobile, tablet, desktop)</p>
+            <p>✅ Smooth animations with Framer Motion</p>
+            <p>✅ No backend required (client-side only)</p>
             <p className="pt-4 text-text-muted">
               <strong className="text-primary">Tech Stack:</strong> Next.js 14,
               TypeScript, Tailwind CSS, Framer Motion

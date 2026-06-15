@@ -142,7 +142,9 @@ export const Navigation = () => {
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
             )}
             whileTap={{ scale: 0.95 }}
-            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={
+              isOpen ? 'Close navigation menu' : 'Open navigation menu'
+            }
             aria-expanded={isOpen}
           >
             <motion.div

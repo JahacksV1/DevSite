@@ -30,4 +30,3 @@ export const useDisclosure = (initialState = false): UseDisclosureReturn => {
 }
 
 export default useDisclosure
-

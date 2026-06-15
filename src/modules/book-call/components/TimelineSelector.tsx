@@ -6,7 +6,10 @@ interface TimelineSelectorProps {
   onSelect: (timeline: PreQualData['timeline']) => void
 }
 
-export const TimelineSelector = ({ selectedTimeline, onSelect }: TimelineSelectorProps) => {
+export const TimelineSelector = ({
+  selectedTimeline,
+  onSelect,
+}: TimelineSelectorProps) => {
   return (
     <div className="space-y-3">
       <label className="block text-sm font-medium text-text-secondary">
@@ -31,7 +34,9 @@ export const TimelineSelector = ({ selectedTimeline, onSelect }: TimelineSelecto
               name="timeline"
               value={option.value}
               checked={selectedTimeline === option.value}
-              onChange={(e) => onSelect(e.target.value as PreQualData['timeline'])}
+              onChange={(e) =>
+                onSelect(e.target.value as PreQualData['timeline'])
+              }
               className="mr-3 w-4 h-4 text-secondary focus:ring-secondary"
             />
             <span className="text-text-primary">{option.label}</span>

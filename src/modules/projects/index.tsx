@@ -2,7 +2,13 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { projects, categories, timelineFilters, type Category, type TimelineFilter } from './lib/projectsData'
+import {
+  projects,
+  categories,
+  timelineFilters,
+  type Category,
+  type TimelineFilter,
+} from './lib/projectsData'
 import { ProjectCard } from './components/ProjectCard'
 import { ProjectModal } from './components/ProjectModal'
 import type { Project } from './lib/projectsData'
@@ -12,7 +18,8 @@ import type { Project } from './lib/projectsData'
  */
 const ProjectsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All')
-  const [selectedTimeline, setSelectedTimeline] = useState<TimelineFilter>('All Projects')
+  const [selectedTimeline, setSelectedTimeline] =
+    useState<TimelineFilter>('All Projects')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   // Filter projects by category and timeline
@@ -20,15 +27,19 @@ const ProjectsPage = () => {
 
   // Category filter
   if (selectedCategory !== 'All') {
-    filteredProjects = filteredProjects.filter((p) => p.category === selectedCategory)
+    filteredProjects = filteredProjects.filter(
+      (p) => p.category === selectedCategory
+    )
   }
 
   // Timeline filter
   if (selectedTimeline !== 'All Projects') {
     filteredProjects = filteredProjects.filter((p) => {
       if (selectedTimeline === 'Production-Grade') return p.productionGrade
-      if (selectedTimeline === 'With Live Demo') return p.demoStatus === 'Live — Public'
-      if (selectedTimeline === 'Private Projects') return p.demoStatus === 'Private — Case Study Only'
+      if (selectedTimeline === 'With Live Demo')
+        return p.demoStatus === 'Live — Public'
+      if (selectedTimeline === 'Private Projects')
+        return p.demoStatus === 'Private — Case Study Only'
       return true
     })
   }
@@ -40,16 +51,14 @@ const ProjectsPage = () => {
         <div className="container-main">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              <span className="block text-text-primary mb-2">
-                Built Fast.
-              </span>
+              <span className="block text-text-primary mb-2">Built Fast.</span>
               <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                 Built Right.
               </span>
             </h1>
             <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
-              Real projects, real timelines, real results. 
-              See how we turn ideas into deployed apps in days.
+              Real projects, real timelines, real results. See how we turn ideas
+              into deployed apps in days.
             </p>
           </div>
 

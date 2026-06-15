@@ -1,26 +1,34 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { projects } from '@/modules/projects/lib/projectsData'
 import { ProjectCaseStudy } from '@/modules/projects/components/ProjectCaseStudy'
+import { getProjectBySlug } from '@/modules/projects/lib/projectUtils'
+import { projects } from '@/modules/projects/lib/projectsData'
 
-interface Props {
+interface ProjectPageProps {
   params: { slug: string }
 }
 
-export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }))
+export function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }))
 }
 
-export async function generateMetadata({ params }: Props) {
-  const project = projects.find((p) => p.slug === params.slug)
-  if (!project) return {}
+export function generateMetadata({ params }: ProjectPageProps): Metadata {
+  const project = getProjectBySlug(params.slug)
+  if (!project) {
+    return {}
+  }
+
   return {
     title: `${project.title} — Case Study`,
     description: project.description,
   }
 }
 
-export default function ProjectPage({ params }: Props) {
-  const project = projects.find((p) => p.slug === params.slug)
-  if (!project) notFound()
+export default function ProjectPage({ params }: ProjectPageProps) {
+  const project = getProjectBySlug(params.slug)
+  if (!project) {
+    notFound()
+  }
+
   return <ProjectCaseStudy project={project} />
 }

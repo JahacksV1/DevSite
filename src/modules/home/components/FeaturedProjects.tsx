@@ -32,7 +32,7 @@ const featured = [
     highlight: 'Stripe subscription + DOCX generation + CUSIP data parsing',
     status: 'Live',
     demoUrl: 'https://bond-generator.vercel.app',
-    screenshot: '/projects/bond-generator-hero.png',
+    screenshot: '/projects/bond-generator-01-upload.png',
   },
   {
     id: 'home-service-demos',
@@ -45,12 +45,12 @@ const featured = [
     highlight: 'Three distinct industry verticals, one codebase',
     status: 'Live',
     demoUrl: 'https://home-service-demos.vercel.app',
-    screenshot: '/projects/home-service-landscaping.png',
+    screenshot: '/projects/home-service-01-hub.png',
   },
 ]
 
 const statusStyles = {
-  'Live': 'bg-primary/10 border-primary/40 text-primary',
+  Live: 'bg-primary/10 border-primary/40 text-primary',
   'Auth-Gated': 'bg-text-muted/10 border-text-muted/30 text-text-muted',
 }
 
@@ -69,7 +69,8 @@ export const FeaturedProjects = () => {
             Real Projects, Real Code
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Every project here is deployed and in use. Click through to see the live product.
+            Every project here is deployed and in use. Click through to see the
+            live product.
           </p>
         </motion.div>
 
@@ -110,7 +111,14 @@ export const FeaturedProjects = () => {
                   </div>
                 )}
                 <div className="absolute top-3 left-3">
-                  <span className={cn('px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm', statusStyles[project.status as keyof typeof statusStyles] ?? statusStyles['Live'])}>
+                  <span
+                    className={cn(
+                      'px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm',
+                      statusStyles[
+                        project.status as keyof typeof statusStyles
+                      ] ?? statusStyles['Live']
+                    )}
+                  >
                     {project.status}
                   </span>
                 </div>
@@ -126,20 +134,27 @@ export const FeaturedProjects = () => {
                 <h3 className="text-lg font-bold text-text-primary group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-xs text-text-muted mt-0.5 mb-3">{project.subtitle}</p>
+                <p className="text-xs text-text-muted mt-0.5 mb-3">
+                  {project.subtitle}
+                </p>
                 <p className="text-sm text-text-secondary leading-relaxed mb-4 flex-1">
                   {project.description}
                 </p>
 
                 {/* Highlight pill */}
                 <div className="mb-4 px-3 py-2 rounded-lg bg-primary/5 border border-primary/15">
-                  <p className="text-xs text-primary font-medium">{project.highlight}</p>
+                  <p className="text-xs text-primary font-medium">
+                    {project.highlight}
+                  </p>
                 </div>
 
                 {/* Tech */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.tech.map((t) => (
-                    <span key={t} className="px-2 py-0.5 text-xs font-mono rounded bg-bg-tertiary text-text-muted border border-border-subtle">
+                    <span
+                      key={t}
+                      className="px-2 py-0.5 text-xs font-mono rounded bg-bg-tertiary text-text-muted border border-border-subtle"
+                    >
                       {t}
                     </span>
                   ))}

@@ -14,7 +14,9 @@ const INITIAL_FORM_DATA: PreQualData = {
 export const usePreQualForm = () => {
   const [formData, setFormData] = useState<PreQualData>(INITIAL_FORM_DATA)
   const [result, setResult] = useState<QualificationResult | null>(null)
-  const [errors, setErrors] = useState<Partial<Record<keyof PreQualData, string>>>({})
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof PreQualData, string>>
+  >({})
 
   const handleSubmit = useCallback(() => {
     const newErrors: Partial<Record<keyof PreQualData, string>> = {}
@@ -45,13 +47,13 @@ export const usePreQualForm = () => {
     return true
   }, [formData])
 
-  const updateField = useCallback(<K extends keyof PreQualData>(
-    field: K,
-    value: PreQualData[K]
-  ) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-    setErrors((prev) => ({ ...prev, [field]: undefined }))
-  }, [])
+  const updateField = useCallback(
+    <K extends keyof PreQualData>(field: K, value: PreQualData[K]) => {
+      setFormData((prev) => ({ ...prev, [field]: value }))
+      setErrors((prev) => ({ ...prev, [field]: undefined }))
+    },
+    []
+  )
 
   const reset = useCallback(() => {
     setFormData(INITIAL_FORM_DATA)
@@ -68,4 +70,3 @@ export const usePreQualForm = () => {
     reset,
   }
 }
-

@@ -11,6 +11,7 @@
 **Every component MUST be under 150 lines.** This is non-negotiable.
 
 If you're approaching this limit:
+
 1. Extract sub-components
 2. Move logic to custom hooks
 3. Move constants/config to separate files
@@ -26,11 +27,13 @@ If you're approaching this limit:
 ### Single Responsibility
 
 Each component does **one thing well**:
+
 - `Button` - clickable action
 - `ProjectCard` - displays project preview
 - `HeroSection` - presents main value prop
 
 **Not:**
+
 - `ButtonWithIconAndLoadingAndTooltip` - too much
 - `ProjectCardWithModalAndFilter` - split these up
 
@@ -66,11 +69,11 @@ export const ComponentName = ({
   className
 }: ComponentProps) => {
   // 4a. Hooks (always at top)
-  
+
   // 4b. Derived state / computed values
-  
+
   // 4c. Handlers
-  
+
   // 4d. Render
   return (
     <div className={cn('base-classes', className)}>
@@ -121,18 +124,18 @@ components/
 ```typescript
 // ✅ GOOD
 interface ButtonProps {
-  variant: 'primary' | 'secondary'  // Descriptive enum
-  isLoading: boolean                 // Boolean prefix: is, has, should
-  onClick: () => void                // Action prefix: on, handle
-  children: ReactNode                // Standard React pattern
+  variant: 'primary' | 'secondary' // Descriptive enum
+  isLoading: boolean // Boolean prefix: is, has, should
+  onClick: () => void // Action prefix: on, handle
+  children: ReactNode // Standard React pattern
 }
 
 // ❌ BAD
 interface ButtonProps {
-  type: string                       // Too vague
-  loading: boolean                   // Missing prefix
-  click: () => void                  // Missing action prefix
-  content: ReactNode                 // Non-standard naming
+  type: string // Too vague
+  loading: boolean // Missing prefix
+  click: () => void // Missing action prefix
+  content: ReactNode // Non-standard naming
 }
 ```
 
@@ -147,19 +150,19 @@ Always reference design tokens from `DESIGN_SYSTEM.md`:
 ```typescript
 // ✅ GOOD - Uses design system tokens
 const baseClasses = cn(
-  'rounded-lg',                       // radius-md (8px)
-  'px-6 py-3',                        // spacing-6, spacing-3
-  'text-base font-semibold',          // typography
-  'transition-all duration-200',       // animation timing
+  'rounded-lg', // radius-md (8px)
+  'px-6 py-3', // spacing-6, spacing-3
+  'text-base font-semibold', // typography
+  'transition-all duration-200', // animation timing
   'bg-gradient-to-br from-primary to-primary-dim',
-  'hover:shadow-glow-lg'              // glow effect
+  'hover:shadow-glow-lg' // glow effect
 )
 
 // ❌ BAD - Magic values
 const baseClasses = cn(
-  'rounded-[7px]',                    // Why 7px? Use system values
-  'px-5 py-2.5',                      // Off-system values
-  'transition-all duration-150'        // Non-standard timing
+  'rounded-[7px]', // Why 7px? Use system values
+  'px-5 py-2.5', // Off-system values
+  'transition-all duration-150' // Non-standard timing
 )
 ```
 
@@ -215,8 +218,8 @@ import { motion, type Variants } from 'framer-motion'
 // Use standard variants from animation system
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
   }
@@ -242,14 +245,14 @@ import { useReducedMotion } from 'framer-motion'
 
 export const AnimatedComponent = ({ children }: Props) => {
   const shouldReduceMotion = useReducedMotion()
-  
+
   const variants = shouldReduceMotion
     ? { hidden: {}, visible: {} }  // No animation
-    : { 
+    : {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 }
       }
-  
+
   return (
     <motion.div variants={variants}>
       {children}
@@ -390,7 +393,7 @@ export const List = <T,>({ items, renderItem }: ListProps<T>) => (
 )
 
 // Usage
-<List 
+<List
   items={projects}
   renderItem={(project) => <ProjectCard project={project} />}
 />
@@ -403,30 +406,35 @@ export const List = <T,>({ items, renderItem }: ListProps<T>) => (
 Before merging any component:
 
 ### Structure
+
 - [ ] Under 150 lines
 - [ ] Single responsibility
 - [ ] Proper file location (ui/, layout/, module/)
 - [ ] Added to barrel export (index.ts)
 
 ### Types
+
 - [ ] Props interface defined
 - [ ] All props typed (no `any`)
 - [ ] Optional props marked with `?`
 - [ ] Default values for optional props
 
 ### Styling
+
 - [ ] Uses design system tokens
 - [ ] Mobile-first responsive
 - [ ] Proper hover/focus states
 - [ ] Uses `cn()` for class merging
 
 ### Accessibility
+
 - [ ] Keyboard navigable
 - [ ] ARIA labels where needed
 - [ ] Focus visible states
 - [ ] Color contrast passes
 
 ### Animation
+
 - [ ] Uses approved variants
 - [ ] Respects `prefers-reduced-motion`
 - [ ] Performance optimized (transform/opacity only)

@@ -30,10 +30,12 @@ export const FinalCTA = () => {
           </h2>
 
           <p className="text-lg text-text-secondary mb-4 leading-relaxed">
-            We build for founders, operators, agencies, and businesses that need working software — not agency timelines and six-figure budgets.
+            We build for founders, operators, agencies, and businesses that need
+            working software — not agency timelines and six-figure budgets.
           </p>
           <p className="text-base text-text-muted mb-12 max-w-xl mx-auto leading-relaxed">
-            AI-assisted engineering with milestone-based delivery. You see working software at each stage before we move forward.
+            AI-assisted engineering with milestone-based delivery. You see
+            working software at each stage before we move forward.
           </p>
 
           <motion.div
@@ -64,16 +66,28 @@ export const FinalCTA = () => {
             className="pt-8 border-t border-border-subtle grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
           >
             <div>
-              <div className="text-2xl font-bold text-primary mb-2">Milestone-Based</div>
-              <div className="text-sm text-text-muted">Review working software at every stage</div>
+              <div className="text-2xl font-bold text-primary mb-2">
+                Milestone-Based
+              </div>
+              <div className="text-sm text-text-muted">
+                Review working software at every stage
+              </div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary mb-2">Full Ownership</div>
-              <div className="text-sm text-text-muted">You own all code, repos, and IP</div>
+              <div className="text-2xl font-bold text-primary mb-2">
+                Full Ownership
+              </div>
+              <div className="text-sm text-text-muted">
+                You own all code, repos, and IP
+              </div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary mb-2">Clean Architecture</div>
-              <div className="text-sm text-text-muted">Maintainable code, not throwaway scripts</div>
+              <div className="text-2xl font-bold text-primary mb-2">
+                Clean Architecture
+              </div>
+              <div className="text-sm text-text-muted">
+                Maintainable code, not throwaway scripts
+              </div>
             </div>
           </motion.div>
         </motion.div>

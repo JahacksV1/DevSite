@@ -32,7 +32,7 @@ export function calculateQualification(data: PreQualData): QualificationResult {
   return {
     fit: 'not-a-fit',
     score: totalScore,
-    message: "Based on your responses, we might not be the best fit.",
+    message: 'Based on your responses, we might not be the best fit.',
     reasoning: getNotAFitReasoning(data),
     action: 'show-alternatives',
   }
@@ -80,7 +80,9 @@ function getGreatFitReasoning(data: PreQualData): string[] {
     reasons.push('You hit no-code limitations - we build real, scalable code')
   }
 
-  return reasons.length > 0 ? reasons : ['Your project scope matches our sweet spot']
+  return reasons.length > 0
+    ? reasons
+    : ['Your project scope matches our sweet spot']
 }
 
 function getPossibleFitReasoning(data: PreQualData): string[] {
@@ -93,14 +95,18 @@ function getPossibleFitReasoning(data: PreQualData): string[] {
   }
 
   if (data.timeline === 'flexible' || data.timeline === 'exploring') {
-    concerns.push('Your timeline is flexible - we work best with clear deadlines')
+    concerns.push(
+      'Your timeline is flexible - we work best with clear deadlines'
+    )
   }
 
   if (data.previousAttempts.includes('nothing')) {
     concerns.push("You're early in the process - we can help shape your vision")
   }
 
-  return concerns.length > 0 ? concerns : ['A few things to clarify on the call']
+  return concerns.length > 0
+    ? concerns
+    : ['A few things to clarify on the call']
 }
 
 function getNotAFitReasoning(data: PreQualData): string[] {
@@ -111,9 +117,12 @@ function getNotAFitReasoning(data: PreQualData): string[] {
   }
 
   if (data.timeline === 'exploring') {
-    reasons.push('You are in exploration mode - we work with people ready to build')
+    reasons.push(
+      'You are in exploration mode - we work with people ready to build'
+    )
   }
 
-  return reasons.length > 0 ? reasons : ['Based on your responses, we might not align right now']
+  return reasons.length > 0
+    ? reasons
+    : ['Based on your responses, we might not align right now']
 }
-

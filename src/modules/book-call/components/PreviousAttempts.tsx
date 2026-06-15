@@ -6,7 +6,10 @@ interface PreviousAttemptsProps {
   onToggle: (attempt: PreQualData['previousAttempts'][number]) => void
 }
 
-export const PreviousAttempts = ({ selectedAttempts, onToggle }: PreviousAttemptsProps) => {
+export const PreviousAttempts = ({
+  selectedAttempts,
+  onToggle,
+}: PreviousAttemptsProps) => {
   return (
     <div className="space-y-3">
       <label className="block text-sm font-medium text-text-secondary">

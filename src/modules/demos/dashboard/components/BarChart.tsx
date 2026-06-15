@@ -22,7 +22,10 @@ export const BarChart = () => {
       setData((prev) =>
         prev.map((cat) => ({
           ...cat,
-          value: Math.max(5, Math.min(60, cat.value + (Math.random() - 0.5) * 10)),
+          value: Math.max(
+            5,
+            Math.min(60, cat.value + (Math.random() - 0.5) * 10)
+          ),
         }))
       )
     }, 5000)

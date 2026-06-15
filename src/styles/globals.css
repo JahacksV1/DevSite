@@ -50,7 +50,11 @@
 
   body {
     @apply bg-bg-primary text-text-primary antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family:
+      'Inter',
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
   /* Focus visible - accessibility */
@@ -133,7 +137,8 @@
 
   /* Animated gradient for hero text */
   @keyframes gradient-shift {
-    0%, 100% {
+    0%,
+    100% {
       background-position: 0% 50%;
     }
     50% {
@@ -155,7 +160,7 @@
 
 [class*='cal-modal-container'] {
   border-radius: 12px !important;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
-              0 0 40px rgba(0, 255, 198, 0.15) !important;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(0, 255, 198, 0.15) !important;
 }
-

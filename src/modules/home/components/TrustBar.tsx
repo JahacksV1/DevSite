@@ -47,7 +47,9 @@ export const TrustBar = () => {
         <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <motion.div
             animate={{ x: [0, -1200] }}
-            transition={{ x: { duration: 28, repeat: Infinity, ease: 'linear' } }}
+            transition={{
+              x: { duration: 28, repeat: Infinity, ease: 'linear' },
+            }}
             className="flex gap-3 whitespace-nowrap"
           >
             {[...techStack, ...techStack, ...techStack].map((tech, index) => (
@@ -71,7 +73,9 @@ export const TrustBar = () => {
         >
           {capabilities.map((stat) => (
             <div key={stat.label}>
-              <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
+              <div className="text-3xl font-bold text-primary mb-1">
+                {stat.value}
+              </div>
               <div className="text-sm text-text-muted">{stat.label}</div>
             </div>
           ))}

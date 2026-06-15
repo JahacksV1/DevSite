@@ -18,7 +18,8 @@ const PreQualPage = () => {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-text-secondary">
-            Tell us about your project. We&apos;ll let you know if we&apos;re a good fit.
+            Tell us about your project. We&apos;ll let you know if we&apos;re a
+            good fit.
             <br />
             <span className="text-text-muted text-base">
               (This takes 60 seconds. No commitment required.)

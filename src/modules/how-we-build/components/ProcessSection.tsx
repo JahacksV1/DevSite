@@ -1,38 +1,49 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MessageSquare, FileText, Eye, Rocket, HeadphonesIcon } from 'lucide-react'
+import {
+  MessageSquare,
+  FileText,
+  Eye,
+  Rocket,
+  HeadphonesIcon,
+} from 'lucide-react'
 
 const steps = [
   {
     icon: MessageSquare,
     day: 'Day 1',
     title: 'Discovery + Context Engineering',
-    description: 'Deep dive into your vision. We extract requirements, clarify your business model, and build your Context Passport.',
+    description:
+      'Deep dive into your vision. We extract requirements, clarify your business model, and build your Context Passport.',
   },
   {
     icon: FileText,
     day: 'Day 2-3',
     title: 'Multi-Agent Build',
-    description: 'Agents work in parallel. Architecture, frontend, backend, tests — all happening simultaneously, all guided by shared context.',
+    description:
+      'Agents work in parallel. Architecture, frontend, backend, tests — all happening simultaneously, all guided by shared context.',
   },
   {
     icon: Eye,
     day: 'Day 4-5',
     title: 'Human Review + Refinement',
-    description: 'Senior engineers review every line. Architecture validated, security hardened, performance optimized. AI builds fast, humans ensure quality.',
+    description:
+      'Senior engineers review every line. Architecture validated, security hardened, performance optimized. AI builds fast, humans ensure quality.',
   },
   {
     icon: Rocket,
     day: 'Day 6-7',
     title: 'Deploy + Handoff',
-    description: 'Live deployment, GitHub repo transferred, documentation complete. You own everything. We walk you through the codebase.',
+    description:
+      'Live deployment, GitHub repo transferred, documentation complete. You own everything. We walk you through the codebase.',
   },
   {
     icon: HeadphonesIcon,
     day: 'Day 8-30',
     title: 'Post-Launch Support',
-    description: 'Bug fixes, questions, small tweaks. We don\'t disappear after launch. 30-day support included with every project.',
+    description:
+      "Bug fixes, questions, small tweaks. We don't disappear after launch. 30-day support included with every project.",
   },
 ]
 
@@ -55,7 +66,8 @@ export const ProcessSection = () => {
             The Day One Process
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-            From idea to deployed app in 7-14 days (typical). Here&apos;s exactly what happens.
+            From idea to deployed app in 7-14 days (typical). Here&apos;s
+            exactly what happens.
           </p>
         </motion.div>
 
@@ -124,4 +136,3 @@ export const ProcessSection = () => {
     </section>
   )
 }
-

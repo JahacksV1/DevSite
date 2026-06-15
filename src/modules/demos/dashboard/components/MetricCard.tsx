@@ -27,12 +27,15 @@ export const MetricCard = ({
   const [change, setChange] = useState(initialChange)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Simulate random updates
-      const delta = (Math.random() - 0.5) * 0.1
-      setValue((prev) => Math.max(0, prev * (1 + delta)))
-      setChange((Math.random() - 0.5) * 10)
-    }, 3000 + index * 500)
+    const interval = setInterval(
+      () => {
+        // Simulate random updates
+        const delta = (Math.random() - 0.5) * 0.1
+        setValue((prev) => Math.max(0, prev * (1 + delta)))
+        setChange((Math.random() - 0.5) * 10)
+      },
+      3000 + index * 500
+    )
 
     return () => clearInterval(interval)
   }, [index])

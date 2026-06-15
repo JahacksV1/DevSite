@@ -8,7 +8,15 @@ export interface Project {
   slug: string
   title: string
   subtitle: string
-  category: 'SaaS' | 'AI' | 'Fintech' | 'Consumer' | 'Local Business' | 'Legal Tech' | 'Enterprise' | 'Internal Tool'
+  category:
+    | 'SaaS'
+    | 'AI'
+    | 'Fintech'
+    | 'Consumer'
+    | 'Local Business'
+    | 'Legal Tech'
+    | 'Enterprise'
+    | 'Internal Tool'
   description: string
   challenge: string
   solution: string[]
@@ -18,7 +26,11 @@ export interface Project {
   architectureHighlights: string[]
   relevantFor: string[]
   results: string
-  demoStatus: 'Live — Public' | 'Live — Auth Required' | 'Private — Case Study Only' | 'In Development'
+  demoStatus:
+    | 'Live — Public'
+    | 'Live — Auth Required'
+    | 'Private — Case Study Only'
+    | 'In Development'
   screenshots: string[]
   demoUrl?: string
   featured: boolean
@@ -26,65 +38,6 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    id: 'pro-muni',
-    slug: 'pro-muni',
-    title: 'PRO-Muni',
-    subtitle: 'Municipal Finance Deal Management Platform',
-    category: 'Enterprise',
-    description:
-      'A full-scale SaaS platform for coordinating municipal bond deals from origination through closing. Replaces email threads and spreadsheets with structured deal rooms, document workflows, multi-party access control, and AI-assisted document intelligence.',
-    challenge:
-      'Municipal bond deals involve dozens of parties — issuers, bond counsel, underwriters, trustees — with no shared system. Approvals happened over phone calls, documents were emailed back and forth, and there was no audit trail. A single missed update could delay a closing.',
-    solution: [
-      'Multi-party deal rooms with strict role-based access (issuers, counsel, underwriters, trustees)',
-      'Term sheet builder with field versioning and gated approval stages',
-      'Document management system with structured closing packet assembly',
-      'AI assistant for document Q&A using OpenAI with municipal bond context',
-      'Lighthouse API integration for live bond market data',
-      'Notifications, messaging, and invitation system across deal stakeholders',
-      'Row-level security in Supabase enforcing per-deal data isolation',
-      'E2E test suite (Playwright), unit tests (Vitest), and component library (Storybook)',
-    ],
-    techStack: ['Next.js 16', 'Supabase', 'OpenAI', 'Stripe', 'MUI', 'Tailwind', 'Playwright', 'Sentry'],
-    techDetails: [
-      { name: 'Next.js 16', purpose: 'App Router with Server Components for deal room views and server-side auth enforcement' },
-      { name: 'Supabase', purpose: 'Postgres, auth, real-time subscriptions, and row-level security enforced per deal ID' },
-      { name: 'OpenAI', purpose: 'Structured document Q&A with municipal bond terminology in the system context' },
-      { name: 'Stripe', purpose: 'Subscription billing and per-seat pricing for firm accounts' },
-      { name: 'MUI + Tailwind', purpose: 'MUI for complex data tables and multi-step forms; Tailwind for layout and custom surfaces' },
-      { name: 'PLpgSQL', purpose: 'Complex SQL migrations, role seed data, and deal state queries' },
-      { name: 'Playwright', purpose: 'E2E test coverage for deal creation, document approval, and closing packet flows' },
-      { name: 'Vitest + Storybook', purpose: 'Unit tests for business logic and isolated component development for complex forms' },
-      { name: 'Sentry', purpose: 'Error monitoring with deal-context tagging for rapid production triage' },
-    ],
-    uniqueFeatures: [
-      'AI document Q&A trained on municipal bond terminology and deal structures',
-      'Role-gated deal rooms — each party sees only their portion of the deal',
-      'Term sheet field versioning with full change attribution',
-      'Closing packet automation that assembles required documents in the correct regulatory order',
-    ],
-    architectureHighlights: [
-      'Multi-tenant architecture with deal-scoped row-level security enforced at the database layer',
-      'Server Component-first rendering with selective client hydration for performance',
-      'Supabase real-time subscriptions for live deal status updates across all parties',
-      'Webhook-driven Stripe integration for subscription lifecycle management',
-    ],
-    relevantFor: [
-      'Financial software platforms',
-      'Document workflow SaaS',
-      'Role-based multi-party systems',
-      'Enterprise internal tools',
-      'Compliance-sensitive business software',
-    ],
-    results:
-      'Production SaaS actively coordinating live municipal bond deals. First platform purpose-built for bond deal coordination, replacing manual email-and-spreadsheet workflows.',
-    demoStatus: 'Private — Case Study Only',
-    screenshots: ['/projects/pro-muni-signin.png'],
-    demoUrl: 'https://pro-muniflow.vercel.app',
-    featured: true,
-    productionGrade: true,
-  },
   {
     id: 'muni-clerk',
     slug: 'muni-clerk',
@@ -107,12 +60,36 @@ export const projects: Project[] = [
     ],
     techStack: ['Next.js 15', 'ProseMirror', 'Supabase', 'Tailwind', 'Zod'],
     techDetails: [
-      { name: 'Next.js 15', purpose: 'App Router and Server Actions for the document upload and processing pipeline' },
-      { name: 'ProseMirror', purpose: 'Rich document editor for in-context variable review and confirmed replacements' },
-      { name: '@eigenpal/docx-js-editor', purpose: 'Server-side DOCX parsing and structured text extraction by paragraph and run' },
-      { name: 'Supabase', purpose: 'Document storage, anonymous session auth, folder organization, and change log persistence' },
-      { name: 'Zod', purpose: 'Schema validation for pattern definitions and replacement payloads' },
-      { name: 'Tailwind', purpose: 'Distinct visual states for detected (yellow), confirmed (green), and skipped (gray) fields' },
+      {
+        name: 'Next.js 15',
+        purpose:
+          'App Router and Server Actions for the document upload and processing pipeline',
+      },
+      {
+        name: 'ProseMirror',
+        purpose:
+          'Rich document editor for in-context variable review and confirmed replacements',
+      },
+      {
+        name: '@eigenpal/docx-js-editor',
+        purpose:
+          'Server-side DOCX parsing and structured text extraction by paragraph and run',
+      },
+      {
+        name: 'Supabase',
+        purpose:
+          'Document storage, anonymous session auth, folder organization, and change log persistence',
+      },
+      {
+        name: 'Zod',
+        purpose:
+          'Schema validation for pattern definitions and replacement payloads',
+      },
+      {
+        name: 'Tailwind',
+        purpose:
+          'Distinct visual states for detected (yellow), confirmed (green), and skipped (gray) fields',
+      },
     ],
     uniqueFeatures: [
       'ProseMirror workspace shows replacements inside the actual document — not a separate list view',
@@ -134,10 +111,16 @@ export const projects: Project[] = [
       'AI-assisted document processing',
     ],
     results:
-      'Reduces resolution document prep time from hours to under 15 minutes. Designed to integrate with PRO-Muni deal data for one-click field population from the term sheet.',
+      'Reduces resolution document prep time from hours to under 15 minutes, with an audit-ready change log for every confirmed replacement.',
     demoStatus: 'Private — Case Study Only',
-    screenshots: [],
-    featured: false,
+    screenshots: [
+      '/projects/muni-clerk-01-guest-upload.png',
+      '/projects/muni-clerk-02-upload.png',
+      '/projects/muni-clerk-04-review.png',
+      '/projects/muni-clerk-05-summary.png',
+      '/projects/muni-clerk-03-documents.png',
+    ],
+    featured: true,
     productionGrade: true,
   },
   {
@@ -160,16 +143,57 @@ export const projects: Project[] = [
       'Stripe subscription billing with trial period and webhook-confirmed access control',
       'Trial expiration email notifications',
     ],
-    techStack: ['Next.js 15', 'Supabase', 'Stripe', 'xlsx', 'DOCX', 'MUI', 'Zod', 'Sentry'],
+    techStack: [
+      'Next.js 15',
+      'Supabase',
+      'Stripe',
+      'xlsx',
+      'DOCX',
+      'MUI',
+      'Zod',
+      'Sentry',
+    ],
     techDetails: [
-      { name: 'Next.js 15', purpose: 'App Router with file upload API routes and streaming certificate generation responses' },
-      { name: 'Supabase', purpose: 'Auth, DOCX template storage, draft persistence, and subscription state tracking' },
-      { name: 'Stripe', purpose: 'Subscription management, trial periods, webhook-driven access control on certificate jobs' },
-      { name: 'xlsx', purpose: 'Parses maturity schedule spreadsheets from any bond counsel into structured maturity records' },
-      { name: 'DOCX tooling', purpose: 'Tag-based template detection and data-merged certificate output generation' },
-      { name: 'MUI', purpose: 'Data grid UI for reviewing and editing parsed maturity and CUSIP records before generation' },
-      { name: 'Zod', purpose: 'Strict schema validation for maturity schedule formats and CUSIP input structures' },
-      { name: 'Sentry', purpose: 'Error tracking with certificate job context for debugging generation failures' },
+      {
+        name: 'Next.js 15',
+        purpose:
+          'App Router with file upload API routes and streaming certificate generation responses',
+      },
+      {
+        name: 'Supabase',
+        purpose:
+          'Auth, DOCX template storage, draft persistence, and subscription state tracking',
+      },
+      {
+        name: 'Stripe',
+        purpose:
+          'Subscription management, trial periods, webhook-driven access control on certificate jobs',
+      },
+      {
+        name: 'xlsx',
+        purpose:
+          'Parses maturity schedule spreadsheets from any bond counsel into structured maturity records',
+      },
+      {
+        name: 'DOCX tooling',
+        purpose:
+          'Tag-based template detection and data-merged certificate output generation',
+      },
+      {
+        name: 'MUI',
+        purpose:
+          'Data grid UI for reviewing and editing parsed maturity and CUSIP records before generation',
+      },
+      {
+        name: 'Zod',
+        purpose:
+          'Strict schema validation for maturity schedule formats and CUSIP input structures',
+      },
+      {
+        name: 'Sentry',
+        purpose:
+          'Error tracking with certificate job context for debugging generation failures',
+      },
     ],
     uniqueFeatures: [
       'Tag-based DOCX template system — any template can be onboarded without code changes to the generation engine',
@@ -194,8 +218,12 @@ export const projects: Project[] = [
       'Live SaaS with active Stripe subscription billing. Handles certificate generation for bond series that previously required days of manual document assembly.',
     demoStatus: 'Live — Public',
     screenshots: [
-      '/projects/bond-generator-hero.png',
-      '/projects/bond-generator-workflow.png',
+      '/projects/bond-generator-01-upload.png',
+      '/projects/bond-generator-02-tag.png',
+      '/projects/bond-generator-03-validate.png',
+      '/projects/bond-generator-04-review.png',
+      '/projects/bond-generator-05-generate.png',
+      '/projects/bond-generator-06-success.png',
     ],
     demoUrl: 'https://bond-generator.vercel.app',
     featured: true,
@@ -221,18 +249,50 @@ export const projects: Project[] = [
       'Send options panel with compact and detailed response variants',
       'Supabase anonymous sessions for first-use without account creation',
     ],
-    techStack: ['Next.js 16', 'OpenAI', 'Deepgram', 'Supabase', 'Tailwind', 'React 19', 'Turbopack'],
+    techStack: [
+      'Next.js 16',
+      'OpenAI',
+      'Deepgram',
+      'Supabase',
+      'Tailwind',
+      'React 19',
+      'Turbopack',
+    ],
     techDetails: [
-      { name: 'Next.js 16', purpose: 'App Router with Turbopack, Server Actions for AI pipeline orchestration' },
-      { name: 'OpenAI', purpose: 'Structured outputs for situation classification, response generation, and meta-reply routing' },
-      { name: 'Deepgram', purpose: 'Real-time speech-to-text for voice input on the message composer' },
-      { name: 'Supabase', purpose: 'Auth (including anonymous sessions), thread history, and user profile storage' },
-      { name: 'React 19', purpose: 'Concurrent features and optimistic state for instant thread submission UX' },
-      { name: 'Tailwind + CSS custom properties', purpose: 'Dynamic per-intent accent theming using CSS color-mix and design tokens' },
+      {
+        name: 'Next.js 16',
+        purpose:
+          'App Router with Turbopack, Server Actions for AI pipeline orchestration',
+      },
+      {
+        name: 'OpenAI',
+        purpose:
+          'Structured outputs for situation classification, response generation, and meta-reply routing',
+      },
+      {
+        name: 'Deepgram',
+        purpose:
+          'Real-time speech-to-text for voice input on the message composer',
+      },
+      {
+        name: 'Supabase',
+        purpose:
+          'Auth (including anonymous sessions), thread history, and user profile storage',
+      },
+      {
+        name: 'React 19',
+        purpose:
+          'Concurrent features and optimistic state for instant thread submission UX',
+      },
+      {
+        name: 'Tailwind + CSS custom properties',
+        purpose:
+          'Dynamic per-intent accent theming using CSS color-mix and design tokens',
+      },
     ],
     uniqueFeatures: [
       'Situation Intelligence router — skips clarification for clear inputs, adds depth for ambiguous ones',
-      'Dynamic intent theming — the entire UI accent color shifts based on the user\'s selected communication goal',
+      "Dynamic intent theming — the entire UI accent color shifts based on the user's selected communication goal",
       'Three input modalities in a single composer: voice, screenshot, and text',
       'Optimistic thread submission with a pending overlay so responses feel instant on mobile',
     ],
@@ -269,7 +329,7 @@ export const projects: Project[] = [
     description:
       'A personal knowledge management SaaS that tracks audiobooks, captures learning notes by category, and uses GPT to make your knowledge interactive. Ask questions across all your notes, generate custom quizzes from your content, and track learning habits with a progress dashboard.',
     challenge:
-      'Most people who consume learning content — audiobooks, podcasts, courses — have no organized system to retain and apply what they\'ve learned. Existing apps are either too simple (notes apps) or too heavy (second-brain tools). SmartShelf bridges the gap with AI-driven recall and application.',
+      "Most people who consume learning content — audiobooks, podcasts, courses — have no organized system to retain and apply what they've learned. Existing apps are either too simple (notes apps) or too heavy (second-brain tools). SmartShelf bridges the gap with AI-driven recall and application.",
     solution: [
       'Audiobook library with reading progress tracking and completion status',
       'Categorized learning notes (business, marketing, leadership, personal development)',
@@ -280,16 +340,43 @@ export const projects: Project[] = [
       'Progress dashboard with habit tracking and learning analytics',
       'Authentication with user-specific knowledge isolation',
     ],
-    techStack: ['Next.js 14', 'Supabase', 'OpenAI', 'Tailwind', 'TypeScript', 'PostgreSQL'],
+    techStack: [
+      'Next.js 14',
+      'Supabase',
+      'OpenAI',
+      'Tailwind',
+      'TypeScript',
+      'PostgreSQL',
+    ],
     techDetails: [
-      { name: 'Next.js 14', purpose: 'App Router with page-level data fetching for notes, books, and analytics views' },
-      { name: 'Supabase', purpose: 'Auth, full-text search on notes, PostgreSQL for structured learning data and habit records' },
-      { name: 'OpenAI', purpose: 'GPT-4 for Q&A against user notes, quiz generation, and study recommendations' },
-      { name: 'Tailwind', purpose: 'Dashboard layout with a focus on readability and information density' },
-      { name: 'PLpgSQL', purpose: 'Full-text search indexes and aggregation queries for the progress analytics dashboard' },
+      {
+        name: 'Next.js 14',
+        purpose:
+          'App Router with page-level data fetching for notes, books, and analytics views',
+      },
+      {
+        name: 'Supabase',
+        purpose:
+          'Auth, full-text search on notes, PostgreSQL for structured learning data and habit records',
+      },
+      {
+        name: 'OpenAI',
+        purpose:
+          'GPT-4 for Q&A against user notes, quiz generation, and study recommendations',
+      },
+      {
+        name: 'Tailwind',
+        purpose:
+          'Dashboard layout with a focus on readability and information density',
+      },
+      {
+        name: 'PLpgSQL',
+        purpose:
+          'Full-text search indexes and aggregation queries for the progress analytics dashboard',
+      },
     ],
     uniqueFeatures: [
-      'GPT Q&A is scoped to the user\'s own notes — not general knowledge, their personal knowledge base',
+      "GPT Q&A is scoped to the user's own notes — not general knowledge, their personal knowledge base",
       'Quiz generation pulls directly from note content, producing personalized study material',
       'Category-based knowledge organization mirrors how professionals actually think (by domain, not by source)',
       'Habit tracking tied to learning activity, not just app opens',
@@ -339,10 +426,26 @@ export const projects: Project[] = [
     ],
     techStack: ['Next.js 16', 'React 19', 'Tailwind', 'TypeScript'],
     techDetails: [
-      { name: 'Next.js 16', purpose: 'Static generation for fast load times; API routes for lead form submission handling' },
-      { name: 'React 19', purpose: 'Server Components for SEO content, Client Components for interactive lead forms' },
-      { name: 'Tailwind', purpose: 'Distinct brand color systems per vertical while sharing the same component primitives' },
-      { name: 'TypeScript', purpose: 'Typed component props for clean business-detail swapping across service verticals' },
+      {
+        name: 'Next.js 16',
+        purpose:
+          'Static generation for fast load times; API routes for lead form submission handling',
+      },
+      {
+        name: 'React 19',
+        purpose:
+          'Server Components for SEO content, Client Components for interactive lead forms',
+      },
+      {
+        name: 'Tailwind',
+        purpose:
+          'Distinct brand color systems per vertical while sharing the same component primitives',
+      },
+      {
+        name: 'TypeScript',
+        purpose:
+          'Typed component props for clean business-detail swapping across service verticals',
+      },
     ],
     uniqueFeatures: [
       'Three verticals in one repo — demonstrates modular architecture over copy-paste development',
@@ -366,9 +469,17 @@ export const projects: Project[] = [
       'Live portfolio at home-service-demos.vercel.app. Used as proof-of-concept for client pitches in local business verticals. Demonstrates ability to deliver professional sites quickly across multiple industries.',
     demoStatus: 'Live — Public',
     screenshots: [
-      '/projects/home-service-hub.png',
-      '/projects/home-service-landscaping.png',
-      '/projects/home-service-plumbing.png',
+      '/projects/home-service-01-hub.png',
+      '/projects/home-service-02-plumbing-hero.png',
+      '/projects/home-service-03-plumbing-services.png',
+      '/projects/home-service-04-plumbing-contact.png',
+      '/projects/home-service-05-landscaping-hero.png',
+      '/projects/home-service-06-landscaping-projects.png',
+      '/projects/home-service-07-landscaping-services.png',
+      '/projects/home-service-08-tree-hero.png',
+      '/projects/home-service-09-tree-emergency.png',
+      '/projects/home-service-10-tree-services.png',
+      '/projects/home-service-11-tree-process.png',
     ],
     demoUrl: 'https://home-service-demos.vercel.app',
     featured: false,
@@ -383,7 +494,7 @@ export const projects: Project[] = [
     description:
       'A SaaS app that generates immigration support letters using AI from a structured multi-step intake form. Users fill in their situation, preview a generated letter, pay via Stripe to unlock the full document, and receive a professionally formatted PDF by email.',
     challenge:
-      'Immigration applicants need professionally worded support letters but cannot always afford attorney fees for every document. Generic templates don\'t account for individual circumstances. This automates the personalization layer while maintaining a clear disclaimer about tool vs. legal advice.',
+      "Immigration applicants need professionally worded support letters but cannot always afford attorney fees for every document. Generic templates don't account for individual circumstances. This automates the personalization layer while maintaining a clear disclaimer about tool vs. legal advice.",
     solution: [
       'Multi-step intake form with situation-specific questions per letter type',
       'AI letter generation via OpenAI from structured form input',
@@ -394,15 +505,51 @@ export const projects: Project[] = [
       'Disclaimer system clearly distinguishing the tool from legal advice',
       'Vercel Analytics for conversion funnel tracking',
     ],
-    techStack: ['Next.js 14', 'OpenAI', 'Stripe', 'jsPDF', 'Resend', 'Tailwind', 'Zod'],
+    techStack: [
+      'Next.js 14',
+      'OpenAI',
+      'Stripe',
+      'jsPDF',
+      'Resend',
+      'Tailwind',
+      'Zod',
+    ],
     techDetails: [
-      { name: 'Next.js 14', purpose: 'App Router with API routes for AI generation and Stripe webhook handling' },
-      { name: 'OpenAI', purpose: 'Letter generation from structured form data with immigration-context system prompts' },
-      { name: 'Stripe', purpose: 'One-time checkout per letter type; webhook-confirmed access unlock' },
-      { name: 'jsPDF', purpose: 'Client-side PDF formatting and generation with proper letter layout' },
-      { name: 'Resend', purpose: 'Transactional email delivery of the completed PDF to the user\'s inbox' },
-      { name: 'Zod', purpose: 'Per-letter-type form validation schemas with field-level error messages' },
-      { name: 'Vercel Analytics', purpose: 'Funnel tracking from form entry to Stripe checkout completion' },
+      {
+        name: 'Next.js 14',
+        purpose:
+          'App Router with API routes for AI generation and Stripe webhook handling',
+      },
+      {
+        name: 'OpenAI',
+        purpose:
+          'Letter generation from structured form data with immigration-context system prompts',
+      },
+      {
+        name: 'Stripe',
+        purpose:
+          'One-time checkout per letter type; webhook-confirmed access unlock',
+      },
+      {
+        name: 'jsPDF',
+        purpose:
+          'Client-side PDF formatting and generation with proper letter layout',
+      },
+      {
+        name: 'Resend',
+        purpose:
+          "Transactional email delivery of the completed PDF to the user's inbox",
+      },
+      {
+        name: 'Zod',
+        purpose:
+          'Per-letter-type form validation schemas with field-level error messages',
+      },
+      {
+        name: 'Vercel Analytics',
+        purpose:
+          'Funnel tracking from form entry to Stripe checkout completion',
+      },
     ],
     uniqueFeatures: [
       'Paywall preview model — users see letter structure and quality before committing to purchase',
@@ -426,8 +573,14 @@ export const projects: Project[] = [
       'Live at immigration-app-sigma.vercel.app with a complete end-to-end purchase flow: AI generation, Stripe payment, PDF formatting, and email delivery.',
     demoStatus: 'Live — Public',
     screenshots: [
-      '/projects/immigration-hero.png',
-      '/projects/immigration-steps.png',
+      '/projects/immigration-01-landing.png',
+      '/projects/immigration-02-about-you.png',
+      '/projects/immigration-03-application.png',
+      '/projects/immigration-04-explanation.png',
+      '/projects/immigration-05-tone.png',
+      '/projects/immigration-06-contact.png',
+      '/projects/immigration-07-preview.png',
+      '/projects/immigration-08-unlock.png',
     ],
     demoUrl: 'https://immigration-app-sigma.vercel.app',
     featured: false,

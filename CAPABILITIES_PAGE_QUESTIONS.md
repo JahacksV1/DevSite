@@ -1,6 +1,7 @@
 # Capabilities Page - Questions to Answer
 
 ## 🎯 Goal
+
 This page should make $10k-50k clients think: "These people can build ANYTHING I need."
 
 ---
@@ -18,6 +19,7 @@ Quick background to establish credibility:
 - [ ] Any impressive past work (companies you've worked for, projects at scale)?
 
 **Example answer:**
+
 > "I'm a full-stack developer with 5+ years building enterprise software. Started at [Company], built systems serving 100k+ users. Now focusing on custom development for businesses with complex needs."
 
 ---
@@ -27,6 +29,7 @@ Quick background to establish credibility:
 Be honest - what are you GREAT at vs. what you can learn:
 
 **Core Strengths:**
+
 - [ ] Frontend frameworks? (Next.js, React - clearly yes)
 - [ ] Backend systems? (Node.js, PostgreSQL, APIs)
 - [ ] AI integration? (OpenAI, Claude, LangChain - you mentioned this)
@@ -38,6 +41,7 @@ Be honest - what are you GREAT at vs. what you can learn:
 - [ ] Mobile? (React Native, or just web?)
 
 **Can Learn/Build With:**
+
 - [ ] What can you figure out with AI/vibe coding?
 - [ ] What would you NOT take on? (Native iOS? Blockchain? ML from scratch?)
 
@@ -46,12 +50,14 @@ Be honest - what are you GREAT at vs. what you can learn:
 ### **3. PRICING STRATEGY (Need to Align This)**
 
 You mentioned conflicting prices:
+
 - Site like this: $1k-3k
 - Positioning doc says: $10k-50k projects
 
 **Let's clarify:**
 
 **Simple Sites/Apps ($1k-5k):**
+
 - Marketing sites
 - Simple dashboards
 - Basic CRUD apps
@@ -59,12 +65,14 @@ You mentioned conflicting prices:
 - Landing pages
 
 **Medium Projects ($5k-15k):**
+
 - Custom admin panels
 - SaaS MVPs
 - Integration projects
 - Basic AI tools
 
 **Complex Projects ($15k-50k):**
+
 - Multi-tenant SaaS
 - Advanced AI systems
 - Enterprise integrations
@@ -72,6 +80,7 @@ You mentioned conflicting prices:
 - Complex workflows
 
 **Question:** What's your ACTUAL sweet spot?
+
 - [ ] Are you targeting $10k-50k clients? (positioning doc)
 - [ ] Or $1k-5k projects? (what you just said)
 - [ ] Or BOTH with tiered offerings?
@@ -83,9 +92,11 @@ You mentioned conflicting prices:
 ### **4. GUARANTEES & RISK REVERSAL**
 
 You mentioned:
+
 > "If we can't do it, money back on the $150 call"
 
 **Questions:**
+
 - [ ] What's your ACTUAL guarantee? (Money back if you can't deliver? Fixed price?)
 - [ ] How do you handle scope changes?
 - [ ] What happens if client doesn't like the result?
@@ -97,11 +108,13 @@ You mentioned:
 ### **5. "NOT A FIT" FILTERING**
 
 From positioning strategy, you DON'T want:
+
 - ❌ $500 website clients
 - ❌ "I need it tomorrow"
 - ❌ Template customization
 
 **But what ELSE are you NOT a fit for?**
+
 - [ ] Native mobile apps? (iOS/Android without React Native?)
 - [ ] DevOps/infrastructure? (AWS setup, Kubernetes?)
 - [ ] Game development?
@@ -135,11 +148,13 @@ How do you actually work?
 ### **8. LEGAL & COMPLIANCE (Important!)**
 
 You said:
+
 > "We can't offer SOC 2 compliance (not licensed)"
 
 **Let's be clear about what you CAN vs. CANNOT do:**
 
 **CAN DO:**
+
 - ✅ Build secure, encrypted systems
 - ✅ Follow SOC 2 best practices
 - ✅ Help clients prepare for SOC 2 audit
@@ -147,11 +162,13 @@ You said:
 - ✅ HIPAA-ready architecture (not certification)
 
 **CANNOT DO:**
+
 - ❌ Provide SOC 2 certification (that's an auditor's job)
 - ❌ Legal compliance consulting (not lawyers)
 - ❌ HIPAA certification (you can build HIPAA-ready, not certify)
 
 **Question:** What should we say on the site?
+
 - [ ] "SOC 2-ready development" (YES)
 - [ ] "We are SOC 2 compliant" (NO - misleading)
 - [ ] "Security-first architecture" (YES)
@@ -161,12 +178,14 @@ You said:
 ### **9. WHAT MAKES YOU DIFFERENT?**
 
 Why should clients pick YOU over:
+
 - Upwork/Fiverr developers ($50/hr)
 - Web design agencies ($5k sites)
 - Large dev shops ($100k+ projects)
 - Offshore teams ($20/hr)
 
 **Your unique advantages:**
+
 - [ ] Speed? (You built this site in 2-3 hours)
 - [ ] AI-powered development? (Vibe coding = faster?)
 - [ ] Full-stack so no handoffs?
@@ -194,7 +213,7 @@ Why should clients pick YOU over:
 ```
 1. Hero
    "Full-Stack Architects for Complex Problems"
-   
+
 2. What We Build (6 Core Services)
    - Custom SaaS Development
    - AI-Powered Applications

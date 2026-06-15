@@ -1,44 +1,57 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Cpu, Palette, Database, Shield, CheckCircle, FileCode } from 'lucide-react'
+import {
+  Cpu,
+  Palette,
+  Database,
+  Shield,
+  CheckCircle,
+  FileCode,
+} from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const agents = [
   {
     icon: Cpu,
     name: 'Architecture Agent',
-    description: 'Designs database schemas, API contracts, folder structure. Thinks like a senior engineer planning a system.',
+    description:
+      'Designs database schemas, API contracts, folder structure. Thinks like a senior engineer planning a system.',
     color: 'primary' as const,
   },
   {
     icon: Palette,
     name: 'Frontend Agent',
-    description: 'Builds UI components, handles styling, ensures responsive design. Knows accessibility and modern patterns.',
+    description:
+      'Builds UI components, handles styling, ensures responsive design. Knows accessibility and modern patterns.',
     color: 'secondary' as const,
   },
   {
     icon: Database,
     name: 'Backend Agent',
-    description: 'Writes business logic, API routes, integrations. Handles auth, permissions, data flow.',
+    description:
+      'Writes business logic, API routes, integrations. Handles auth, permissions, data flow.',
     color: 'primary' as const,
   },
   {
     icon: Shield,
     name: 'Security Agent',
-    description: 'Reviews code for vulnerabilities, adds input validation, implements rate limiting and error handling.',
+    description:
+      'Reviews code for vulnerabilities, adds input validation, implements rate limiting and error handling.',
     color: 'secondary' as const,
   },
   {
     icon: CheckCircle,
     name: 'Testing Agent',
-    description: 'Writes unit and integration tests, catches edge cases, ensures quality across the stack.',
+    description:
+      'Writes unit and integration tests, catches edge cases, ensures quality across the stack.',
     color: 'primary' as const,
   },
   {
     icon: FileCode,
     name: 'Documentation Agent',
-    description: 'Generates inline docs, API specs, README files. Makes handoff seamless.',
+    description:
+      'Generates inline docs, API specs, README files. Makes handoff seamless.',
     color: 'secondary' as const,
   },
 ]
@@ -62,11 +75,11 @@ export const MultiAgentSection = () => {
             Meet the Multi-Agent Orchestra
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mx-auto mb-8">
-            While traditional developers write code line-by-line, we direct specialized 
-            agents that work simultaneously. Each agent has one job. All guided by your 
-            Context Passport.
+            While traditional developers write code line-by-line, we direct
+            specialized agents that work simultaneously. Each agent has one job.
+            All guided by your Context Passport.
           </p>
-          
+
           {/* Comparison */}
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-12">
             <div className="p-6 rounded-xl bg-bg-tertiary border border-border-subtle">
@@ -78,12 +91,10 @@ export const MultiAgentSection = () => {
                 <div>Week 3-4: Design mockups</div>
                 <div>Week 5-8: Development (sequential)</div>
                 <div>Week 9-10: Testing & QA</div>
-                <div className="pt-3 text-text-muted">
-                  → 10-12 weeks total
-                </div>
+                <div className="pt-3 text-text-muted">→ 10-12 weeks total</div>
               </div>
             </div>
-            
+
             <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30">
               <div className="text-primary text-sm font-semibold mb-3 uppercase tracking-wide">
                 Day One Process
@@ -125,7 +136,9 @@ export const MultiAgentSection = () => {
                   <agent.icon
                     className={cn(
                       'w-6 h-6',
-                      agent.color === 'primary' ? 'text-primary' : 'text-secondary'
+                      agent.color === 'primary'
+                        ? 'text-primary'
+                        : 'text-secondary'
                     )}
                   />
                 </div>
@@ -154,26 +167,36 @@ export const MultiAgentSection = () => {
             All Guided by Your Context Passport
           </h3>
           <p className="text-text-secondary text-center max-w-3xl mx-auto mb-6">
-            Before any agent writes code, we create your Context Passport — shared understanding 
-            of your vision, users, and requirements. This keeps all agents aligned and ensures 
-            everything feels cohesive.
+            Before any agent writes code, we create your Context Passport —
+            shared understanding of your vision, users, and requirements. This
+            keeps all agents aligned and ensures everything feels cohesive.
           </p>
           <div className="grid md:grid-cols-4 gap-4 text-center text-sm">
             <div>
-              <div className="font-semibold text-primary mb-1">Business Model</div>
+              <div className="font-semibold text-primary mb-1">
+                Business Model
+              </div>
               <div className="text-text-muted">Who pays, for what, why</div>
             </div>
             <div>
-              <div className="font-semibold text-primary mb-1">User Personas</div>
+              <div className="font-semibold text-primary mb-1">
+                User Personas
+              </div>
               <div className="text-text-muted">Real people, real needs</div>
             </div>
             <div>
-              <div className="font-semibold text-primary mb-1">Feature Priorities</div>
+              <div className="font-semibold text-primary mb-1">
+                Feature Priorities
+              </div>
               <div className="text-text-muted">What ships Day 1 vs. later</div>
             </div>
             <div>
-              <div className="font-semibold text-primary mb-1">Brand Guidelines</div>
-              <div className="text-text-muted">Tone, style, technical needs</div>
+              <div className="font-semibold text-primary mb-1">
+                Brand Guidelines
+              </div>
+              <div className="text-text-muted">
+                Tone, style, technical needs
+              </div>
             </div>
           </div>
         </motion.div>
@@ -181,4 +204,3 @@ export const MultiAgentSection = () => {
     </section>
   )
 }
-

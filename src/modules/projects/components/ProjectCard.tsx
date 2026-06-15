@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ExternalLink, Eye, Lock, Zap } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { demoStatusBadges } from '../lib/demoStatus'
 import type { Project } from '../lib/projectsData'
 
 interface ProjectCardProps {
@@ -12,15 +13,12 @@ interface ProjectCardProps {
   onViewDetails: () => void
 }
 
-const demoStatusConfig: Record<Project['demoStatus'], { label: string; className: string }> = {
-  'Live — Public': { label: 'Live', className: 'bg-primary/10 border-primary/40 text-primary' },
-  'Live — Auth Required': { label: 'Live', className: 'bg-primary/10 border-primary/40 text-primary' },
-  'Private — Case Study Only': { label: 'Case Study', className: 'bg-text-muted/10 border-text-muted/30 text-text-muted' },
-  'In Development': { label: 'In Dev', className: 'bg-secondary/10 border-secondary/40 text-secondary' },
-}
-
-export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps) => {
-  const status = demoStatusConfig[project.demoStatus]
+export const ProjectCard = ({
+  project,
+  index,
+  onViewDetails,
+}: ProjectCardProps) => {
+  const status = demoStatusBadges[project.demoStatus]
   const heroShot = project.screenshots[0]
 
   return (
@@ -64,11 +62,13 @@ export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps)
         )}
 
         {/* Hover overlay */}
-        <div className={cn(
-          'absolute inset-0 bg-bg-primary/70 backdrop-blur-[2px]',
-          'flex items-center justify-center',
-          'opacity-0 group-hover:opacity-100 transition-opacity duration-300'
-        )}>
+        <div
+          className={cn(
+            'absolute inset-0 bg-bg-primary/70 backdrop-blur-[2px]',
+            'flex items-center justify-center',
+            'opacity-0 group-hover:opacity-100 transition-opacity duration-300'
+          )}
+        >
           <span className="flex items-center gap-2 text-primary font-semibold text-sm">
             <Eye className="w-4 h-4" />
             View Case Study
@@ -77,7 +77,12 @@ export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps)
 
         {/* Badges */}
         <div className="absolute top-3 left-3">
-          <span className={cn('px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm', status.className)}>
+          <span
+            className={cn(
+              'px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm',
+              status.className
+            )}
+          >
             {status.label}
           </span>
         </div>
@@ -91,7 +96,13 @@ export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps)
         {project.screenshots.length > 1 && (
           <div className="absolute bottom-3 right-3 flex gap-1">
             {project.screenshots.map((_, i) => (
-              <div key={i} className={cn('w-1.5 h-1.5 rounded-full', i === 0 ? 'bg-primary' : 'bg-white/30')} />
+              <div
+                key={i}
+                className={cn(
+                  'w-1.5 h-1.5 rounded-full',
+                  i === 0 ? 'bg-primary' : 'bg-white/30'
+                )}
+              />
             ))}
           </div>
         )}
@@ -113,7 +124,9 @@ export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps)
         {/* Relevant for */}
         {project.relevantFor.length > 0 && (
           <div className="mb-4 px-3 py-2 rounded-lg bg-primary/5 border border-primary/15">
-            <p className="text-xs text-text-muted mb-1 font-semibold uppercase tracking-wide">Relevant for</p>
+            <p className="text-xs text-text-muted mb-1 font-semibold uppercase tracking-wide">
+              Relevant for
+            </p>
             <p className="text-xs text-primary leading-relaxed">
               {project.relevantFor.slice(0, 3).join(' · ')}
             </p>
@@ -123,7 +136,10 @@ export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps)
         {/* Tech tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.techStack.slice(0, 5).map((tech) => (
-            <span key={tech} className="px-2 py-0.5 text-xs font-mono rounded bg-bg-tertiary text-text-muted border border-border-subtle">
+            <span
+              key={tech}
+              className="px-2 py-0.5 text-xs font-mono rounded bg-bg-tertiary text-text-muted border border-border-subtle"
+            >
               {tech}
             </span>
           ))}
@@ -136,7 +152,7 @@ export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps)
 
         {/* Actions */}
         <div className="flex gap-2 mt-auto">
-          {project.demoUrl && (project.demoStatus === 'Live — Public') && (
+          {project.demoUrl && project.demoStatus === 'Live — Public' && (
             <a
               href={project.demoUrl}
               target="_blank"
@@ -153,7 +169,10 @@ export const ProjectCard = ({ project, index, onViewDetails }: ProjectCardProps)
             </a>
           )}
           <button
-            onClick={(e) => { e.stopPropagation(); onViewDetails() }}
+            onClick={(e) => {
+              e.stopPropagation()
+              onViewDetails()
+            }}
             className={cn(
               'flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold flex-1 justify-center',
               'bg-bg-tertiary border border-border-subtle text-text-secondary',

@@ -19,6 +19,7 @@ Build a portfolio website that positions us as **full-stack architects** capable
 This repository contains comprehensive planning documents. **Read these before coding:**
 
 ### Core Specifications
+
 1. **[COLOR_SCHEME.md](./COLOR_SCHEME.md)** - Complete color palette, contrast ratios, usage guidelines
 2. **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Spacing, typography, shadows, components, responsive rules
 3. **[ANIMATION_SYSTEM.md](./ANIMATION_SYSTEM.md)** - Motion variants, timing, easing, performance guidelines
@@ -48,6 +49,7 @@ This repository contains comprehensive planning documents. **Read these before c
 ## 🎨 Design Philosophy
 
 ### **Aesthetic: "Soft Sharp"**
+
 - Dark mode only
 - Mint-cyan (#00ffc6) + soft purple (#a78bfa) accents
 - 8px border radius standard
@@ -56,6 +58,7 @@ This repository contains comprehensive planning documents. **Read these before c
 - Professional, not playful
 
 ### **Key Principles:**
+
 1. **Speed matters** - Target 95+ Lighthouse scores
 2. **Clarity over cleverness** - Clear value proposition
 3. **Mobile-first** - 60%+ of traffic
@@ -67,6 +70,7 @@ This repository contains comprehensive planning documents. **Read these before c
 ## 📄 Site Structure
 
 ### **Pages:**
+
 1. **Homepage** (/) - Conversion-optimized one-pager
    - Hero with value proposition
    - 6 service offerings
@@ -101,6 +105,7 @@ This repository contains comprehensive planning documents. **Read these before c
 ## 🎯 Positioning Strategy
 
 ### **We ARE:**
+
 - Full-stack software architects
 - Enterprise application developers
 - AI integration specialists
@@ -108,6 +113,7 @@ This repository contains comprehensive planning documents. **Read these before c
 - $10k-50k project partners
 
 ### **We are NOT:**
+
 - Web designers
 - WordPress developers
 - Template customizers
@@ -115,6 +121,7 @@ This repository contains comprehensive planning documents. **Read these before c
 - Marketing agencies
 
 ### **Target Keywords:**
+
 - Custom SaaS development
 - Enterprise web applications
 - AI integration developers
@@ -128,17 +135,20 @@ This repository contains comprehensive planning documents. **Read these before c
 ## 🚀 Development Phases
 
 ### **Phase 1: Foundation** (Week 1-2)
+
 - Project setup with tooling
 - Design system implementation
 - Homepage build (all sections)
 
 ### **Phase 2: Deep Dive Pages** (Week 2-3)
+
 - Projects page + filtering
 - Project detail pages (case studies)
 - About page
 - Contact page
 
 ### **Phase 3: Polish** (Week 3-4)
+
 - Content writing
 - SEO optimization
 - Performance tuning
@@ -146,6 +156,7 @@ This repository contains comprehensive planning documents. **Read these before c
 - Responsive testing
 
 ### **Phase 4: Launch** (Week 4)
+
 - Production deployment
 - Analytics setup
 - Submit to Google
@@ -158,9 +169,11 @@ This repository contains comprehensive planning documents. **Read these before c
 ## 📊 Success Metrics
 
 ### **Primary KPI:**
+
 Strategy call bookings → Closed deals
 
 ### **Secondary Metrics:**
+
 - Unique visitors per month
 - Bounce rate (<50% target)
 - Average session duration (>2 min)
@@ -169,6 +182,7 @@ Strategy call bookings → Closed deals
 - Lead quality (budget >$10k)
 
 ### **SEO Goals (3-6 months):**
+
 - Rank top 10 for "custom SaaS development [city]"
 - 1000+ monthly organic impressions
 - 5% click-through rate from search
@@ -178,28 +192,23 @@ Strategy call bookings → Closed deals
 ## 🎨 Design System Quick Reference
 
 ### Colors
+
 ```css
 /* Primary Accent */
---accent-primary: #00ffc6    /* Mint-cyan */
-
-/* Secondary Accent */
---accent-secondary: #a78bfa  /* Soft purple */
-
-/* Backgrounds */
---bg-primary: #0a0a0f
---bg-secondary: #111118
-
-/* Text */
---text-primary: #f4f4f5
---text-secondary: #a1a1aa
+--accent-primary: #00ffc6 /* Mint-cyan */ /* Secondary Accent */
+  --accent-secondary: #a78bfa /* Soft purple */ /* Backgrounds */
+  --bg-primary: #0a0a0f --bg-secondary: #111118 /* Text */
+  --text-primary: #f4f4f5 --text-secondary: #a1a1aa;
 ```
 
 ### Spacing
+
 ```
 4px, 8px, 12px, 16px, 24px, 32px, 48px, 64px, 80px, 96px, 128px
 ```
 
 ### Typography
+
 ```
 Font: Inter (variable)
 Sizes: 12px, 14px, 16px, 18px, 20px, 24px, 30px, 36px, 48px, 60px
@@ -207,6 +216,7 @@ Weights: 400, 500, 600, 700
 ```
 
 ### Animation
+
 ```javascript
 Duration: 200ms (hover), 300ms (transitions), 400ms (complex)
 Easing: cubic-bezier(0.4, 0, 0.2, 1)
@@ -219,12 +229,14 @@ Easing: cubic-bezier(0.4, 0, 0.2, 1)
 ## 💼 Content Guidelines
 
 ### **Tone of Voice:**
+
 - Professional, not corporate
 - Confident, not arrogant
 - Technical, but accessible
 - Results-focused, not feature-focused
 
 ### **Copy Principles:**
+
 1. Lead with business value, not tech
 2. Be specific (numbers, timelines, tech stack)
 3. Show, don't just tell (case studies > claims)
@@ -232,6 +244,7 @@ Easing: cubic-bezier(0.4, 0, 0.2, 1)
 5. Clear calls-to-action
 
 ### **Example Hero Headlines:**
+
 - "We Build Enterprise Software That Scales"
 - "Custom SaaS Development for $10k-50k Projects"
 - "Full-Stack Architects for Complex Problems"
@@ -241,6 +254,7 @@ Easing: cubic-bezier(0.4, 0, 0.2, 1)
 ## 🔧 Development Standards
 
 ### **Code Quality:**
+
 - TypeScript strict mode (no `any`)
 - ESLint + Prettier enforced
 - Husky pre-commit hooks
@@ -249,6 +263,7 @@ Easing: cubic-bezier(0.4, 0, 0.2, 1)
 - Comments for complex logic only
 
 ### **Performance:**
+
 - Lighthouse score 95+
 - Images under 200KB
 - First Load JS under 100KB
@@ -256,6 +271,7 @@ Easing: cubic-bezier(0.4, 0, 0.2, 1)
 - CLS < 0.1
 
 ### **Accessibility:**
+
 - WCAG AAA color contrast
 - Keyboard navigation support
 - Screen reader tested
@@ -264,6 +280,7 @@ Easing: cubic-bezier(0.4, 0, 0.2, 1)
 - ARIA labels where needed
 
 ### **SEO:**
+
 - Unique meta titles/descriptions
 - OpenGraph images
 - Structured data (JSON-LD)
@@ -311,12 +328,15 @@ Before starting development, finalize:
 ## 🚦 Getting Started
 
 ### **Step 1: Review All Documentation**
+
 Read all `.md` files in this repository before writing any code.
 
 ### **Step 2: Finalize Decisions**
+
 Complete the "Pre-Build Decisions Needed" checklist above.
 
 ### **Step 3: Initialize Project**
+
 ```bash
 npx create-next-app@latest devsite --typescript --tailwind --app --eslint
 cd devsite
@@ -324,16 +344,19 @@ cd devsite
 ```
 
 ### **Step 4: Setup Tooling**
+
 - Configure ESLint + Prettier
 - Setup Husky + lint-staged
 - Add Framer Motion, Lucide, React Hook Form, Zod
 
 ### **Step 5: Build Design System**
+
 - Implement Tailwind config from COLOR_SCHEME.md
 - Create reusable components (Button, Card, Badge, Input)
 - Test all variants
 
 ### **Step 6: Build Homepage**
+
 Follow ROADMAP.md Phase 1 task-by-task
 
 ---
@@ -343,6 +366,7 @@ Follow ROADMAP.md Phase 1 task-by-task
 > Note: Team prefers modular structure - to be discussed
 
 **Suggested approach:**
+
 ```
 app/
   layout.tsx
@@ -399,6 +423,7 @@ Client Onboarding
 ## 🔄 Iteration Strategy
 
 ### **Post-Launch:**
+
 1. Monitor analytics weekly
 2. Track conversion rates
 3. A/B test CTAs
@@ -408,6 +433,7 @@ Client Onboarding
 7. Improve SEO based on search data
 
 ### **Monthly Reviews:**
+
 - Traffic sources
 - Bounce rate by page
 - CTA click-through rates
@@ -431,6 +457,7 @@ Client Onboarding
 ## 🎉 Definition of Done
 
 Site is "done" when:
+
 - [x] All documentation reviewed and approved
 - [ ] All 5 pages built and responsive
 - [ ] All animations smooth and purposeful
@@ -452,6 +479,7 @@ Site is "done" when:
 ## 📞 Support & Questions
 
 For questions about:
+
 - **Design decisions:** See DESIGN_SYSTEM.md, COLOR_SCHEME.md
 - **Positioning/copy:** See POSITIONING_STRATEGY.md
 - **Tech choices:** See TECH_STACK.md
@@ -468,4 +496,3 @@ For questions about:
 ---
 
 **Let's build something that actually converts.** 🚀
-

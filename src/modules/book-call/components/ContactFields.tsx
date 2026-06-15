@@ -4,10 +4,17 @@ import type { PreQualData } from '@/types/preQual'
 interface ContactFieldsProps {
   formData: PreQualData
   errors: Partial<Record<keyof PreQualData, string>>
-  onUpdate: <K extends keyof PreQualData>(field: K, value: PreQualData[K]) => void
+  onUpdate: <K extends keyof PreQualData>(
+    field: K,
+    value: PreQualData[K]
+  ) => void
 }
 
-export const ContactFields = ({ formData, errors, onUpdate }: ContactFieldsProps) => {
+export const ContactFields = ({
+  formData,
+  errors,
+  onUpdate,
+}: ContactFieldsProps) => {
   return (
     <div className="space-y-4">
       <h3 className="text-xl font-semibold text-text-primary mb-4">
@@ -36,4 +43,3 @@ export const ContactFields = ({ formData, errors, onUpdate }: ContactFieldsProps
     </div>
   )
 }
-

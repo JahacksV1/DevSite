@@ -1,7 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Brain, FileText, LayoutDashboard, Layers, Users, Zap } from 'lucide-react'
+import {
+  Brain,
+  FileText,
+  LayoutDashboard,
+  Layers,
+  Users,
+  Zap,
+} from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const services = [
@@ -10,7 +17,12 @@ const services = [
     title: 'AI Workflow Systems',
     description:
       'GPT-integrated products with structured output routing, multi-step pipelines, context management, and user-scoped AI features. We build AI into the product architecture, not as an afterthought.',
-    examples: ['Document Q&A', 'Situation intelligence routing', 'AI quiz generation', 'Structured extraction'],
+    examples: [
+      'Document Q&A',
+      'Situation intelligence routing',
+      'AI quiz generation',
+      'Structured extraction',
+    ],
     color: 'primary',
   },
   {
@@ -18,15 +30,25 @@ const services = [
     title: 'MVPs & SaaS Platforms',
     description:
       'Full-stack SaaS products with auth, database, billing, and a working UI. Designed for founders who need a functional product to show investors or early customers, not a mockup.',
-    examples: ['Multi-tenant SaaS', 'Stripe billing', 'Supabase backend', 'Dashboard + analytics'],
+    examples: [
+      'Multi-tenant SaaS',
+      'Stripe billing',
+      'Supabase backend',
+      'Dashboard + analytics',
+    ],
     color: 'secondary',
   },
   {
     icon: FileText,
     title: 'Document Automation',
     description:
-      'Systems that process, transform, generate, or review documents at scale. We\'ve built DOCX parsers, AI extraction workflows, certificate generators, and legal document tools.',
-    examples: ['DOCX parsing + replacement', 'PDF generation', 'Template-based assembly', 'Audit trail logging'],
+      "Systems that process, transform, generate, or review documents at scale. We've built DOCX parsers, AI extraction workflows, certificate generators, and legal document tools.",
+    examples: [
+      'DOCX parsing + replacement',
+      'PDF generation',
+      'Template-based assembly',
+      'Audit trail logging',
+    ],
     color: 'primary',
   },
   {
@@ -34,7 +56,12 @@ const services = [
     title: 'Internal Tools & Dashboards',
     description:
       'Operations tools, admin panels, and data dashboards that your team actually uses. Built with real data models, role-based access, and the workflows that match how your business runs.',
-    examples: ['Role-based access control', 'Data tables + filters', 'Approval workflows', 'Real-time updates'],
+    examples: [
+      'Role-based access control',
+      'Data tables + filters',
+      'Approval workflows',
+      'Real-time updates',
+    ],
     color: 'secondary',
   },
   {
@@ -42,7 +69,12 @@ const services = [
     title: 'Social & Consumer Apps',
     description:
       'User-facing applications with auth, profiles, feeds, messaging, onboarding flows, and mobile-responsive design. We understand product UX, not just engineering.',
-    examples: ['Onboarding flows', 'User profiles + history', 'Voice and image input', 'Mobile-first UX'],
+    examples: [
+      'Onboarding flows',
+      'User profiles + history',
+      'Voice and image input',
+      'Mobile-first UX',
+    ],
     color: 'primary',
   },
   {
@@ -50,7 +82,12 @@ const services = [
     title: 'Business & Local Sites',
     description:
       'Marketing sites, lead generation pages, and local business websites built to convert. Fast, SEO-ready, with real lead capture and mobile-first design.',
-    examples: ['Lead forms + validation', 'Multi-industry templates', 'SEO structured data', 'Mobile CTAs'],
+    examples: [
+      'Lead forms + validation',
+      'Multi-industry templates',
+      'SEO structured data',
+      'Mobile CTAs',
+    ],
     color: 'secondary',
   },
 ]
@@ -70,7 +107,8 @@ export const ServicesSection = () => {
             What We Build
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            We work across these six categories. Each one is backed by shipped code you can inspect.
+            We work across these six categories. Each one is backed by shipped
+            code you can inspect.
           </p>
         </motion.div>
 
@@ -103,7 +141,9 @@ export const ServicesSection = () => {
                   <Icon
                     className={cn(
                       'w-5 h-5',
-                      service.color === 'primary' ? 'text-primary' : 'text-secondary'
+                      service.color === 'primary'
+                        ? 'text-primary'
+                        : 'text-secondary'
                     )}
                   />
                 </div>

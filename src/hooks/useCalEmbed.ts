@@ -46,4 +46,3 @@ export const useCalEmbed = (): UseCalEmbedReturn => {
 }
 
 export default useCalEmbed
-

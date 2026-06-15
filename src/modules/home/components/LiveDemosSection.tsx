@@ -58,7 +58,10 @@ const CardInner = ({ demo }: { demo: (typeof demos)[0] }) => {
           )}
         >
           <Icon
-            className={cn('w-6 h-6', demo.color === 'primary' ? 'text-primary' : 'text-secondary')}
+            className={cn(
+              'w-6 h-6',
+              demo.color === 'primary' ? 'text-primary' : 'text-secondary'
+            )}
           />
         </div>
         <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-semibold">
@@ -69,7 +72,9 @@ const CardInner = ({ demo }: { demo: (typeof demos)[0] }) => {
       <h3 className="text-xl font-semibold text-text-primary mb-3 card-interactive-title">
         {demo.title}
       </h3>
-      <p className="text-text-secondary mb-6 leading-relaxed min-h-[80px]">{demo.description}</p>
+      <p className="text-text-secondary mb-6 leading-relaxed min-h-[80px]">
+        {demo.description}
+      </p>
 
       <div className="flex items-center text-primary font-semibold group-hover:translate-x-2 transition-transform duration-200">
         <span>{demo.action}</span>
@@ -97,7 +102,8 @@ export const LiveDemosSection = () => {
             </span>
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Don&apos;t take our word for it. Try our live demos and projects. No signup, no sales pitch.
+            Don&apos;t take our word for it. Try our live demos and projects. No
+            signup, no sales pitch.
           </p>
         </motion.div>
 
@@ -111,7 +117,12 @@ export const LiveDemosSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {demo.external ? (
-                <a href={demo.actionUrl} target="_blank" rel="noopener noreferrer" className="block h-full">
+                <a
+                  href={demo.actionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full"
+                >
                   <CardInner demo={demo} />
                 </a>
               ) : (

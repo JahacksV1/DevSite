@@ -35,8 +35,9 @@ export const CTASection = () => {
 
           {/* Subheadline */}
           <p className="text-lg text-text-secondary mb-12 max-w-2xl mx-auto">
-            Free discovery call. We&apos;ll discuss your project, give you an honest timeline 
-            and quote, and see if we&apos;re a fit. No pressure, no sales pitch.
+            Free discovery call. We&apos;ll discuss your project, give you an
+            honest timeline and quote, and see if we&apos;re a fit. No pressure,
+            no sales pitch.
           </p>
 
           {/* CTAs */}
@@ -64,12 +65,11 @@ export const CTASection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-12 text-sm text-text-muted"
           >
-            Most projects start within 3-5 days of discovery call. 
-            Same-week starts available if you&apos;re ready to move fast.
+            Most projects start within 3-5 days of discovery call. Same-week
+            starts available if you&apos;re ready to move fast.
           </motion.p>
         </motion.div>
       </div>
     </section>
   )
 }
-

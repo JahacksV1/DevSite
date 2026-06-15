@@ -1,6 +1,7 @@
 # Footer & Social Media Strategy
 
 ## 🎯 Footer Goals
+
 1. **Contact accessibility** - Make it easy to reach you
 2. **Social proof** - Show you're active and engaged
 3. **Navigation** - Quick links to key pages
@@ -59,6 +60,7 @@ Since you're not officially a company yet, but want to attend events and network
 ## 📧 Email Strategy (No Company Yet)
 
 ### **Option 1: Buy Domain + Use Free Email (Recommended)**
+
 ```
 Cost: $12/year for domain
 Email: hello@yourdomain.com (using Gmail/Outlook for free)
@@ -67,6 +69,7 @@ Setup: 10 minutes
 ```
 
 ### **Option 2: Professional Gmail**
+
 ```
 Cost: Free
 Email: yourbusinessname@gmail.com
@@ -75,6 +78,7 @@ Drawback: Not as professional
 ```
 
 ### **Option 3: Wait Until Official**
+
 ```
 Cost: $0
 Email: Use personal email with business signature
@@ -88,6 +92,7 @@ Temporary until company launch
 ## 🎴 Business Card Strategy (For Events)
 
 ### **What to Include:**
+
 - **Name** + "Full-Stack Developer" or "Software Architect"
 - **Website QR Code** → Lands on homepage with "Book Call" CTA
 - **Email** (business-style)
@@ -95,11 +100,13 @@ Temporary until company launch
 - **Tagline:** "Custom SaaS • AI Integration • Enterprise Automation"
 
 ### **What NOT to Include:**
+
 - ❌ Phone number (unless you want calls)
 - ❌ Physical address (not needed for remote dev)
 - ❌ Multiple social links (keeps it clean)
 
 ### **QR Code Options:**
+
 1. **Primary:** Homepage URL (best for conversions)
 2. **Secondary:** LinkedIn profile (best for networking)
 3. **Both:** One on each side of card
@@ -127,23 +134,27 @@ Temporary until company launch
 ### **Footer Sections:**
 
 **Column 1: Brand**
+
 - Logo + company name
 - Tagline: "Enterprise software for complex problems"
 - Tech stack badges (Next.js, TypeScript, etc.)
 
 **Column 2: Quick Links**
+
 - Home
 - Projects
 - Capabilities
 - (Future: Blog, Case Studies)
 
 **Column 3: Contact**
+
 - Email (clickable mailto:)
 - LinkedIn icon + link
 - GitHub icon + link
 - (Optional: Twitter, if active)
 
 **Bottom Bar:**
+
 - Copyright © 2024 YourName
 - "Built with Next.js" (subtle flex)
 
@@ -152,6 +163,7 @@ Temporary until company launch
 ## ✅ Immediate Action Items
 
 ### **Before Building Footer:**
+
 1. [ ] Decide on business name (or use personal name)
 2. [ ] Buy domain ($12/year) - GoDaddy, Namecheap, or Google Domains
 3. [ ] Set up email forwarding (domain → Gmail)
@@ -160,6 +172,7 @@ Temporary until company launch
 6. [ ] (Optional) Create Twitter account
 
 ### **Footer Development:**
+
 1. [ ] Build Footer component
 2. [ ] Add to layout.tsx (appears on all pages)
 3. [ ] Wire up social links
@@ -172,24 +185,30 @@ Temporary until company launch
 ## 💡 Recommendations
 
 ### **For Events/Networking:**
+
 **Must Have:**
+
 - ✅ LinkedIn (personal, professional)
 - ✅ Business cards with QR code to site
 - ✅ Professional email (even if it's Gmail)
 - ✅ Portfolio site (you're building it!)
 
 **Nice to Have:**
+
 - ✅ GitHub with pinned projects
 - ⚠️ Twitter (only if active)
 
 **Don't Need Yet:**
+
 - ❌ Physical office address
 - ❌ Phone number on site
 - ❌ Instagram/TikTok (unless you want to)
 - ❌ LLC/official company (can operate as sole proprietor)
 
 ### **For QR Codes:**
+
 **Best Option:** Two QR codes on card
+
 - **Front:** Website homepage (for clients)
 - **Back:** LinkedIn profile (for networking)
 

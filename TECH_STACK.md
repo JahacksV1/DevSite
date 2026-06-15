@@ -3,6 +3,7 @@
 ## Framework & Core
 
 ### **Next.js 14 (App Router)** ✅ APPROVED
+
 ```
 WHY:
 ✅ Server Components = faster initial loads
@@ -20,7 +21,7 @@ ALTERNATIVES CONSIDERED:
 ❌ Astro: Too minimal for future interactive features
 ❌ Remix: Smaller ecosystem, less tooling
 
-VERDICT: Next.js 14 is the optimal choice for a professional 
+VERDICT: Next.js 14 is the optimal choice for a professional
 portfolio that needs speed, SEO, and future scalability.
 ```
 
@@ -29,6 +30,7 @@ portfolio that needs speed, SEO, and future scalability.
 ## Styling
 
 ### **Tailwind CSS v3.3+**
+
 ```
 WHY:
 ✅ Perfect for rapid iteration
@@ -48,6 +50,7 @@ CONFIGURATION:
 ```
 
 ### **PostCSS + Autoprefixer**
+
 ```
 Included with Tailwind
 - Automatic vendor prefixes
@@ -59,6 +62,7 @@ Included with Tailwind
 ## Animation
 
 ### **Framer Motion v10+**
+
 ```
 WHY:
 ✅ Best React animation library
@@ -84,6 +88,7 @@ See ANIMATION_SYSTEM.md for all variants & patterns
 ## Icons
 
 ### **Lucide React**
+
 ```
 WHY:
 ✅ 1000+ beautiful icons
@@ -103,6 +108,7 @@ import { ArrowRight, Check, Menu } from 'lucide-react'
 ## Fonts
 
 ### **Inter (Variable Font)**
+
 ```
 WHY:
 ✅ Designed for UI/screens
@@ -119,6 +125,7 @@ LOADING STRATEGY:
 ```
 
 ### **JetBrains Mono (Code)**
+
 ```
 WHY:
 ✅ Optimized for code display
@@ -134,6 +141,7 @@ Tech stack badges, code snippets, terminal-style sections
 ## Type Safety
 
 ### **TypeScript v5+**
+
 ```json
 {
   "compilerOptions": {
@@ -151,6 +159,7 @@ Tech stack badges, code snippets, terminal-style sections
 ```
 
 **WHY STRICT MODE:**
+
 - Catch errors at compile time, not runtime
 - Better autocomplete
 - Self-documenting code
@@ -162,6 +171,7 @@ Tech stack badges, code snippets, terminal-style sections
 ## Code Quality
 
 ### **ESLint**
+
 ```json
 {
   "extends": [
@@ -179,6 +189,7 @@ Tech stack badges, code snippets, terminal-style sections
 ```
 
 ### **Prettier**
+
 ```json
 {
   "semi": false,
@@ -192,6 +203,7 @@ Tech stack badges, code snippets, terminal-style sections
 ```
 
 ### **Husky + lint-staged**
+
 ```
 Pre-commit hooks:
 1. ESLint check
@@ -207,6 +219,7 @@ Prevents bad code from being committed
 ## Forms (For Contact Page)
 
 ### **React Hook Form + Zod**
+
 ```
 WHY:
 ✅ Minimal re-renders (performance)
@@ -232,6 +245,7 @@ const schema = z.object({
 ## Email (Contact Form Backend)
 
 ### **Resend API** (Recommended)
+
 ```
 WHY:
 ✅ Simple, developer-friendly API
@@ -251,6 +265,7 @@ ALTERNATIVE:
 ## Scheduling Integration
 
 ### **Cal.com Embed** (Recommended)
+
 ```
 WHY:
 ✅ Open source (good for brand)
@@ -266,7 +281,7 @@ ALTERNATIVE:
 - SavvyCal (indie, nice design)
 
 IMPLEMENTATION:
-<Cal 
+<Cal
   calLink="yourname/30min-discovery"
   config={{ theme: 'dark' }}
 />
@@ -277,6 +292,7 @@ IMPLEMENTATION:
 ## Payments
 
 ### **Stripe Payment Links** (Phase 1)
+
 ```
 WHY:
 ✅ Zero backend code needed
@@ -291,6 +307,7 @@ EXAMPLE:
 ```
 
 ### **Stripe Checkout** (Phase 2, if needed)
+
 ```
 For more customization:
 - Next.js API route to create session
@@ -303,10 +320,10 @@ For more customization:
 ## Image Optimization
 
 ### **Next.js Image Component**
+
 ```tsx
 import Image from 'next/image'
-
-<Image
+;<Image
   src="/projects/crm-screenshot.png"
   alt="CRM Dashboard"
   width={1200}
@@ -318,6 +335,7 @@ import Image from 'next/image'
 ```
 
 **BENEFITS:**
+
 - Automatic WebP/AVIF conversion
 - Lazy loading
 - Responsive sizes
@@ -325,6 +343,7 @@ import Image from 'next/image'
 - CDN delivery
 
 **IMAGE REQUIREMENTS:**
+
 - Max 200KB per image
 - Use PNG for screenshots
 - Use JPG for photos
@@ -335,6 +354,7 @@ import Image from 'next/image'
 ## Deployment
 
 ### **Vercel** (Recommended)
+
 ```
 WHY:
 ✅ Made by Next.js creators
@@ -353,6 +373,7 @@ SETUP:
 ```
 
 **ALTERNATIVES:**
+
 - Netlify (similar, good option)
 - AWS Amplify (more complex)
 - Self-hosted (unnecessary for this)
@@ -362,6 +383,7 @@ SETUP:
 ## Analytics
 
 ### **Vercel Analytics** (Simple, Privacy-Friendly)
+
 ```
 WHY:
 ✅ Built into Vercel
@@ -373,6 +395,7 @@ FREE TIER: 2,500 events/month
 ```
 
 ### **Plausible** (Alternative, More Detailed)
+
 ```
 WHY:
 ✅ Privacy-focused (no cookies)
@@ -388,6 +411,7 @@ COST: $9/month for 10k pageviews
 ## Development Tools
 
 ### **VS Code Extensions** (Recommended)
+
 ```
 - ESLint
 - Prettier
@@ -399,6 +423,7 @@ COST: $9/month for 10k pageviews
 ```
 
 ### **VS Code Settings**
+
 ```json
 {
   "editor.formatOnSave": true,
@@ -418,6 +443,7 @@ COST: $9/month for 10k pageviews
 ## Performance Targets
 
 ### **Lighthouse Scores** (Minimum)
+
 ```
 Performance:  95+
 Accessibility: 100
@@ -426,6 +452,7 @@ SEO: 100
 ```
 
 ### **Core Web Vitals**
+
 ```
 LCP (Largest Contentful Paint): < 2.5s
 FID (First Input Delay): < 100ms
@@ -433,6 +460,7 @@ CLS (Cumulative Layout Shift): < 0.1
 ```
 
 ### **Bundle Size**
+
 ```
 First Load JS: < 100KB (goal: ~80KB)
 Page-specific JS: < 30KB per page
@@ -443,6 +471,7 @@ Page-specific JS: < 30KB per page
 ## Version Control
 
 ### **Git Workflow**
+
 ```
 main:      Production (auto-deploys to yoursite.com)
 develop:   Development (auto-deploys to dev.yoursite.com)
@@ -450,6 +479,7 @@ feature/*: Feature branches → PR to develop
 ```
 
 ### **.gitignore Essentials**
+
 ```
 node_modules/
 .next/
@@ -476,6 +506,7 @@ STRIPE_PAYMENT_LINK=buy.stripe.com/...
 ## Package Management
 
 ### **npm** (Stick with Default)
+
 ```
 WHY:
 - Comes with Node.js
@@ -493,6 +524,7 @@ AVOID: Mixing package managers (npm/yarn/pnpm)
 > We'll collaborate on this separately, but the stack supports any structure.
 
 **Principles:**
+
 - Co-locate related files
 - Clear separation of concerns
 - Easy to find things
@@ -538,22 +570,23 @@ AVOID: Mixing package managers (npm/yarn/pnpm)
 
 ## Why This Stack Wins
 
-| Requirement | Solution | Why |
-|-------------|----------|-----|
-| Speed | Next.js SSG + Vercel CDN | 95+ Lighthouse score |
-| SEO | Next.js metadata API | Google-friendly |
-| DX | TypeScript + ESLint | Catch errors early |
-| Design speed | Tailwind | Rapid iteration |
-| Animations | Framer Motion | Smooth, professional |
-| Scalability | Next.js App Router | Add features easily |
-| Cost | Free tier everything | $0/month to start |
-| Maintenance | Industry standard stack | Easy to hire/maintain |
+| Requirement  | Solution                 | Why                   |
+| ------------ | ------------------------ | --------------------- |
+| Speed        | Next.js SSG + Vercel CDN | 95+ Lighthouse score  |
+| SEO          | Next.js metadata API     | Google-friendly       |
+| DX           | TypeScript + ESLint      | Catch errors early    |
+| Design speed | Tailwind                 | Rapid iteration       |
+| Animations   | Framer Motion            | Smooth, professional  |
+| Scalability  | Next.js App Router       | Add features easily   |
+| Cost         | Free tier everything     | $0/month to start     |
+| Maintenance  | Industry standard stack  | Easy to hire/maintain |
 
 ---
 
 ## Future Additions (Not Now)
 
 **When you need them:**
+
 - **Database:** Prisma + PostgreSQL (for blog/CMS)
 - **Auth:** NextAuth.js (if building client portal)
 - **CMS:** Sanity or Contentful (for marketing content)
@@ -561,4 +594,3 @@ AVOID: Mixing package managers (npm/yarn/pnpm)
 - **Monitoring:** Sentry (error tracking)
 
 **Don't add until you need them.** Keep it lean.
-

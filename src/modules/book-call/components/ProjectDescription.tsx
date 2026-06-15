@@ -4,10 +4,17 @@ import type { PreQualData } from '@/types/preQual'
 interface ProjectDescriptionProps {
   formData: PreQualData
   errors: Partial<Record<keyof PreQualData, string>>
-  onUpdate: <K extends keyof PreQualData>(field: K, value: PreQualData[K]) => void
+  onUpdate: <K extends keyof PreQualData>(
+    field: K,
+    value: PreQualData[K]
+  ) => void
 }
 
-export const ProjectDescription = ({ formData, errors, onUpdate }: ProjectDescriptionProps) => {
+export const ProjectDescription = ({
+  formData,
+  errors,
+  onUpdate,
+}: ProjectDescriptionProps) => {
   return (
     <div>
       <Textarea
@@ -25,4 +32,3 @@ export const ProjectDescription = ({ formData, errors, onUpdate }: ProjectDescri
     </div>
   )
 }
-

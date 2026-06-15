@@ -24,10 +24,7 @@ export const LineChart = () => {
       setData((prev) =>
         prev.map((point) => ({
           ...point,
-          value: Math.max(
-            2000,
-            point.value + (Math.random() - 0.5) * 1000
-          ),
+          value: Math.max(2000, point.value + (Math.random() - 0.5) * 1000),
         }))
       )
     }, 4000)
@@ -64,31 +61,41 @@ export const LineChart = () => {
         {/* Grid lines */}
         <div className="absolute inset-0 flex flex-col justify-between">
           {[...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              className="w-full h-px bg-border-subtle"
-            />
+            <div key={i} className="w-full h-px bg-border-subtle" />
           ))}
         </div>
 
         {/* Line path */}
-        <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          preserveAspectRatio="none"
+        >
           <defs>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="rgb(0, 255, 198)" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="rgb(0, 255, 198)" stopOpacity="0" />
+              <stop
+                offset="0%"
+                stopColor="rgb(0, 255, 198)"
+                stopOpacity="0.3"
+              />
+              <stop
+                offset="100%"
+                stopColor="rgb(0, 255, 198)"
+                stopOpacity="0"
+              />
             </linearGradient>
           </defs>
-          
+
           {/* Area fill */}
           <motion.path
             d={`
               M 0 ${((maxValue - data[0].value) / range) * 100}%
-              ${data.map((point, i) => {
-                const x = (i / (data.length - 1)) * 100
-                const y = ((maxValue - point.value) / range) * 100
-                return `L ${x}% ${y}%`
-              }).join(' ')}
+              ${data
+                .map((point, i) => {
+                  const x = (i / (data.length - 1)) * 100
+                  const y = ((maxValue - point.value) / range) * 100
+                  return `L ${x}% ${y}%`
+                })
+                .join(' ')}
               L 100% 100%
               L 0 100%
               Z
@@ -98,16 +105,18 @@ export const LineChart = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           />
-          
+
           {/* Line */}
           <motion.path
             d={`
               M 0 ${((maxValue - data[0].value) / range) * 100}%
-              ${data.map((point, i) => {
-                const x = (i / (data.length - 1)) * 100
-                const y = ((maxValue - point.value) / range) * 100
-                return `L ${x}% ${y}%`
-              }).join(' ')}
+              ${data
+                .map((point, i) => {
+                  const x = (i / (data.length - 1)) * 100
+                  const y = ((maxValue - point.value) / range) * 100
+                  return `L ${x}% ${y}%`
+                })
+                .join(' ')}
             `}
             stroke="rgb(0, 255, 198)"
             strokeWidth="2"
@@ -122,7 +131,7 @@ export const LineChart = () => {
         {data.map((point, i) => {
           const x = (i / (data.length - 1)) * 100
           const y = ((maxValue - point.value) / range) * 100
-          
+
           return (
             <motion.div
               key={point.label}

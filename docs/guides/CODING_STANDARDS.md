@@ -59,10 +59,10 @@ interface ApiResponse<T> {
 const handleData = (data: any) => {}
 
 // ❌ BAD - Implicit any
-function processItem(item) {}  // item is implicitly any
+function processItem(item) {} // item is implicitly any
 
 // ❌ BAD - Type assertions without validation
-const user = response as User  // Could fail at runtime
+const user = response as User // Could fail at runtime
 ```
 
 ### Null Safety
@@ -77,10 +77,10 @@ interface Props {
 const Component = ({ user, onSelect }: Props) => {
   // Optional chaining
   const name = user?.name ?? 'Guest'
-  
+
   // Type guard
   if (!user) return <LoginPrompt />
-  
+
   return <UserCard user={user} />
 }
 
@@ -105,7 +105,8 @@ export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 export type RequiredAll<T> = { [K in keyof T]-?: T[K] }
 
 // Extract component props
-export type ComponentProps<T> = T extends React.ComponentType<infer P> ? P : never
+export type ComponentProps<T> =
+  T extends React.ComponentType<infer P> ? P : never
 ```
 
 ---
@@ -118,42 +119,51 @@ module.exports = {
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'prettier',
   ],
   plugins: ['@typescript-eslint'],
   rules: {
     // TypeScript
     '@typescript-eslint/no-explicit-any': 'error',
-    '@typescript-eslint/no-unused-vars': ['error', { 
-      argsIgnorePattern: '^_',
-      varsIgnorePattern: '^_' 
-    }],
-    '@typescript-eslint/consistent-type-imports': ['error', {
-      prefer: 'type-imports'
-    }],
-    
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+      },
+    ],
+
     // React
     'react/jsx-no-target-blank': 'error',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    
+
     // Code quality
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'prefer-const': 'error',
     'no-var': 'error',
-    'eqeqeq': ['error', 'always'],
-    
+    eqeqeq: ['error', 'always'],
+
     // File size (150 line rule)
-    'max-lines': ['error', { 
-      max: 150, 
-      skipBlankLines: true, 
-      skipComments: true 
-    }],
-    
+    'max-lines': [
+      'error',
+      {
+        max: 150,
+        skipBlankLines: true,
+        skipComments: true,
+      },
+    ],
+
     // Complexity
-    'complexity': ['warn', 10],
-    'max-depth': ['warn', 3]
-  }
+    complexity: ['warn', 10],
+    'max-depth': ['warn', 3],
+  },
 }
 ```
 
@@ -192,18 +202,14 @@ They work together via `eslint-config-prettier`.
 // package.json
 {
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md}": [
-      "prettier --write"
-    ]
+    "*.{ts,tsx}": ["eslint --fix", "prettier --write"],
+    "*.{json,md}": ["prettier --write"]
   }
 }
 ```
 
 ### Pre-commit Checks
+
 1. ESLint (auto-fix where possible)
 2. Prettier formatting
 3. TypeScript type check
@@ -254,14 +260,14 @@ components/          # lowercase directories
     Button.tsx       # PascalCase components
     Card.tsx
     index.ts         # lowercase barrel
-  
+
 hooks/
   useDebounce.ts     # camelCase with 'use' prefix
-  
+
 lib/
   utils.ts           # lowercase utilities
   projectsData.ts    # camelCase
-  
+
 types/
   project.ts         # lowercase type files
 ```
@@ -328,7 +334,7 @@ const textColor = '#f4f4f5'
 setIsLoading(true)
 
 // Loop through items
-items.forEach(item => {})
+items.forEach((item) => {})
 ```
 
 ### JSDoc for Complex Functions
@@ -336,12 +342,12 @@ items.forEach(item => {})
 ```typescript
 /**
  * Filters projects based on category and search term.
- * 
+ *
  * @param projects - Array of projects to filter
  * @param category - Category to filter by, or 'all'
  * @param searchTerm - Text to search in title and description
  * @returns Filtered array of projects
- * 
+ *
  * @example
  * const filtered = filterProjects(projects, 'saas', 'CRM')
  */
@@ -371,14 +377,16 @@ export function filterProjects(
 
 ```typescript
 // ❌ BAD
-if (items.length > 10) {}
+if (items.length > 10) {
+}
 const delay = 300
 
 // ✅ GOOD
 const MAX_VISIBLE_ITEMS = 10
 const DEBOUNCE_DELAY_MS = 300
 
-if (items.length > MAX_VISIBLE_ITEMS) {}
+if (items.length > MAX_VISIBLE_ITEMS) {
+}
 ```
 
 ### 2. Nested Ternaries
@@ -404,9 +412,15 @@ function processData(data) {
 }
 
 // ✅ GOOD - Small, focused functions
-function validateData(data) { /* 10 lines */ }
-function transformData(data) { /* 10 lines */ }
-function saveData(data) { /* 10 lines */ }
+function validateData(data) {
+  /* 10 lines */
+}
+function transformData(data) {
+  /* 10 lines */
+}
+function saveData(data) {
+  /* 10 lines */
+}
 
 function processData(data) {
   const validated = validateData(data)
@@ -444,24 +458,28 @@ function processData(data) {
 Before committing:
 
 ### TypeScript
+
 - [ ] No `any` types
 - [ ] All functions have return types
 - [ ] Props interfaces defined
 - [ ] Null/undefined handled
 
 ### Style
+
 - [ ] Imports organized
 - [ ] Consistent naming
 - [ ] No magic numbers
 - [ ] Comments explain WHY
 
 ### Components
+
 - [ ] Under 150 lines
 - [ ] Single responsibility
 - [ ] Props validated
 - [ ] Accessible
 
 ### Performance
+
 - [ ] useCallback for handlers passed as props
 - [ ] useMemo for expensive calculations
 - [ ] No unnecessary re-renders

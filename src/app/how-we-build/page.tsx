@@ -3,4 +3,3 @@
  * Re-exports the HowWeBuildPage component from the how-we-build module
  */
 export { default } from '@/modules/how-we-build'
-

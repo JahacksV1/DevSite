@@ -18,8 +18,14 @@ export const timelineOptions = [
 export const attemptOptions = [
   { value: 'nothing' as const, label: 'Nothing yet (just an idea)' },
   { value: 'no-code' as const, label: 'No-code tools (Bubble, Webflow, etc.)' },
-  { value: 'agencies' as const, label: 'Contacted agencies (too slow/expensive)' },
-  { value: 'freelancers' as const, label: 'Hired freelancers (inconsistent quality)' },
+  {
+    value: 'agencies' as const,
+    label: 'Contacted agencies (too slow/expensive)',
+  },
+  {
+    value: 'freelancers' as const,
+    label: 'Hired freelancers (inconsistent quality)',
+  },
   { value: 'in-house' as const, label: 'Built in-house (need help scaling)' },
 ]
 

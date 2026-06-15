@@ -16,7 +16,12 @@ interface NavLinkProps {
  * Active underline is rendered by Navigation (desktop) to avoid
  * Framer layoutId bugs when scrolling + route changes overlap.
  */
-export const NavLink = ({ href, children, onClick, className }: NavLinkProps) => {
+export const NavLink = ({
+  href,
+  children,
+  onClick,
+  className,
+}: NavLinkProps) => {
   const pathname = usePathname()
   const isActive = pathname === href
 

@@ -8,35 +8,43 @@ import { cn } from '@/lib/utils'
 const faqs = [
   {
     question: 'You say you build fast — why does my project take 2-4 weeks?',
-    answer: 'Because "building" is only 30-40% of the project timeline. The rest is discovery (understanding your vision), iteration (you see it and want refinements), integration setup (connecting accounts and APIs), and testing. We cannot skip those — they are what make your app actually work for your business.',
+    answer:
+      'Because "building" is only 30-40% of the project timeline. The rest is discovery (understanding your vision), iteration (you see it and want refinements), integration setup (connecting accounts and APIs), and testing. We cannot skip those — they are what make your app actually work for your business.',
   },
   {
     question: 'Can you build faster if I am ready to move quickly?',
-    answer: 'Yes. If you have crystal-clear requirements, all accounts ready (GitHub, hosting, Stripe, etc.), fast feedback turnaround, and no complex integrations, we can ship in 7-10 days. But most projects benefit from proper discovery and iteration time.',
+    answer:
+      'Yes. If you have crystal-clear requirements, all accounts ready (GitHub, hosting, Stripe, etc.), fast feedback turnaround, and no complex integrations, we can ship in 7-10 days. But most projects benefit from proper discovery and iteration time.',
   },
   {
     question: 'What if I just want a proof of concept fast?',
-    answer: 'We can build a working demo in 3-5 days for $4k-6k. It will not be production-ready (no scalability, basic security, rough edges), but it will prove the concept. Then you can decide whether to build the real thing.',
+    answer:
+      'We can build a working demo in 3-5 days for $4k-6k. It will not be production-ready (no scalability, basic security, rough edges), but it will prove the concept. Then you can decide whether to build the real thing.',
   },
   {
     question: 'Is it actually good code, or is it AI-generated mess?',
-    answer: 'It is production-grade. AI agents build fast, but senior engineers review every line. We validate architecture, harden security, optimize performance. The result is clean, scalable code — just delivered faster than traditional development.',
+    answer:
+      'It is production-grade. AI agents build fast, but senior engineers review every line. We validate architecture, harden security, optimize performance. The result is clean, scalable code — just delivered faster than traditional development.',
   },
   {
     question: 'What if I need changes after launch?',
-    answer: 'All projects include 7-30 days of support (depending on tier). After that, small tweaks are $500-1k. Bigger changes become a new project or you can move to a monthly retainer for ongoing development.',
+    answer:
+      'All projects include 7-30 days of support (depending on tier). After that, small tweaks are $500-1k. Bigger changes become a new project or you can move to a monthly retainer for ongoing development.',
   },
   {
     question: 'Do you work hourly or fixed-price?',
-    answer: 'Fixed-price only. We quote upfront after discovery and stick to it. No hourly surprises, no scope creep. If requirements change mid-project, we will be transparent about additional costs before doing the work.',
+    answer:
+      'Fixed-price only. We quote upfront after discovery and stick to it. No hourly surprises, no scope creep. If requirements change mid-project, we will be transparent about additional costs before doing the work.',
   },
   {
     question: 'What if we are not a good fit?',
-    answer: 'We will tell you in the discovery call (no charge, no pressure). If your budget is under $8k, timeline is "whenever," or you need extensive hand-holding, we will recommend other options. We are honest about fit.',
+    answer:
+      'We will tell you in the discovery call (no charge, no pressure). If your budget is under $8k, timeline is "whenever," or you need extensive hand-holding, we will recommend other options. We are honest about fit.',
   },
   {
     question: 'Can I see examples of your work?',
-    answer: 'Yes. Check our Projects page for case studies. Some work is under NDA, but we can show code samples and architecture in the discovery call. We can also connect you with past clients for references.',
+    answer:
+      'Yes. Check our Projects page for case studies. Some work is under NDA, but we can show code samples and architecture in the discovery call. We can also connect you with past clients for references.',
   },
 ]
 
@@ -119,4 +127,3 @@ export const FAQSection = () => {
     </section>
   )
 }
-

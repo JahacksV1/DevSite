@@ -31,12 +31,14 @@ export const Card = ({
   className,
   onClick,
 }: CardProps) => {
-  const baseClasses = 'rounded-lg bg-bg-secondary border transition-all duration-300'
+  const baseClasses =
+    'rounded-lg bg-bg-secondary border transition-all duration-300'
 
   const variantClasses = {
     default: cn(
       'p-6 border-border-subtle',
-      interactive && 'hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,198,0.15)]'
+      interactive &&
+        'hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,198,0.15)]'
     ),
     elevated: cn(
       'p-8 rounded-xl border-border-default shadow-md',
@@ -45,7 +47,8 @@ export const Card = ({
     ),
     purple: cn(
       'p-6 border-border-subtle',
-      interactive && 'hover:border-secondary hover:shadow-[0_0_30px_rgba(167,139,250,0.15)]'
+      interactive &&
+        'hover:border-secondary hover:shadow-[0_0_30px_rgba(167,139,250,0.15)]'
     ),
   }
 
@@ -86,4 +89,3 @@ export const Card = ({
 }
 
 export default Card
-

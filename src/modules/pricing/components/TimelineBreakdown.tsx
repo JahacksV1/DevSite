@@ -1,7 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MessageSquare, GitBranch, Plug, Shield, TestTube, Zap } from 'lucide-react'
+import {
+  MessageSquare,
+  GitBranch,
+  Plug,
+  Shield,
+  TestTube,
+  Zap,
+} from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const timelineItems = [
@@ -9,38 +16,44 @@ const timelineItems = [
     icon: MessageSquare,
     name: 'Discovery',
     percentage: '20-30%',
-    description: 'Understanding your vision, user flows, business model. The clearer the requirements, the faster everything else goes.',
+    description:
+      'Understanding your vision, user flows, business model. The clearer the requirements, the faster everything else goes.',
   },
   {
     icon: Zap,
     name: 'The Actual Building',
     percentage: '30-40%',
-    description: "This is where we shine. Multi-agent orchestration builds in days what takes weeks traditionally. But it's not the whole project.",
+    description:
+      "This is where we shine. Multi-agent orchestration builds in days what takes weeks traditionally. But it's not the whole project.",
     highlight: true,
   },
   {
     icon: GitBranch,
     name: 'Iteration Cycles',
     percentage: '15-25%',
-    description: 'You see it, realize you want something tweaked. This is normal. We build in time for feedback and refinement.',
+    description:
+      'You see it, realize you want something tweaked. This is normal. We build in time for feedback and refinement.',
   },
   {
     icon: Plug,
     name: 'Integration Setup',
     percentage: '10-20%',
-    description: 'Connecting Stripe, setting up domains, third-party API keys, deployment. Not coding — just connecting accounts.',
+    description:
+      'Connecting Stripe, setting up domains, third-party API keys, deployment. Not coding — just connecting accounts.',
   },
   {
     icon: TestTube,
     name: 'Testing & Polish',
     percentage: '10-15%',
-    description: 'We test, you test, edge cases get caught. Production-ready means actually ready, not "mostly works."',
+    description:
+      'We test, you test, edge cases get caught. Production-ready means actually ready, not "mostly works."',
   },
   {
     icon: Shield,
     name: 'Compliance & Security',
     percentage: '0-30%',
-    description: "Enterprise only. If you need SOC 2, HIPAA, or security audits, there's review time we can't skip.",
+    description:
+      "Enterprise only. If you need SOC 2, HIPAA, or security audits, there's review time we can't skip.",
   },
 ]
 
@@ -63,7 +76,8 @@ export const TimelineBreakdown = () => {
             What Actually Takes Time
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-            We&apos;re transparent: The coding is the fast part. Here&apos;s where the rest of the time goes.
+            We&apos;re transparent: The coding is the fast part. Here&apos;s
+            where the rest of the time goes.
           </p>
         </motion.div>
 
@@ -88,9 +102,7 @@ export const TimelineBreakdown = () => {
                 <div
                   className={cn(
                     'w-10 h-10 rounded-lg flex items-center justify-center',
-                    item.highlight
-                      ? 'bg-primary/20'
-                      : 'bg-bg-tertiary'
+                    item.highlight ? 'bg-primary/20' : 'bg-bg-tertiary'
                   )}
                 >
                   <item.icon
@@ -140,14 +152,17 @@ export const TimelineBreakdown = () => {
             The Honest Truth
           </h3>
           <p className="text-text-secondary text-center leading-relaxed">
-            We build the code faster than traditional developers because of multi-agent orchestration. 
-            But discovery, iteration, integrations, and testing? Those take the same time as anyone else. 
-            We just don&apos;t hide that from you. Typical project: <span className="font-semibold text-primary">1-4 weeks 
-            depending on complexity</span>, with building being the fastest part.
+            We build the code faster than traditional developers because of
+            multi-agent orchestration. But discovery, iteration, integrations,
+            and testing? Those take the same time as anyone else. We just
+            don&apos;t hide that from you. Typical project:{' '}
+            <span className="font-semibold text-primary">
+              1-4 weeks depending on complexity
+            </span>
+            , with building being the fastest part.
           </p>
         </motion.div>
       </div>
     </section>
   )
 }
-
