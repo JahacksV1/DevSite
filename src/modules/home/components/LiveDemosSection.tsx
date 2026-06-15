@@ -44,15 +44,8 @@ const demos = [
 const CardInner = ({ demo }: { demo: (typeof demos)[0] }) => {
   const Icon = demo.icon
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2 }}
-      className={cn(
-        'group block h-full p-6 rounded-xl',
-        'bg-bg-secondary border border-border-subtle',
-        'hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,198,0.15)]',
-        'transition-all duration-300 cursor-pointer'
-      )}
+    <div
+      className="group block h-full p-6 rounded-xl card-interactive"
     >
       <div className="flex items-start justify-between mb-4">
         <div
@@ -73,7 +66,7 @@ const CardInner = ({ demo }: { demo: (typeof demos)[0] }) => {
         </span>
       </div>
 
-      <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-primary transition-colors">
+      <h3 className="text-xl font-semibold text-text-primary mb-3 card-interactive-title">
         {demo.title}
       </h3>
       <p className="text-text-secondary mb-6 leading-relaxed min-h-[80px]">{demo.description}</p>
@@ -82,7 +75,7 @@ const CardInner = ({ demo }: { demo: (typeof demos)[0] }) => {
         <span>{demo.action}</span>
         <span className="ml-2">→</span>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

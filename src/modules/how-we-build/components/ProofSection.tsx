@@ -36,11 +36,11 @@ export const ProofSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="group relative rounded-xl overflow-hidden bg-bg-tertiary border border-border-subtle hover:border-primary transition-all duration-300"
+            className="rounded-xl overflow-hidden card-static bg-bg-tertiary"
           >
             {/* Placeholder Image/Video */}
             <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-              <Play className="w-16 h-16 text-primary opacity-80 group-hover:opacity-100 transition-opacity" />
+              <Play className="w-16 h-16 text-primary opacity-60" />
             </div>
             
             <div className="p-6">
@@ -67,11 +67,11 @@ export const ProofSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="group relative rounded-xl overflow-hidden bg-bg-tertiary border border-border-subtle hover:border-primary transition-all duration-300"
+            className="rounded-xl overflow-hidden card-static bg-bg-tertiary"
           >
             {/* Placeholder Image/Video */}
             <div className="aspect-video bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
-              <Code2 className="w-16 h-16 text-secondary opacity-80 group-hover:opacity-100 transition-opacity" />
+              <Code2 className="w-16 h-16 text-secondary opacity-60" />
             </div>
             
             <div className="p-6">

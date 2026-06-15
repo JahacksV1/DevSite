@@ -255,8 +255,8 @@ export const ProjectCaseStudy = ({ project }: Props) => {
               <Link href="/projects" className={cn('px-5 py-2.5 rounded-xl text-sm font-semibold', 'bg-bg-tertiary border border-border-subtle text-text-secondary', 'hover:border-primary hover:text-primary transition-all duration-200')}>
                 ← All Projects
               </Link>
-              <Link href="/upwork" className={cn('px-5 py-2.5 rounded-xl text-sm font-semibold', 'bg-primary/10 border border-primary/30 text-primary', 'hover:bg-primary/20 transition-all duration-200')}>
-                View Portfolio →
+              <Link href="/pricing" className={cn('px-5 py-2.5 rounded-xl text-sm font-semibold', 'bg-primary/10 border border-primary/30 text-primary', 'hover:bg-primary/20 transition-all duration-200')}>
+                See Pricing →
               </Link>
             </div>
           </div>

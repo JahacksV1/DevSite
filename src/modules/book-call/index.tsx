@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { PreQualForm } from './components/PreQualForm'
 import { QualificationResult } from './components/QualificationResult'
 import { usePreQualForm } from './hooks/usePreQualForm'
@@ -11,12 +10,7 @@ const PreQualPage = () => {
   return (
     <div className="min-h-screen pt-24 pb-32">
       <div className="container-main">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 max-w-3xl mx-auto"
-        >
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="block text-text-primary mb-2">Book Your</span>
             <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
@@ -30,14 +24,9 @@ const PreQualPage = () => {
               (This takes 60 seconds. No commitment required.)
             </span>
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto"
-        >
+        <div className="max-w-2xl mx-auto">
           {!hookData.result ? (
             <PreQualForm hookData={hookData} />
           ) : (
@@ -47,7 +36,7 @@ const PreQualPage = () => {
               onReset={hookData.reset}
             />
           )}
-        </motion.div>
+        </div>
       </div>
     </div>
   )

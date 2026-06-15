@@ -88,9 +88,20 @@
            transition-all duration-300;
   }
 
+  /* Static info cards — no hover affordance */
+  .card-static {
+    @apply card-base;
+  }
+
+  /* Clickable cards — full interactive affordance */
   .card-interactive {
     @apply card-base hover:border-primary cursor-pointer
-           hover:shadow-[0_0_30px_rgba(0,255,198,0.15)];
+           hover:shadow-[0_0_30px_rgba(0,255,198,0.15)]
+           transition-transform duration-200 hover:-translate-y-1;
+  }
+
+  .card-interactive-title {
+    @apply group-hover:text-primary transition-colors duration-200;
   }
 
   /* Gradient text */

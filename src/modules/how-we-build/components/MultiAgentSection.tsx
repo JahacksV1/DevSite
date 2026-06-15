@@ -111,14 +111,7 @@ export const MultiAgentSection = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div
-                className={cn(
-                  'h-full p-6 rounded-xl',
-                  'bg-bg-secondary border border-border-subtle',
-                  'hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,198,0.1)]',
-                  'transition-all duration-300'
-                )}
-              >
+              <div className="h-full p-6 rounded-xl card-static">
                 {/* Icon */}
                 <div
                   className={cn(

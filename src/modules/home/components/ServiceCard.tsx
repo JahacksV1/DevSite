@@ -35,24 +35,18 @@ export const ServiceCard = ({
       transition={{ duration: 0.6, delay: index * 0.1 }}
     >
       <motion.div
-        whileHover={{ y: -4 }}
-        transition={{ duration: 0.2 }}
         className={cn(
-          'group h-full p-8 rounded-xl',
-          'bg-bg-secondary border border-border-subtle',
-          'hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,198,0.15)]',
-          'transition-all duration-300',
-          'cursor-pointer'
+          'group h-full p-8 rounded-xl card-static'
         )}
       >
         {/* Icon */}
         <div
           className={cn(
             'w-12 h-12 rounded-lg flex items-center justify-center mb-6',
-            'bg-gradient-to-br transition-all duration-300',
+            'bg-gradient-to-br',
             color === 'primary'
-              ? 'from-primary/20 to-primary/10 group-hover:from-primary/30 group-hover:to-primary/20'
-              : 'from-secondary/20 to-secondary/10 group-hover:from-secondary/30 group-hover:to-secondary/20'
+              ? 'from-primary/20 to-primary/10'
+              : 'from-secondary/20 to-secondary/10'
           )}
         >
           <Icon
@@ -64,7 +58,7 @@ export const ServiceCard = ({
         </div>
 
         {/* Content */}
-        <h3 className="text-xl font-semibold text-text-primary mb-3 group-hover:text-primary transition-colors">
+        <h3 className="text-xl font-semibold text-text-primary mb-3">
           {title}
         </h3>
         <p className="text-text-secondary mb-4 leading-relaxed">

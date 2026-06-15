@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import Script from 'next/script'
 import '@/styles/globals.css'
-import { Navigation, Footer } from '@/components/layout'
+import { Navigation, Footer, NavigationProgress } from '@/components/layout'
 import { CalProvider } from '@/components/CalProvider'
 import { PageTransition } from '@/components/animations'
 
@@ -48,6 +48,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
         <CalProvider>
+          <NavigationProgress />
           <Navigation />
           <main className="flex-1 pt-16 md:pt-20">
             <PageTransition>{children}</PageTransition>

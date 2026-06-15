@@ -49,9 +49,9 @@ export const FinalCTA = () => {
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link href="/upwork">
+            <Link href="/pricing">
               <Button variant="secondary" size="lg">
-                View Full Portfolio
+                See Pricing
               </Button>
             </Link>
           </motion.div>

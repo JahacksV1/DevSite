@@ -13,7 +13,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
   { href: '/how-we-build', label: 'How We Build' },
-  { href: '/upwork', label: 'Portfolio' },
+  { href: '/pricing', label: 'Pricing' },
 ]
 
 // Animation variants from ANIMATION_SYSTEM.md
@@ -83,8 +83,8 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               
               {/* CTA Button */}
               <motion.div variants={itemVariants} className="pt-4 mt-2 border-t border-border-subtle">
-                <NavLink href="/upwork" onClick={onClose} className="w-full">
-                  View Portfolio →
+                <NavLink href="/projects" onClick={onClose} className="w-full">
+                  View Projects →
                 </NavLink>
               </motion.div>
             </motion.div>

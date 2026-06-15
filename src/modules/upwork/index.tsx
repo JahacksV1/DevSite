@@ -35,7 +35,7 @@ export const UpworkPortfolio = () => {
       {/* Header */}
       <section className="py-20 md:py-28 border-b border-border-subtle">
         <div className="container-main max-w-4xl text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bg-tertiary border border-border-subtle mb-8">
               <Zap className="w-4 h-4 text-primary" />
               <span className="text-sm text-text-secondary font-medium">AI-Assisted Full-Stack Development</span>
@@ -68,7 +68,7 @@ export const UpworkPortfolio = () => {
             <p className="mt-8 text-xs text-text-muted">
               If you found this page through Upwork, please keep all communication on the Upwork platform.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
