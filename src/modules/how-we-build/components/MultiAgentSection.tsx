@@ -69,48 +69,28 @@ export const MultiAgentSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
             Meet the Multi-Agent Orchestra
           </h2>
-          <p className="text-lg text-text-secondary max-w-3xl mx-auto mb-8">
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
             While traditional developers write code line-by-line, we direct
-            specialized agents that work simultaneously. Each agent has one job.
-            All guided by your Context Passport.
+            specialized agents that work simultaneously. Each agent has one job —
+            and they all run at the same time.
           </p>
-
-          {/* Comparison */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-12">
-            <div className="p-6 rounded-xl bg-bg-tertiary border border-border-subtle">
-              <div className="text-text-muted text-sm font-semibold mb-3 uppercase tracking-wide">
-                Traditional Process
-              </div>
-              <div className="text-text-secondary text-sm space-y-2 text-left">
-                <div>Week 1-2: Requirements gathering</div>
-                <div>Week 3-4: Design mockups</div>
-                <div>Week 5-8: Development (sequential)</div>
-                <div>Week 9-10: Testing & QA</div>
-                <div className="pt-3 text-text-muted">→ 10-12 weeks total</div>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30">
-              <div className="text-primary text-sm font-semibold mb-3 uppercase tracking-wide">
-                Day One Process
-              </div>
-              <div className="text-text-secondary text-sm space-y-2 text-left">
-                <div>Day 1: Discovery + Context Passport</div>
-                <div>Day 2-3: Multi-agent build (parallel)</div>
-                <div>Day 4-5: Human review + refinement</div>
-                <div>Day 6-7: Deploy + handoff</div>
-                <div className="pt-3 text-primary font-semibold">
-                  → 7-14 days total
-                </div>
-              </div>
-            </div>
-          </div>
         </motion.div>
+
+        {/* Bridge line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-sm font-semibold text-text-muted uppercase tracking-widest text-center mb-8"
+        >
+          Here&apos;s who&apos;s on the team
+        </motion.p>
 
         {/* Agent Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -155,7 +135,44 @@ export const MultiAgentSection = () => {
           ))}
         </div>
 
-        {/* Context Passport Explanation */}
+        {/* Comparison */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+        >
+          <div className="p-6 rounded-xl bg-bg-tertiary border border-border-subtle">
+            <div className="text-text-muted text-sm font-semibold mb-3 uppercase tracking-wide">
+              Traditional Process
+            </div>
+            <div className="text-text-secondary text-sm space-y-2 text-left">
+              <div>Week 1-2: Requirements gathering</div>
+              <div>Week 3-4: Design mockups</div>
+              <div>Week 5-8: Development (sequential)</div>
+              <div>Week 9-10: Testing & QA</div>
+              <div className="pt-3 text-text-muted">→ 10-12 weeks total</div>
+            </div>
+          </div>
+
+          <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/30">
+            <div className="text-primary text-sm font-semibold mb-3 uppercase tracking-wide">
+              Day One Process
+            </div>
+            <div className="text-text-secondary text-sm space-y-2 text-left">
+              <div>Day 1: Discovery + scoping</div>
+              <div>Day 2-3: Multi-agent build (parallel)</div>
+              <div>Day 4-5: Human review + refinement</div>
+              <div>Day 6-7: Deploy + handoff</div>
+              <div className="pt-3 text-primary font-semibold">
+                → 7-14 days total
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Shared Brief Explanation */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -164,38 +181,38 @@ export const MultiAgentSection = () => {
           className="mt-16 p-8 rounded-xl bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20"
         >
           <h3 className="text-2xl font-bold text-text-primary mb-4 text-center">
-            All Guided by Your Context Passport
+            It Starts With a Shared Brief
           </h3>
           <p className="text-text-secondary text-center max-w-3xl mx-auto mb-6">
-            Before any agent writes code, we create your Context Passport —
-            shared understanding of your vision, users, and requirements. This
-            keeps all agents aligned and ensures everything feels cohesive.
+            Before any agent writes code, we build a shared project brief with
+            you — your goals, your users, your priorities. Every agent works
+            from the same document so nothing gets built in the wrong direction.
           </p>
           <div className="grid md:grid-cols-4 gap-4 text-center text-sm">
             <div>
               <div className="font-semibold text-primary mb-1">
-                Business Model
+                Who It&apos;s For
               </div>
-              <div className="text-text-muted">Who pays, for what, why</div>
+              <div className="text-text-muted">Target users and their needs</div>
             </div>
             <div>
               <div className="font-semibold text-primary mb-1">
-                User Personas
+                What It Does
               </div>
-              <div className="text-text-muted">Real people, real needs</div>
+              <div className="text-text-muted">Core features and scope</div>
             </div>
             <div>
               <div className="font-semibold text-primary mb-1">
-                Feature Priorities
+                What Ships First
               </div>
-              <div className="text-text-muted">What ships Day 1 vs. later</div>
+              <div className="text-text-muted">MVP vs. later milestones</div>
             </div>
             <div>
               <div className="font-semibold text-primary mb-1">
-                Brand Guidelines
+                Look &amp; Feel
               </div>
               <div className="text-text-muted">
-                Tone, style, technical needs
+                Tone, style, technical constraints
               </div>
             </div>
           </div>

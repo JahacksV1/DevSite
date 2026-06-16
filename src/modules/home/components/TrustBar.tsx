@@ -22,12 +22,6 @@ const techStack = [
   'Sentry',
 ]
 
-const capabilities = [
-  { value: '7', label: 'Shipped Products' },
-  { value: '4', label: 'Live Deployments' },
-  { value: '3', label: 'Active SaaS Platforms' },
-  { value: '2', label: 'Engineers' },
-]
 
 export const TrustBar = () => {
   return (
@@ -63,23 +57,6 @@ export const TrustBar = () => {
           </motion.div>
         </div>
 
-        {/* Capability stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
-        >
-          {capabilities.map((stat) => (
-            <div key={stat.label}>
-              <div className="text-3xl font-bold text-primary mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm text-text-muted">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )

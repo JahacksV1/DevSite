@@ -44,11 +44,8 @@ export const HeroSection = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-4 leading-relaxed">
+          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed">
             We build MVPs, internal tools, AI workflow systems, and SaaS products for founders and businesses that need working software without agency timelines.
-          </p>
-          <p className="text-base text-text-muted max-w-xl mx-auto mb-12 leading-relaxed">
-            AI-assisted engineering workflows. Milestone-based delivery. Human oversight over architecture, security, and quality.
           </p>
 
           {/* CTAs */}

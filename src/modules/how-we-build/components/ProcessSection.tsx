@@ -13,37 +13,37 @@ const steps = [
   {
     icon: MessageSquare,
     day: 'Day 1',
-    title: 'Discovery + Context Engineering',
+    title: 'Discovery + Scoping',
     description:
-      'Deep dive into your vision. We extract requirements, clarify your business model, and build your Context Passport.',
+      'We get on a call, understand what you need, and define the scope. By end of day we have a clear project brief, tech stack, and milestone plan.',
   },
   {
     icon: FileText,
     day: 'Day 2-3',
     title: 'Multi-Agent Build',
     description:
-      'Agents work in parallel. Architecture, frontend, backend, tests — all happening simultaneously, all guided by shared context.',
+      'Agents handle architecture, frontend, backend, and tests in parallel — all working from the same brief. What takes weeks sequentially gets done in days.',
   },
   {
     icon: Eye,
     day: 'Day 4-5',
     title: 'Human Review + Refinement',
     description:
-      'Senior engineers review every line. Architecture validated, security hardened, performance optimized. AI builds fast, humans ensure quality.',
+      'Engineers go through every part of the codebase. Security, architecture, edge cases — anything the agents missed gets caught and fixed here.',
   },
   {
     icon: Rocket,
     day: 'Day 6-7',
     title: 'Deploy + Handoff',
     description:
-      'Live deployment, GitHub repo transferred, documentation complete. You own everything. We walk you through the codebase.',
+      'We deploy to production, transfer the GitHub repo, and walk you through the codebase. You own everything — code, infra, IP.',
   },
   {
     icon: HeadphonesIcon,
     day: 'Day 8-30',
     title: 'Post-Launch Support',
     description:
-      "Bug fixes, questions, small tweaks. We don't disappear after launch. 30-day support included with every project.",
+      "Bug fixes, questions, small adjustments. We stay available for 30 days after launch so you're not left figuring things out on your own.",
   },
 ]
 
