@@ -40,6 +40,87 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'home-service-demos',
+    slug: 'home-service-demos',
+    title: 'Home Service Demo Sites',
+    subtitle: 'Modular Local Business Website System',
+    category: 'Local Business',
+    description:
+      'Three production-ready local service business websites — plumbing, landscaping, and tree service — built from a single reusable component base. Each site has industry-specific copy, service pages, lead capture forms, customer reviews, FAQ sections, and mobile-optimized call-to-action flows.',
+    challenge:
+      'Local service businesses need professional websites quickly at prices that make sense for a plumber or landscaper. Most agencies charge too much or deliver template-looking results. This proves production-quality local business sites can be built rapidly and replicated across verticals.',
+    solution: [
+      'Three distinct industry themes: plumbing, landscaping, and tree service',
+      'Hero sections with professional imagery and prominent mobile CTAs',
+      'Service detail pages with scope descriptions and trust signals',
+      'Lead capture forms with server-side validation',
+      'Customer review sections with star ratings and testimonials',
+      'FAQ sections with structured data markup for SEO',
+      'Mobile-first layouts with sticky call buttons for local customer behavior',
+      'Reusable component architecture — swap business details, keep the structure',
+    ],
+    techStack: ['Next.js 16', 'React 19', 'Tailwind', 'TypeScript'],
+    techDetails: [
+      {
+        name: 'Next.js 16',
+        purpose:
+          'Static generation for fast load times; API routes for lead form submission handling',
+      },
+      {
+        name: 'React 19',
+        purpose:
+          'Server Components for SEO content, Client Components for interactive lead forms',
+      },
+      {
+        name: 'Tailwind',
+        purpose:
+          'Distinct brand color systems per vertical while sharing the same component primitives',
+      },
+      {
+        name: 'TypeScript',
+        purpose:
+          'Typed component props for clean business-detail swapping across service verticals',
+      },
+    ],
+    uniqueFeatures: [
+      'Three verticals in one repo — demonstrates modular architecture over copy-paste development',
+      'Lead forms structured to connect to any CRM, Zapier, or email service without code changes',
+      'Each site has a distinct visual identity despite sharing the same component base',
+      'Mobile CTAs optimized for the actual behavior of local business customers: tap to call, tap to text',
+    ],
+    architectureHighlights: [
+      'Single component base with vertical-specific config objects — adding a new industry takes hours, not days',
+      'Static generation for all public pages ensures near-instant load times without a server',
+      'Form validation runs on both client (UX) and server (security) layers',
+    ],
+    relevantFor: [
+      'Local business and SMB websites',
+      'Agency or franchise website systems',
+      'Lead generation landing pages',
+      'Multi-location or multi-brand site systems',
+      'Fast-turnaround business sites',
+    ],
+    results:
+      'Live portfolio at home-service-demos.vercel.app. Used as proof-of-concept for client pitches in local business verticals. Demonstrates ability to deliver professional sites quickly across multiple industries.',
+    demoStatus: 'Live — Public',
+    screenshots: [
+      '/projects/home-service-01-hub.png',
+      '/projects/home-service-02-plumbing-hero.png',
+      '/projects/home-service-03-plumbing-services.png',
+      '/projects/home-service-04-plumbing-contact.png',
+      '/projects/home-service-05-landscaping-hero.png',
+      '/projects/home-service-06-landscaping-projects.png',
+      '/projects/home-service-07-landscaping-services.png',
+      '/projects/home-service-08-tree-hero.png',
+      '/projects/home-service-09-tree-emergency.png',
+      '/projects/home-service-10-tree-services.png',
+      '/projects/home-service-11-tree-process.png',
+    ],
+    demoUrl: 'https://home-service-demos.vercel.app',
+    featured: false,
+    productionGrade: false,
+  },
+  {
     id: 'muni-clerk',
     slug: 'muni-clerk',
     title: 'Muni Clerk',
@@ -117,8 +198,8 @@ export const projects: Project[] = [
     screenshots: [
       '/projects/muni-clerk-01-guest-upload.png',
       '/projects/muni-clerk-02-upload.png',
-      '/projects/muni-clerk-04-review.png',
       '/projects/muni-clerk-05-summary.png',
+      '/projects/muni-clerk-04-review.png',
       '/projects/muni-clerk-03-documents.png',
     ],
     featured: true,
@@ -231,179 +312,6 @@ export const projects: Project[] = [
     productionGrade: true,
   },
   {
-    id: 'social-q',
-    slug: 'social-q',
-    title: 'Social Q',
-    subtitle: 'AI-Powered Social Communication Coach',
-    category: 'Consumer',
-    description:
-      'A mobile-first AI app that analyzes conversation context — typed messages, screenshots, or voice — and gives situation-aware communication guidance. A "Situation Intelligence" routing layer adjusts response depth to match context quality, producing advice that fits the actual moment rather than generic AI output.',
-    challenge:
-      'Generic AI writing tools return the same output regardless of social context. Users needed something that understood conversation nuance — connection level, timing, tone, intent — and adjusted its analysis accordingly.',
-    solution: [
-      'Situation Intelligence routing layer that classifies context depth before triggering full analysis',
-      'Omni-bouncer system routing inputs across clarification, analysis, and meta-reply modes',
-      'Per-intent accent theming — UI color shifts dynamically based on selected goal',
-      'Screenshot-to-text extraction for analyzing conversation images',
-      'Voice input via Deepgram speech-to-text',
-      'Threaded conversation history with optimistic UI updates',
-      'Send options panel with compact and detailed response variants',
-      'Supabase anonymous sessions for first-use without account creation',
-    ],
-    techStack: [
-      'Next.js 16',
-      'OpenAI',
-      'Deepgram',
-      'Supabase',
-      'Tailwind',
-      'React 19',
-      'Turbopack',
-    ],
-    techDetails: [
-      {
-        name: 'Next.js 16',
-        purpose:
-          'App Router with Turbopack, Server Actions for AI pipeline orchestration',
-      },
-      {
-        name: 'OpenAI',
-        purpose:
-          'Structured outputs for situation classification, response generation, and meta-reply routing',
-      },
-      {
-        name: 'Deepgram',
-        purpose:
-          'Real-time speech-to-text for voice input on the message composer',
-      },
-      {
-        name: 'Supabase',
-        purpose:
-          'Auth (including anonymous sessions), thread history, and user profile storage',
-      },
-      {
-        name: 'React 19',
-        purpose:
-          'Concurrent features and optimistic state for instant thread submission UX',
-      },
-      {
-        name: 'Tailwind + CSS custom properties',
-        purpose:
-          'Dynamic per-intent accent theming using CSS color-mix and design tokens',
-      },
-    ],
-    uniqueFeatures: [
-      'Situation Intelligence router — skips clarification for clear inputs, adds depth for ambiguous ones',
-      "Dynamic intent theming — the entire UI accent color shifts based on the user's selected communication goal",
-      'Three input modalities in a single composer: voice, screenshot, and text',
-      'Optimistic thread submission with a pending overlay so responses feel instant on mobile',
-    ],
-    architectureHighlights: [
-      'Multi-level routing pipeline: context classification → bouncer → analysis → response generation',
-      'OpenAI structured outputs enforce consistent JSON schema across all analysis modes',
-      'Anonymous-first session model upgrades to authenticated profile on demand',
-      'Turbopack build pipeline for fast HMR during active feature development',
-    ],
-    relevantFor: [
-      'Consumer AI applications',
-      'Social and dating app features',
-      'Mobile-first product development',
-      'AI workflow systems with multi-step routing',
-      'Voice-enabled applications',
-    ],
-    results:
-      'Live at socialq.chat with an active feature development roadmap. Demonstrates full consumer AI product architecture including multi-modal input, session management, and dynamic UI theming.',
-    demoStatus: 'Live — Auth Required',
-    screenshots: [
-      '/projects/social-q-01-composer.png',
-      '/projects/social-q-02-read.png',
-      '/projects/social-q-03-send-options.png',
-    ],
-    demoUrl: 'https://socialq.chat',
-    featured: true,
-    productionGrade: true,
-  },
-  {
-    id: 'home-service-demos',
-    slug: 'home-service-demos',
-    title: 'Home Service Demo Sites',
-    subtitle: 'Modular Local Business Website System',
-    category: 'Local Business',
-    description:
-      'Three production-ready local service business websites — plumbing, landscaping, and tree service — built from a single reusable component base. Each site has industry-specific copy, service pages, lead capture forms, customer reviews, FAQ sections, and mobile-optimized call-to-action flows.',
-    challenge:
-      'Local service businesses need professional websites quickly at prices that make sense for a plumber or landscaper. Most agencies charge too much or deliver template-looking results. This proves production-quality local business sites can be built rapidly and replicated across verticals.',
-    solution: [
-      'Three distinct industry themes: plumbing, landscaping, and tree service',
-      'Hero sections with professional imagery and prominent mobile CTAs',
-      'Service detail pages with scope descriptions and trust signals',
-      'Lead capture forms with server-side validation',
-      'Customer review sections with star ratings and testimonials',
-      'FAQ sections with structured data markup for SEO',
-      'Mobile-first layouts with sticky call buttons for local customer behavior',
-      'Reusable component architecture — swap business details, keep the structure',
-    ],
-    techStack: ['Next.js 16', 'React 19', 'Tailwind', 'TypeScript'],
-    techDetails: [
-      {
-        name: 'Next.js 16',
-        purpose:
-          'Static generation for fast load times; API routes for lead form submission handling',
-      },
-      {
-        name: 'React 19',
-        purpose:
-          'Server Components for SEO content, Client Components for interactive lead forms',
-      },
-      {
-        name: 'Tailwind',
-        purpose:
-          'Distinct brand color systems per vertical while sharing the same component primitives',
-      },
-      {
-        name: 'TypeScript',
-        purpose:
-          'Typed component props for clean business-detail swapping across service verticals',
-      },
-    ],
-    uniqueFeatures: [
-      'Three verticals in one repo — demonstrates modular architecture over copy-paste development',
-      'Lead forms structured to connect to any CRM, Zapier, or email service without code changes',
-      'Each site has a distinct visual identity despite sharing the same component base',
-      'Mobile CTAs optimized for the actual behavior of local business customers: tap to call, tap to text',
-    ],
-    architectureHighlights: [
-      'Single component base with vertical-specific config objects — adding a new industry takes hours, not days',
-      'Static generation for all public pages ensures near-instant load times without a server',
-      'Form validation runs on both client (UX) and server (security) layers',
-    ],
-    relevantFor: [
-      'Local business and SMB websites',
-      'Agency or franchise website systems',
-      'Lead generation landing pages',
-      'Multi-location or multi-brand site systems',
-      'Fast-turnaround business sites',
-    ],
-    results:
-      'Live portfolio at home-service-demos.vercel.app. Used as proof-of-concept for client pitches in local business verticals. Demonstrates ability to deliver professional sites quickly across multiple industries.',
-    demoStatus: 'Live — Public',
-    screenshots: [
-      '/projects/home-service-01-hub.png',
-      '/projects/home-service-02-plumbing-hero.png',
-      '/projects/home-service-03-plumbing-services.png',
-      '/projects/home-service-04-plumbing-contact.png',
-      '/projects/home-service-05-landscaping-hero.png',
-      '/projects/home-service-06-landscaping-projects.png',
-      '/projects/home-service-07-landscaping-services.png',
-      '/projects/home-service-08-tree-hero.png',
-      '/projects/home-service-09-tree-emergency.png',
-      '/projects/home-service-10-tree-services.png',
-      '/projects/home-service-11-tree-process.png',
-    ],
-    demoUrl: 'https://home-service-demos.vercel.app',
-    featured: false,
-    productionGrade: false,
-  },
-  {
     id: 'immigration-app',
     slug: 'immigration-app',
     title: 'Immigration Letter Generator',
@@ -504,6 +412,99 @@ export const projects: Project[] = [
     featured: false,
     productionGrade: false,
   },
+  {
+    id: 'social-q',
+    slug: 'social-q',
+    title: 'Social Q',
+    subtitle: 'AI-Powered Social Communication Coach',
+    category: 'Consumer',
+    description:
+      'A mobile-first AI app that analyzes conversation context — typed messages, screenshots, or voice — and gives situation-aware communication guidance. A "Situation Intelligence" routing layer adjusts response depth to match context quality, producing advice that fits the actual moment rather than generic AI output.',
+    challenge:
+      'Generic AI writing tools return the same output regardless of social context. Users needed something that understood conversation nuance — connection level, timing, tone, intent — and adjusted its analysis accordingly.',
+    solution: [
+      'Situation Intelligence routing layer that classifies context depth before triggering full analysis',
+      'Omni-bouncer system routing inputs across clarification, analysis, and meta-reply modes',
+      'Per-intent accent theming — UI color shifts dynamically based on selected goal',
+      'Screenshot-to-text extraction for analyzing conversation images',
+      'Voice input via Deepgram speech-to-text',
+      'Threaded conversation history with optimistic UI updates',
+      'Send options panel with compact and detailed response variants',
+      'Supabase anonymous sessions for first-use without account creation',
+    ],
+    techStack: [
+      'Next.js 16',
+      'OpenAI',
+      'Deepgram',
+      'Supabase',
+      'Tailwind',
+      'React 19',
+      'Turbopack',
+    ],
+    techDetails: [
+      {
+        name: 'Next.js 16',
+        purpose:
+          'App Router with Turbopack, Server Actions for AI pipeline orchestration',
+      },
+      {
+        name: 'OpenAI',
+        purpose:
+          'Structured outputs for situation classification, response generation, and meta-reply routing',
+      },
+      {
+        name: 'Deepgram',
+        purpose:
+          'Real-time speech-to-text for voice input on the message composer',
+      },
+      {
+        name: 'Supabase',
+        purpose:
+          'Auth (including anonymous sessions), thread history, and user profile storage',
+      },
+      {
+        name: 'React 19',
+        purpose:
+          'Concurrent features and optimistic state for instant thread submission UX',
+      },
+      {
+        name: 'Tailwind + CSS custom properties',
+        purpose:
+          'Dynamic per-intent accent theming using CSS color-mix and design tokens',
+      },
+    ],
+    uniqueFeatures: [
+      'Situation Intelligence router — skips clarification for clear inputs, adds depth for ambiguous ones',
+      "Dynamic intent theming — the entire UI accent color shifts based on the user's selected communication goal",
+      'Three input modalities in a single composer: voice, screenshot, and text',
+      'Optimistic thread submission with a pending overlay so responses feel instant on mobile',
+    ],
+    architectureHighlights: [
+      'Multi-level routing pipeline: context classification → bouncer → analysis → response generation',
+      'OpenAI structured outputs enforce consistent JSON schema across all analysis modes',
+      'Anonymous-first session model upgrades to authenticated profile on demand',
+      'Turbopack build pipeline for fast HMR during active feature development',
+    ],
+    relevantFor: [
+      'Consumer AI applications',
+      'Social and dating app features',
+      'Mobile-first product development',
+      'AI workflow systems with multi-step routing',
+      'Voice-enabled applications',
+    ],
+    results:
+      'Live at socialq.chat with an active feature development roadmap. Demonstrates full consumer AI product architecture including multi-modal input, session management, and dynamic UI theming.',
+    demoStatus: 'Live — Auth Required',
+    screenshots: [
+      '/projects/social-q-01-composer.png',
+      '/projects/social-q-02-read.png',
+      '/projects/social-q-03-send-options.png',
+      '/projects/social-q-04-send-options.png',
+    ],
+    demoUrl: 'https://socialq.chat',
+    featured: true,
+    productionGrade: true,
+  }
 ]
 
 export const categories = [
