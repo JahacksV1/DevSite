@@ -82,39 +82,43 @@ export const ProjectScreenshotGallery = ({
               ref={scrollRef}
               className={cn(
                 'overflow-y-auto overflow-x-hidden overscroll-contain',
-                isMobile && 'flex justify-center px-4 py-6 md:px-8 md:py-8',
                 resolvedMaxHeight
               )}
             >
-              {screenshots.map((src, index) => (
-                <div
-                  key={src}
-                  className={cn(
-                    index === activeShot ? 'block' : 'hidden',
-                    isMobile && 'w-full max-w-[320px] sm:max-w-[360px] mx-auto'
-                  )}
-                >
-                  <Image
-                    src={src}
-                    alt={`${title} screenshot ${index + 1}`}
-                    width={dimensions.width}
-                    height={dimensions.height}
-                    {...projectScreenshotImageProps}
-                    priority={index === 0}
-                    draggable={false}
+              <div className={cn('grid', isMobile && 'px-4 py-6 md:px-8 md:py-8')}>
+                {screenshots.map((src, index) => (
+                  <div
+                    key={src}
                     className={cn(
-                      'block h-auto w-full',
-                      isMobile &&
-                        'rounded-[1.75rem] shadow-2xl ring-1 ring-white/10'
+                      'row-start-1 col-start-1 transition-opacity duration-300',
+                      isMobile && 'flex justify-center',
+                      index !== activeShot && 'opacity-0 pointer-events-none'
                     )}
-                    sizes={
-                      isMobile
-                        ? '(max-width: 640px) 280px, 360px'
-                        : '(max-width: 1024px) 100vw, 1024px'
-                    }
-                  />
-                </div>
-              ))}
+                  >
+                    <div className={cn(isMobile && 'w-full max-w-[320px] sm:max-w-[360px]')}>
+                      <Image
+                        src={src}
+                        alt={`${title} screenshot ${index + 1}`}
+                        width={dimensions.width}
+                        height={dimensions.height}
+                        {...projectScreenshotImageProps}
+                        priority={index === 0}
+                        draggable={false}
+                        className={cn(
+                          'block h-auto w-full',
+                          isMobile &&
+                            'rounded-[1.75rem] shadow-2xl ring-1 ring-white/10'
+                        )}
+                        sizes={
+                          isMobile
+                            ? '(max-width: 640px) 280px, 360px'
+                            : '(max-width: 1024px) 100vw, 1024px'
+                        }
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {hasMultiple && (
