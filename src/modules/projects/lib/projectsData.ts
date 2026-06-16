@@ -32,6 +32,7 @@ export interface Project {
     | 'Private — Case Study Only'
     | 'In Development'
   screenshots: string[]
+  screenshotLayout?: 'desktop' | 'mobile'
   demoUrl?: string
   featured: boolean
   productionGrade: boolean
@@ -313,96 +314,13 @@ export const projects: Project[] = [
       'Live at socialq.chat with an active feature development roadmap. Demonstrates full consumer AI product architecture including multi-modal input, session management, and dynamic UI theming.',
     demoStatus: 'Live — Auth Required',
     screenshots: [
-      '/projects/social-q-composer.png',
-      '/projects/social-q-thread.png',
+      '/projects/social-q-01-composer.png',
+      '/projects/social-q-02-read.png',
+      '/projects/social-q-03-send-options.png',
     ],
     demoUrl: 'https://socialq.chat',
     featured: true,
     productionGrade: true,
-  },
-  {
-    id: 'smartshelf',
-    slug: 'smartshelf',
-    title: 'SmartShelf',
-    subtitle: 'AI-Powered Personal Learning Dashboard',
-    category: 'AI',
-    description:
-      'A personal knowledge management SaaS that tracks audiobooks, captures learning notes by category, and uses GPT to make your knowledge interactive. Ask questions across all your notes, generate custom quizzes from your content, and track learning habits with a progress dashboard.',
-    challenge:
-      "Most people who consume learning content — audiobooks, podcasts, courses — have no organized system to retain and apply what they've learned. Existing apps are either too simple (notes apps) or too heavy (second-brain tools). SmartShelf bridges the gap with AI-driven recall and application.",
-    solution: [
-      'Audiobook library with reading progress tracking and completion status',
-      'Categorized learning notes (business, marketing, leadership, personal development)',
-      'Tag system with full-text search across all notes',
-      'GPT-powered Q&A — ask questions against your own notes',
-      'AI quiz generation from your specific learning content',
-      'Study recommendations based on knowledge gap analysis',
-      'Progress dashboard with habit tracking and learning analytics',
-      'Authentication with user-specific knowledge isolation',
-    ],
-    techStack: [
-      'Next.js 14',
-      'Supabase',
-      'OpenAI',
-      'Tailwind',
-      'TypeScript',
-      'PostgreSQL',
-    ],
-    techDetails: [
-      {
-        name: 'Next.js 14',
-        purpose:
-          'App Router with page-level data fetching for notes, books, and analytics views',
-      },
-      {
-        name: 'Supabase',
-        purpose:
-          'Auth, full-text search on notes, PostgreSQL for structured learning data and habit records',
-      },
-      {
-        name: 'OpenAI',
-        purpose:
-          'GPT-4 for Q&A against user notes, quiz generation, and study recommendations',
-      },
-      {
-        name: 'Tailwind',
-        purpose:
-          'Dashboard layout with a focus on readability and information density',
-      },
-      {
-        name: 'PLpgSQL',
-        purpose:
-          'Full-text search indexes and aggregation queries for the progress analytics dashboard',
-      },
-    ],
-    uniqueFeatures: [
-      "GPT Q&A is scoped to the user's own notes — not general knowledge, their personal knowledge base",
-      'Quiz generation pulls directly from note content, producing personalized study material',
-      'Category-based knowledge organization mirrors how professionals actually think (by domain, not by source)',
-      'Habit tracking tied to learning activity, not just app opens',
-    ],
-    architectureHighlights: [
-      'User-scoped GPT context injection — notes are retrieved and embedded in the prompt at query time',
-      'Supabase full-text search on note content for fast retrieval without a separate vector store',
-      'Progress analytics computed via SQL aggregations directly in Supabase, no separate analytics service',
-      'Authentication ensures total isolation between user knowledge bases',
-    ],
-    relevantFor: [
-      'AI SaaS dashboards',
-      'Knowledge management tools',
-      'Learning and productivity apps',
-      'GPT-integrated internal tools',
-      'User-scoped AI features',
-    ],
-    results:
-      'Demonstrates full AI SaaS architecture: authenticated user data, GPT-integrated workflows, persistent knowledge storage, and a dashboard with analytics. Relevant for clients building AI-powered internal tools or knowledge products.',
-    demoStatus: 'Private — Case Study Only',
-    screenshots: [
-      '/projects/smartshelf-dashboard.png',
-      '/projects/smartshelf-notes.png',
-    ],
-    featured: true,
-    productionGrade: false,
   },
   {
     id: 'home-service-demos',

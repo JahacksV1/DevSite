@@ -37,6 +37,7 @@ export const ProjectCaseStudy = ({ project }: Props) => {
             screenshots={project.screenshots}
             status={status}
             category={project.category}
+            screenshotLayout={project.screenshotLayout}
             maxHeightClassName="max-h-[520px] md:max-h-[580px]"
             roundedClassName="rounded-2xl"
           />

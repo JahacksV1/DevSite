@@ -2,10 +2,15 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { ExternalLink, Eye, Lock, Zap } from 'lucide-react'
+import { Lock, Zap } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { demoStatusBadges } from '../lib/demoStatus'
 import type { Project } from '../lib/projectsData'
+import {
+  getScreenshotDimensions,
+  isMobileScreenshotProject,
+  projectScreenshotImageProps,
+} from '../lib/projectUtils'
 
 interface ProjectCardProps {
   project: Project
@@ -20,6 +25,8 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   const status = demoStatusBadges[project.demoStatus]
   const heroShot = project.screenshots[0]
+  const isMobile = isMobileScreenshotProject(project)
+  const dimensions = getScreenshotDimensions(project.screenshotLayout)
 
   return (
     <motion.div
@@ -35,15 +42,39 @@ export const ProjectCard = ({
       onClick={onViewDetails}
     >
       {/* Screenshot / Preview */}
-      <div className="relative h-52 bg-gradient-to-br from-bg-tertiary to-bg-elevated overflow-hidden shrink-0">
+      <div
+        className={cn(
+          'relative h-52 overflow-hidden shrink-0',
+          isMobile
+            ? 'bg-zinc-950'
+            : 'bg-gradient-to-br from-bg-tertiary to-bg-elevated'
+        )}
+      >
         {heroShot ? (
-          <Image
-            src={heroShot}
-            alt={`${project.title} screenshot`}
-            fill
-            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+          isMobile ? (
+            <div className="absolute inset-0 flex items-center justify-center p-4">
+              <Image
+                src={heroShot}
+                alt={`${project.title} screenshot`}
+                width={dimensions.width}
+                height={dimensions.height}
+                {...projectScreenshotImageProps}
+                className="h-full w-auto max-h-full rounded-2xl object-contain shadow-lg ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.03]"
+                sizes="180px"
+              />
+            </div>
+          ) : (
+            <div className="absolute inset-3 rounded overflow-hidden shadow-sm group-hover:inset-2 transition-all duration-500">
+              <Image
+                src={heroShot}
+                alt={`${project.title} screenshot`}
+                fill
+                {...projectScreenshotImageProps}
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
+          )
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-6">
             <div className="w-12 h-12 rounded-xl bg-bg-tertiary border border-border-subtle flex items-center justify-center">
@@ -61,19 +92,6 @@ export const ProjectCard = ({
           </div>
         )}
 
-        {/* Hover overlay */}
-        <div
-          className={cn(
-            'absolute inset-0 bg-bg-primary/70 backdrop-blur-[2px]',
-            'flex items-center justify-center',
-            'opacity-0 group-hover:opacity-100 transition-opacity duration-300'
-          )}
-        >
-          <span className="flex items-center gap-2 text-primary font-semibold text-sm">
-            <Eye className="w-4 h-4" />
-            View Case Study
-          </span>
-        </div>
 
         {/* Badges */}
         <div className="absolute top-3 left-3">
@@ -150,39 +168,6 @@ export const ProjectCard = ({
           )}
         </div>
 
-        {/* Actions */}
-        <div className="flex gap-2 mt-auto">
-          {project.demoUrl && project.demoStatus === 'Live — Public' && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className={cn(
-                'flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold',
-                'bg-primary/10 border border-primary/30 text-primary',
-                'hover:bg-primary/20 transition-all duration-200'
-              )}
-            >
-              <ExternalLink className="w-3.5 h-3.5" />
-              Live Site
-            </a>
-          )}
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              onViewDetails()
-            }}
-            className={cn(
-              'flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold flex-1 justify-center',
-              'bg-bg-tertiary border border-border-subtle text-text-secondary',
-              'hover:border-primary hover:text-primary transition-all duration-200'
-            )}
-          >
-            <Eye className="w-3.5 h-3.5" />
-            Full Breakdown
-          </button>
-        </div>
       </div>
     </motion.div>
   )

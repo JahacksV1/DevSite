@@ -5,15 +5,18 @@ import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { DemoStatusDetail } from '../lib/demoStatus'
-
-const SCREENSHOT_WIDTH = 1024
-const SCREENSHOT_HEIGHT = 582
+import {
+  getScreenshotDimensions,
+  projectScreenshotImageProps,
+} from '../lib/projectUtils'
+import type { Project } from '../lib/projectsData'
 
 interface ProjectScreenshotGalleryProps {
   title: string
   screenshots: string[]
   status: DemoStatusDetail
   category: string
+  screenshotLayout?: Project['screenshotLayout']
   maxHeightClassName?: string
   roundedClassName?: string
   headerActions?: ReactNode
@@ -24,7 +27,8 @@ export const ProjectScreenshotGallery = ({
   screenshots,
   status,
   category,
-  maxHeightClassName = 'max-h-[480px] md:max-h-[540px]',
+  screenshotLayout = 'desktop',
+  maxHeightClassName,
   roundedClassName = 'rounded-t-2xl',
   headerActions,
 }: ProjectScreenshotGalleryProps) => {
@@ -32,6 +36,11 @@ export const ProjectScreenshotGallery = ({
   const scrollRef = useRef<HTMLDivElement>(null)
   const hasScreenshots = screenshots.length > 0
   const hasMultiple = screenshots.length > 1
+  const isMobile = screenshotLayout === 'mobile'
+  const dimensions = getScreenshotDimensions(screenshotLayout)
+  const resolvedMaxHeight =
+    maxHeightClassName ??
+    (isMobile ? 'max-h-[520px] md:max-h-[580px]' : 'max-h-[480px] md:max-h-[540px]')
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 })
@@ -64,31 +73,45 @@ export const ProjectScreenshotGallery = ({
         {headerActions}
       </div>
 
-      <div className="relative w-full bg-white">
+      <div
+        className={cn('relative w-full', isMobile ? 'bg-zinc-950' : 'bg-white')}
+      >
         {hasScreenshots ? (
           <>
             <div
               ref={scrollRef}
               className={cn(
                 'overflow-y-auto overflow-x-hidden overscroll-contain',
-                maxHeightClassName
+                isMobile && 'flex justify-center px-4 py-6 md:px-8 md:py-8',
+                resolvedMaxHeight
               )}
             >
               {screenshots.map((src, index) => (
                 <div
                   key={src}
-                  className={index === activeShot ? 'block' : 'hidden'}
+                  className={cn(
+                    index === activeShot ? 'block' : 'hidden',
+                    isMobile && 'w-full max-w-[320px] sm:max-w-[360px] mx-auto'
+                  )}
                 >
                   <Image
                     src={src}
                     alt={`${title} screenshot ${index + 1}`}
-                    width={SCREENSHOT_WIDTH}
-                    height={SCREENSHOT_HEIGHT}
-                    unoptimized
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    {...projectScreenshotImageProps}
                     priority={index === 0}
                     draggable={false}
-                    className="w-full h-auto block"
-                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    className={cn(
+                      'block h-auto w-full',
+                      isMobile &&
+                        'rounded-[1.75rem] shadow-2xl ring-1 ring-white/10'
+                    )}
+                    sizes={
+                      isMobile
+                        ? '(max-width: 640px) 280px, 360px'
+                        : '(max-width: 1024px) 100vw, 1024px'
+                    }
                   />
                 </div>
               ))}
@@ -103,12 +126,13 @@ export const ProjectScreenshotGallery = ({
                   aria-label="Previous screenshot"
                   className={cn(
                     'absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full',
-                    'bg-white/95 backdrop-blur-sm border border-zinc-200 shadow-md',
-                    'hover:border-primary transition-colors',
-                    'disabled:opacity-30 disabled:pointer-events-none'
+                    isMobile
+                      ? 'bg-zinc-900/90 border border-zinc-700 text-zinc-100 shadow-md backdrop-blur-sm hover:border-primary'
+                      : 'bg-white/95 backdrop-blur-sm border border-zinc-300 text-zinc-700 shadow-md hover:border-primary hover:text-primary',
+                    'transition-colors disabled:opacity-30 disabled:pointer-events-none'
                   )}
                 >
-                  <ChevronLeft className="w-4 h-4 text-zinc-800" />
+                  <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   type="button"
@@ -117,12 +141,13 @@ export const ProjectScreenshotGallery = ({
                   aria-label="Next screenshot"
                   className={cn(
                     'absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full',
-                    'bg-white/95 backdrop-blur-sm border border-zinc-200 shadow-md',
-                    'hover:border-primary transition-colors',
-                    'disabled:opacity-30 disabled:pointer-events-none'
+                    isMobile
+                      ? 'bg-zinc-900/90 border border-zinc-700 text-zinc-100 shadow-md backdrop-blur-sm hover:border-primary'
+                      : 'bg-white/95 backdrop-blur-sm border border-zinc-300 text-zinc-700 shadow-md hover:border-primary hover:text-primary',
+                    'transition-colors disabled:opacity-30 disabled:pointer-events-none'
                   )}
                 >
-                  <ChevronRight className="w-4 h-4 text-zinc-800" />
+                  <ChevronRight className="w-4 h-4" />
                 </button>
 
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
@@ -137,7 +162,9 @@ export const ProjectScreenshotGallery = ({
                         'rounded-full transition-all duration-200 shadow-sm',
                         index === activeShot
                           ? 'bg-primary w-5 h-2'
-                          : 'bg-white/80 w-2 h-2 hover:bg-white'
+                          : isMobile
+                            ? 'bg-white/40 w-2 h-2 hover:bg-white/70'
+                            : 'bg-white/80 w-2 h-2 hover:bg-white'
                       )}
                     />
                   ))}

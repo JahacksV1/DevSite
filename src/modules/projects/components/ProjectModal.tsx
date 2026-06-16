@@ -44,6 +44,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             screenshots={project.screenshots}
             status={status}
             category={project.category}
+            screenshotLayout={project.screenshotLayout}
             headerActions={
               <button
                 type="button"
@@ -76,7 +77,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <ProjectDetailSections
               project={project}
               status={status}
-              onCaseStudyClick={onClose}
             />
           </div>
         </motion.div>

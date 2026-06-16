@@ -6,6 +6,10 @@ import { ArrowRight, ExternalLink, Lock, Zap } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
 import { cn } from '@/lib/utils'
+import {
+  getScreenshotDimensions,
+  projectScreenshotImageProps,
+} from '@/modules/projects/lib/projectUtils'
 
 const featured = [
   {
@@ -19,7 +23,7 @@ const featured = [
     highlight: 'Voice input + screenshot analysis + dynamic intent theming',
     status: 'Live',
     demoUrl: 'https://socialq.chat',
-    screenshot: '/projects/social-q-composer.png',
+    screenshot: '/projects/social-q-01-composer.png',
   },
   {
     id: 'bond-generator',
@@ -49,10 +53,7 @@ const featured = [
   },
 ]
 
-const statusStyles = {
-  Live: 'bg-primary/10 border-primary/40 text-primary',
-  'Auth-Gated': 'bg-text-muted/10 border-text-muted/30 text-text-muted',
-}
+const privateBadgeClass = 'bg-text-muted/10 border-text-muted/30 text-text-muted'
 
 export const FeaturedProjects = () => {
   return (
@@ -75,7 +76,11 @@ export const FeaturedProjects = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {featured.map((project, index) => (
+          {featured.map((project, index) => {
+            const isMobile = project.screenshotLayout === 'mobile'
+            const dimensions = getScreenshotDimensions(project.screenshotLayout)
+
+            return (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -90,15 +95,39 @@ export const FeaturedProjects = () => {
               )}
             >
               {/* Screenshot */}
-              <div className="relative h-48 bg-gradient-to-br from-bg-tertiary to-bg-elevated overflow-hidden shrink-0">
+              <div
+                className={cn(
+                  'relative h-48 overflow-hidden shrink-0',
+                  isMobile
+                    ? 'bg-zinc-950'
+                    : 'bg-gradient-to-br from-bg-tertiary to-bg-elevated'
+                )}
+              >
                 {project.screenshot ? (
-                  <Image
-                    src={project.screenshot}
-                    alt={`${project.title} preview`}
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
+                  isMobile ? (
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <Image
+                        src={project.screenshot}
+                        alt={`${project.title} preview`}
+                        width={dimensions.width}
+                        height={dimensions.height}
+                        {...projectScreenshotImageProps}
+                        className="h-full w-auto max-h-full rounded-2xl object-contain shadow-lg ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.03]"
+                        sizes="180px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="absolute inset-3 rounded overflow-hidden shadow-sm group-hover:inset-2 transition-all duration-500">
+                      <Image
+                        src={project.screenshot}
+                        alt={`${project.title} preview`}
+                        fill
+                        {...projectScreenshotImageProps}
+                        className="object-cover object-top"
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                      />
+                    </div>
+                  )
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
                     <div className="w-10 h-10 rounded-xl bg-bg-tertiary border border-border-subtle flex items-center justify-center">
@@ -114,12 +143,10 @@ export const FeaturedProjects = () => {
                   <span
                     className={cn(
                       'px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm',
-                      statusStyles[
-                        project.status as keyof typeof statusStyles
-                      ] ?? statusStyles['Live']
+                      privateBadgeClass
                     )}
                   >
-                    {project.status}
+                    Private
                   </span>
                 </div>
                 <div className="absolute top-3 right-3">
@@ -178,7 +205,8 @@ export const FeaturedProjects = () => {
                 )}
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
 
         <motion.div

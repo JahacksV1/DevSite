@@ -7,6 +7,11 @@ import { Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { demoStatusBadges } from '@/modules/projects/lib/demoStatus'
 import { projects } from '@/modules/projects/lib/projectsData'
+import {
+  getScreenshotDimensions,
+  isMobileScreenshotProject,
+  projectScreenshotImageProps,
+} from '@/modules/projects/lib/projectUtils'
 
 export const UpworkProjectGrid = () => {
   return (
@@ -32,6 +37,8 @@ export const UpworkProjectGrid = () => {
           {projects.map((project, index) => {
             const status = demoStatusBadges[project.demoStatus]
             const heroShot = project.screenshots[0]
+            const isMobile = isMobileScreenshotProject(project)
+            const dimensions = getScreenshotDimensions(project.screenshotLayout)
 
             return (
               <motion.div
@@ -50,15 +57,39 @@ export const UpworkProjectGrid = () => {
                     'transition-all duration-300'
                   )}
                 >
-                  <div className="relative h-52 bg-gradient-to-br from-bg-tertiary to-bg-elevated overflow-hidden shrink-0">
+                  <div
+                    className={cn(
+                      'relative h-52 overflow-hidden shrink-0',
+                      isMobile
+                        ? 'bg-zinc-950'
+                        : 'bg-gradient-to-br from-bg-tertiary to-bg-elevated'
+                    )}
+                  >
                     {heroShot ? (
-                      <Image
-                        src={heroShot}
-                        alt={`${project.title} screenshot`}
-                        fill
-                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
+                      isMobile ? (
+                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                          <Image
+                            src={heroShot}
+                            alt={`${project.title} screenshot`}
+                            width={dimensions.width}
+                            height={dimensions.height}
+                            {...projectScreenshotImageProps}
+                            className="h-full w-auto max-h-full rounded-2xl object-contain shadow-lg ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.03]"
+                            sizes="180px"
+                          />
+                        </div>
+                      ) : (
+                        <div className="absolute inset-3 rounded overflow-hidden shadow-sm group-hover:inset-2 transition-all duration-500">
+                          <Image
+                            src={heroShot}
+                            alt={`${project.title} screenshot`}
+                            fill
+                            {...projectScreenshotImageProps}
+                            className="object-cover object-top"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        </div>
+                      )
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
                         <div className="w-12 h-12 rounded-xl bg-bg-tertiary border border-border-subtle flex items-center justify-center">

@@ -1,7 +1,6 @@
 'use client'
 
-import Link from 'next/link'
-import { ExternalLink, Layers, Lock, Sparkles, Users } from 'lucide-react'
+import { Layers, Lock, Sparkles, Users } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { DemoStatusDetail } from '../lib/demoStatus'
 import type { Project } from '../lib/projectsData'
@@ -11,7 +10,6 @@ interface ProjectDetailSectionsProps {
   status: DemoStatusDetail
   headingClassName?: string
   bodyClassName?: string
-  onCaseStudyClick?: () => void
 }
 
 export const ProjectDetailSections = ({
@@ -19,7 +17,6 @@ export const ProjectDetailSections = ({
   status,
   headingClassName = 'text-xs font-bold text-text-muted uppercase tracking-widest mb-4',
   bodyClassName = 'text-text-secondary leading-relaxed',
-  onCaseStudyClick,
 }: ProjectDetailSectionsProps) => {
   return (
     <>
@@ -158,36 +155,6 @@ export const ProjectDetailSections = ({
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <Link
-          href={`/projects/${project.slug}`}
-          onClick={onCaseStudyClick}
-          className={cn(
-            'inline-flex items-center gap-2 px-6 py-3 rounded-xl',
-            'bg-bg-tertiary border border-border-subtle text-text-secondary font-semibold text-sm',
-            'hover:border-primary hover:text-primary transition-all duration-200'
-          )}
-        >
-          Full Case Study →
-        </Link>
-
-        {project.demoUrl && project.demoStatus === 'Live — Public' && (
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              'inline-flex items-center gap-2 px-6 py-3 rounded-xl',
-              'bg-gradient-to-br from-primary to-primary/80',
-              'text-bg-primary font-semibold text-sm',
-              'hover:shadow-[0_0_24px_rgba(0,255,198,0.4)] transition-all duration-200'
-            )}
-          >
-            <ExternalLink className="w-4 h-4" />
-            View Live Project
-          </a>
-        )}
-      </div>
     </>
   )
 }
