@@ -6,7 +6,10 @@ interface BudgetSelectorProps {
   onSelect: (budget: PreQualData['budget']) => void
 }
 
-export const BudgetSelector = ({ selectedBudget, onSelect }: BudgetSelectorProps) => {
+export const BudgetSelector = ({
+  selectedBudget,
+  onSelect,
+}: BudgetSelectorProps) => {
   return (
     <div className="space-y-3">
       <label className="block text-sm font-medium text-text-secondary">
@@ -31,7 +34,9 @@ export const BudgetSelector = ({ selectedBudget, onSelect }: BudgetSelectorProps
               name="budget"
               value={option.value}
               checked={selectedBudget === option.value}
-              onChange={(e) => onSelect(e.target.value as PreQualData['budget'])}
+              onChange={(e) =>
+                onSelect(e.target.value as PreQualData['budget'])
+              }
               className="mr-3 w-4 h-4 text-primary focus:ring-primary"
             />
             <span className="text-text-primary">{option.label}</span>

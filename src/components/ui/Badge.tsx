@@ -16,7 +16,8 @@ export const Badge = ({
   interactive = false,
   className,
 }: BadgeProps) => {
-  const baseClasses = 'inline-flex items-center gap-1.5 rounded-full font-medium transition-all duration-200'
+  const baseClasses =
+    'inline-flex items-center gap-1.5 rounded-full font-medium transition-all duration-200'
 
   const variantClasses = {
     default: cn(
@@ -54,4 +55,3 @@ export const Badge = ({
 }
 
 export default Badge
-

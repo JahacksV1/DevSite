@@ -30,4 +30,3 @@ export const CalProvider = ({ children }: CalProviderProps) => {
 }
 
 export default CalProvider
-

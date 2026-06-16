@@ -64,4 +64,3 @@ export const PROJECT_CATEGORIES = [
 ] as const
 
 export type CategoryValue = (typeof PROJECT_CATEGORIES)[number]['value']
-

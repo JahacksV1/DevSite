@@ -19,9 +19,8 @@ export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 export type RequiredAll<T> = { [K in keyof T]-?: T[K] }
 
 // Extract component props
-export type ComponentProps<T> = T extends React.ComponentType<infer P>
-  ? P
-  : never
+export type ComponentProps<T> =
+  T extends React.ComponentType<infer P> ? P : never
 
 // Animation prop helper
 export type WithAnimation<T = object> = T & {
@@ -53,4 +52,3 @@ export interface SocialLink {
   url: string
   icon: string
 }
-

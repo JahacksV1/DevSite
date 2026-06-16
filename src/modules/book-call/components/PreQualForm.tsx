@@ -12,7 +12,10 @@ interface PreQualFormProps {
     formData: PreQualData
     errors: Partial<Record<keyof PreQualData, string>>
     result: QualificationResult | null
-    updateField: <K extends keyof PreQualData>(field: K, value: PreQualData[K]) => void
+    updateField: <K extends keyof PreQualData>(
+      field: K,
+      value: PreQualData[K]
+    ) => void
     handleSubmit: () => boolean
     reset: () => void
   }
@@ -36,9 +39,17 @@ export const PreQualForm = ({ hookData }: PreQualFormProps) => {
   return (
     <Card variant="elevated">
       <form onSubmit={onSubmit} className="space-y-8">
-        <ContactFields formData={formData} errors={errors} onUpdate={updateField} />
+        <ContactFields
+          formData={formData}
+          errors={errors}
+          onUpdate={updateField}
+        />
 
-        <ProjectDescription formData={formData} errors={errors} onUpdate={updateField} />
+        <ProjectDescription
+          formData={formData}
+          errors={errors}
+          onUpdate={updateField}
+        />
 
         <BudgetSelector
           selectedBudget={formData.budget}
@@ -50,14 +61,18 @@ export const PreQualForm = ({ hookData }: PreQualFormProps) => {
           onSelect={(timeline) => updateField('timeline', timeline)}
         />
 
-        <PreviousAttempts selectedAttempts={formData.previousAttempts} onToggle={toggleAttempt} />
+        <PreviousAttempts
+          selectedAttempts={formData.previousAttempts}
+          onToggle={toggleAttempt}
+        />
 
         <Button type="submit" variant="primary" size="lg" className="w-full">
           Analyze Project Fit
         </Button>
 
         <p className="text-sm text-text-muted text-center">
-          We&apos;ll instantly analyze if we&apos;re a good fit. No spam, no commitment.
+          We&apos;ll instantly analyze if we&apos;re a good fit. No spam, no
+          commitment.
         </p>
       </form>
     </Card>

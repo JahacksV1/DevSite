@@ -1,4 +1,5 @@
 # Day One Labs - Complete Site Flow Audit
+
 **Checking coherence across all pages**
 
 ---
@@ -8,32 +9,38 @@
 ### **Entry Point: Homepage** (`/`)
 
 **Hero Message:**
+
 > "Build Your App in Days, Not Months"
-> 
+>
 > We orchestrate AI agents to build production-ready software in 7-14 days.
 > Same clean architecture agencies take months to deliver — just 10x faster.
 
 **CTAs:**
+
 1. Book Free Discovery Call (primary)
 2. See How We Build (secondary - explains differentiator)
 
 **Trust Bar:**
+
 - 9 Days Average Build Time
 - 15+ Projects Shipped
 - Zero Missed Deadlines
 - 100% Code Ownership
 
 **Services (How We Work):**
+
 1. MVP Launch ($10k-15k, 1-2 weeks) - Production-ready, you own everything
 2. Full Product Build ($18k-35k, 2-4 weeks) - Enterprise-grade, CI/CD, 30-day support
 3. Ongoing Partnership ($8k-12k/month) - Continuous development, no contracts
 
 **Featured Projects:**
+
 - Built in 11 Days: AI CRM → Raised $150k
 - Built in 8 Days: Document platform → 12 paying customers
 - Built in 6 Days: Automation hub → Saved 30 hours/week
 
 **Final CTA:**
+
 - "Ready to Move Fast? Let's Talk"
 - Free discovery call (3 slots open this month)
 - "Not a Fit" section (filters bad leads)
@@ -45,17 +52,20 @@
 **Purpose:** Explain the multi-agent advantage without sounding defensive
 
 **Hero:**
+
 > "We Don't Build Like Traditional Developers"
-> 
-> We orchestrate specialized AI agents that build in parallel — architecture, UI, API, 
+>
+> We orchestrate specialized AI agents that build in parallel — architecture, UI, API,
 > testing — all working from shared context. Then we review, refine, and ship production-grade code.
 
 **Multi-Agent Orchestra:**
+
 - 6 specialized agents explained (Architecture, Frontend, Backend, Security, Testing, Documentation)
 - Comparison: Traditional (10-12 weeks sequential) vs. Day One (7-14 days parallel)
 - Context Passport explanation (shared understanding keeps agents aligned)
 
 **Process Timeline:**
+
 - Day 1: Discovery + Context Engineering
 - Day 2-3: Multi-agent build (parallel)
 - Day 4-5: Human review + refinement
@@ -63,6 +73,7 @@
 - Day 8-30: Post-launch support
 
 **Proof Section:**
+
 - Placeholder: Voice agent demo video (you mentioned this)
 - Placeholder: Code quality walkthrough
 - Real results: This site (2-3 hours), AI CRM (11 days), Document platform (8 days)
@@ -74,22 +85,26 @@
 ### **Path 2: Projects** (`/projects`)
 
 **Current State:**
+
 - Featured projects with timeline emphasis ("Built in X Days")
 - Challenge/Solution/Results format
 - Tech stack + scope shown
 
 **What's Working:**
+
 - Timeline badges give proof of speed
 - "Before Day One" context shows what they tried first
 - Real results (raised funding, got customers, saved time)
 
 **What's Missing:**
+
 - No full Projects page built yet (just homepage preview)
 - No project detail pages
 - No filtering by timeline/category
 - Placeholders for images
 
 **Recommendation for Projects Page:**
+
 ```
 [HERO]
 Built Fast, Built Right
@@ -122,17 +137,20 @@ Your Project Could Be Next
 **Purpose:** Be transparent about cost + timelines, filter bad leads
 
 **Hero:**
+
 > "Simple, Honest Pricing Based on Complexity"
-> 
-> We build fast. But projects take time for other reasons — discovery, iteration, 
+>
+> We build fast. But projects take time for other reasons — discovery, iteration,
 > integrations, testing. Here's the honest breakdown.
 
 **Three Tiers:**
+
 1. Starter Build ($8k-12k, 1-2 weeks) - MVPs, internal tools
 2. Production Build ($15k-30k, 2-4 weeks) ⭐ Most Popular - Go to market ready
 3. Enterprise Build ($30k-60k+, 4-8 weeks) - Multi-tenant, compliance, scale
 
 **Timeline Breakdown (What Actually Takes Time):**
+
 - Discovery: 20-30%
 - **The Actual Building: 30-40%** ← Your advantage highlighted
 - Iteration Cycles: 15-25%
@@ -143,6 +161,7 @@ Your Project Could Be Next
 **Key Message:** "We're transparent: The coding is the fast part."
 
 **FAQ (8 questions):**
+
 - Why 2-4 weeks if you build fast?
 - Can you build faster?
 - Proof of concept option?
@@ -207,12 +226,14 @@ Your Project Could Be Next
 
 ### **Priority 1: Projects Page** (High Impact)
 
-**Current State:** 
+**Current State:**
+
 - Route exists at `/app/projects/page.tsx`
 - Re-exports from `@/modules/projects`
 - Module has ProjectCard component but page is probably old content
 
 **What to Build:**
+
 - Full projects page with filtering
 - Use the 3 featured projects as starting data
 - Add filter: All / Built in <1 Week / 1-2 Weeks / 2-4 Weeks / Enterprise
@@ -220,6 +241,7 @@ Your Project Could Be Next
 - "See All Projects" from homepage should land here
 
 **Implementation:**
+
 - Update `src/modules/projects/index.tsx`
 - Update `src/modules/projects/lib/projectsData.ts`
 - Reuse ProjectCard component with timeline emphasis
@@ -239,16 +261,19 @@ Your Project Could Be Next
 **Options:**
 
 **A. Delete it entirely**
+
 - Not linked in nav anymore
 - Content is generic
 - Everything important is on "How We Build" now
 
 **B. Repurpose as "Demos" page**
+
 - Rename to `/demos`
 - Showcase: Voice agent, code samples, architecture examples
 - Link from "How We Build" page
 
 **C. Leave it as hidden page**
+
 - Some people might have direct link
 - Can refine later
 
@@ -259,6 +284,7 @@ Your Project Could Be Next
 ### **Priority 4: Demo Content** (Future)
 
 **Placeholders to fill:**
+
 - Voice agent video (you mentioned recording this)
 - Code walkthrough (GitHub links or video)
 - Live build time-lapse
@@ -273,17 +299,21 @@ Your Project Could Be Next
 ### **Core Message (Should Be Same Everywhere):**
 
 **What Day One Labs Is:**
-> AI-accelerated product engineering lab that orchestrates specialized agents 
+
+> AI-accelerated product engineering lab that orchestrates specialized agents
 > to build production software in 7-14 days typical (depends on scope).
 
 **The Differentiator:**
-> Multi-agent orchestration (parallel work) + senior engineer review = 
+
+> Multi-agent orchestration (parallel work) + senior engineer review =
 > same quality, faster delivery, transparent pricing.
 
 **The Process:**
+
 > Discovery → Context Passport → Multi-agent build → Human review → Deploy
 
 **The Promise:**
+
 > Production-ready code, full ownership, honest timelines, no hourly surprises.
 
 ### **Where It's Consistent:**
@@ -296,6 +326,7 @@ Your Project Could Be Next
 ### **Where It Could Be Tighter:**
 
 ⚠️ **Timeline Language:**
+
 - Homepage: "7-14 days"
 - Services: "Typical: 1-2 weeks"
 - Pricing tiers: "1-2 weeks" / "2-4 weeks" / "4-8 weeks"
@@ -303,12 +334,14 @@ Your Project Could Be Next
 **Fix:** Just pick one consistent range for each tier and use everywhere.
 
 **Suggestion:**
+
 - Simple/Starter: "1-2 weeks typical"
 - Production: "2-4 weeks typical"
 - Enterprise: "4-8 weeks typical"
 - Use these EXACT phrases everywhere
 
 ⚠️ **Pricing Ranges:**
+
 - Services section: $10k-15k / $18k-35k / $8k-12k
 - Pricing page: $8k-12k / $15k-30k / $30k-60k
 
@@ -342,6 +375,7 @@ Your Project Could Be Next
 ## 📋 FINAL CHECKLIST FOR COMPLETE SITE
 
 ### **✅ DONE:**
+
 - [x] Homepage rebrand (Day One Labs messaging)
 - [x] Hero section (speed + AI orchestration)
 - [x] Services rewritten (3 tiers, honest timelines)
@@ -357,25 +391,30 @@ Your Project Could Be Next
 ### **⚠️ NEEDS WORK:**
 
 **Projects Page:**
+
 - [ ] Build full projects page (currently just re-export placeholder)
 - [ ] Add filtering by timeline
 - [ ] Ensure "See All Projects" button from homepage works
 - [ ] Add 2-3 more project examples (or keep 3 for now)
 
 **Messaging Consistency:**
+
 - [ ] Unify pricing ranges (decide: $8k-12k or $10k-15k for starter tier)
 - [ ] Unify timeline language (pick exact phrases and use everywhere)
 
 **Demo Content:**
+
 - [ ] Add voice agent video (when you record it)
 - [ ] Add code samples or GitHub links
 - [ ] Replace project placeholder images (when you have real ones)
 
 **Capabilities Page:**
+
 - [ ] Decide: Delete, repurpose, or leave hidden
 - [ ] Currently at `/capabilities` but not linked in nav
 
 **Cal.com Integration:**
+
 - [ ] Wire up "Book Discovery Call" buttons (needs Cal.com embed)
 - [ ] Test booking flow
 
@@ -384,6 +423,7 @@ Your Project Could Be Next
 ## 🚀 CURRENT STATE SUMMARY
 
 ### **What Works:**
+
 - **Brand messaging:** Day One Labs identity is clear
 - **Differentiator:** Multi-agent orchestration explained confidently
 - **Pricing:** Transparent, honest, filters bad leads
@@ -391,6 +431,7 @@ Your Project Could Be Next
 - **Navigation:** Clear 4-page structure
 
 ### **What's Missing:**
+
 - **Full projects page** (biggest gap - linked but not built)
 - **Real demos** (placeholders everywhere)
 - **Real project data** (using examples, need your actual work)
@@ -399,6 +440,7 @@ Your Project Could Be Next
 ### **What to Prioritize:**
 
 **Option A: Launch with what you have**
+
 - Homepage is strong (converts on its own)
 - How We Build explains process
 - Pricing filters leads
@@ -406,12 +448,14 @@ Your Project Could Be Next
 - Get feedback from real discovery calls
 
 **Option B: Build projects page first**
+
 - Critical for credibility
 - Proves you've actually done this
 - Reinforces timeline claims
 - Should take 1-2 hours to build properly
 
 **Option C: Add real demos first**
+
 - Record voice agent video
 - Add to "How We Build" page
 - Instant credibility boost
@@ -437,6 +481,7 @@ Your Project Could Be Next
 ## 🎯 THE STORY THE SITE TELLS
 
 **When someone lands on homepage:**
+
 1. "Build in days not months" (immediate hook)
 2. "AI orchestration" (how is this possible?)
 3. Three clear tiers (pricing transparency)
@@ -445,18 +490,21 @@ Your Project Could Be Next
 6. Free discovery call CTA (low friction)
 
 **If they click "How We Build":**
+
 1. Multi-agent explanation (oh, they use AI smartly)
 2. Process breakdown (honest about what takes time)
 3. Proof placeholders (shows they're building demos)
 4. CTA to book call (ready to talk)
 
 **If they click "Pricing":**
+
 1. Three clear tiers (I know where I fit)
 2. Timeline breakdown (oh, discovery takes time - makes sense)
 3. FAQ answers my concerns (code quality, changes, fit)
 4. CTA to discuss (not sure which tier? let's talk)
 
 **If they click "Projects":**
+
 1. See real work (currently needs to be built)
 2. Filter by timeline (proof of speed at scale)
 3. Read case studies (business results, not just tech)
@@ -475,6 +523,7 @@ Your Project Could Be Next
 5. Here's the CTA (Free discovery call on every page)
 
 **Gaps:**
+
 - Projects page needs building (linked but not complete)
 - Demo placeholders need content (or remove placeholders)
 - Messaging could be 5% tighter (unify exact timeline/pricing numbers)
@@ -494,6 +543,7 @@ Your Project Could Be Next
 5. **Launch** (it's ready enough)
 
 **Optional (post-launch):**
+
 - Add voice agent demo
 - Build out more case studies
 - Refine based on discovery call feedback
@@ -502,11 +552,10 @@ Your Project Could Be Next
 ---
 
 **You're right to want coherence. The site is 90% there. Let me know if you want me to:**
+
 1. Build the full Projects page now
 2. Unify the pricing/timeline messaging
 3. Both
 4. Just let you review what's built first
 
 Your call.
-
-

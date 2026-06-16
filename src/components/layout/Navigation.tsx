@@ -1,18 +1,18 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useLayoutEffect, useCallback } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { BookCall } from '@/components/ui'
 import { NavLink } from './NavLink'
 import { MobileMenu } from './MobileMenu'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/how-we-build', label: 'How We Build' },
   { href: '/projects', label: 'Projects' },
+  { href: '/how-we-build', label: 'How We Build' },
   { href: '/pricing', label: 'Pricing' },
 ]
 
@@ -21,16 +21,47 @@ const navLinks = [
  * Features: sticky, blur backdrop, scroll-aware, glow effects
  */
 export const Navigation = () => {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [indicator, setIndicator] = useState({ left: 0, width: 0, visible: false })
+  const navContainerRef = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll()
 
-  // Track scroll position for enhanced styling
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setIsScrolled(latest > 10)
   })
 
-  // Close mobile menu on resize to desktop
+  const updateIndicator = useCallback(() => {
+    const container = navContainerRef.current
+    if (!container) return
+
+    const active = container.querySelector(`[data-nav-link="${pathname}"]`) as HTMLElement | null
+    if (!active) {
+      setIndicator({ left: 0, width: 0, visible: false })
+      return
+    }
+
+    const containerRect = container.getBoundingClientRect()
+    const activeRect = active.getBoundingClientRect()
+    const inset = 8
+
+    setIndicator({
+      left: activeRect.left - containerRect.left + inset,
+      width: Math.max(activeRect.width - inset * 2, 0),
+      visible: true,
+    })
+  }, [pathname])
+
+  useLayoutEffect(() => {
+    updateIndicator()
+  }, [updateIndicator])
+
+  useEffect(() => {
+    window.addEventListener('resize', updateIndicator)
+    return () => window.removeEventListener('resize', updateIndicator)
+  }, [updateIndicator])
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setIsOpen(false)
@@ -47,7 +78,6 @@ export const Navigation = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50',
         'transition-all duration-300',
-        // Background with blur - more opaque when scrolled
         isScrolled
           ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle shadow-lg shadow-black/10'
           : 'bg-bg-primary/60 backdrop-blur-md border-b border-transparent'
@@ -55,12 +85,10 @@ export const Navigation = () => {
     >
       <div className="container-main">
         <nav className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
           <Link
             href="/"
             className="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary rounded-lg"
           >
-            {/* Logo mark - subtle glow on hover */}
             <motion.div
               className={cn(
                 'w-8 h-8 rounded-lg',
@@ -79,8 +107,15 @@ export const Navigation = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div ref={navContainerRef} className="relative hidden md:flex items-center gap-1">
+            {indicator.visible && (
+              <motion.span
+                className="absolute bottom-0 h-0.5 rounded-full bg-gradient-to-r from-primary to-primary-dim pointer-events-none"
+                animate={{ left: indicator.left, width: indicator.width }}
+                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                aria-hidden
+              />
+            )}
             {navLinks.map((link) => (
               <NavLink key={link.href} href={link.href}>
                 {link.label}
@@ -88,14 +123,15 @@ export const Navigation = () => {
             ))}
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden md:block">
-            <BookCall variant="primary" size="sm">
-              Book a Call
-            </BookCall>
+            <Link
+              href="/projects"
+              className="px-4 py-2 rounded-lg bg-primary/10 border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/20 transition-all duration-200"
+            >
+              View Projects
+            </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
@@ -106,7 +142,9 @@ export const Navigation = () => {
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
             )}
             whileTap={{ scale: 0.95 }}
-            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={
+              isOpen ? 'Close navigation menu' : 'Open navigation menu'
+            }
             aria-expanded={isOpen}
           >
             <motion.div
@@ -124,7 +162,6 @@ export const Navigation = () => {
         </nav>
       </div>
 
-      {/* Mobile Menu */}
       <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </motion.header>
   )

@@ -20,9 +20,7 @@ export const CTASection = () => {
         >
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="block text-text-primary mb-2">
-              Ready to Build
-            </span>
+            <span className="block text-text-primary mb-2">Ready to Build</span>
             <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               This Way?
             </span>
@@ -30,8 +28,8 @@ export const CTASection = () => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-text-secondary mb-12 max-w-2xl mx-auto">
-            Free discovery call. No pressure. We&apos;ll discuss your idea, give you an 
-            honest timeline and quote, and see if we&apos;re a fit.
+            Free discovery call. No pressure. We&apos;ll discuss your idea, give
+            you an honest timeline and quote, and see if we&apos;re a fit.
           </p>
 
           {/* CTAs */}
@@ -90,4 +88,3 @@ export const CTASection = () => {
     </section>
   )
 }
-

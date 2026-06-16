@@ -28,23 +28,14 @@ export const HeroSection = () => {
       </div>
 
       <div className="container-main text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div>
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bg-tertiary border border-border-subtle mb-6"
-          >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bg-tertiary border border-border-subtle mb-6">
             <DollarSign className="w-4 h-4 text-primary" />
             <span className="text-sm text-text-secondary">
               Transparent Pricing
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -57,23 +48,13 @@ export const HeroSection = () => {
           </h1>
 
           {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-8 leading-relaxed"
-          >
+          <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-8 leading-relaxed">
             We build fast. But projects take time for other reasons — discovery, 
             iteration, integrations, testing. Here&apos;s the honest breakdown.
-          </motion.p>
+          </p>
 
           {/* Trust signals */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted"
-          >
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-text-muted">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span>Fixed price, no hourly surprises</span>
@@ -86,10 +67,9 @@ export const HeroSection = () => {
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span>You own everything</span>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
-

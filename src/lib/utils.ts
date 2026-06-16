@@ -70,7 +70,10 @@ export const isBrowser = typeof window !== 'undefined'
 /**
  * Local storage utility with SSR safety
  */
-export function getLocalStorage<T>(key: string, defaultValue?: T): T | undefined {
+export function getLocalStorage<T>(
+  key: string,
+  defaultValue?: T
+): T | undefined {
   if (!isBrowser) return defaultValue
   try {
     const item = window.localStorage.getItem(key)

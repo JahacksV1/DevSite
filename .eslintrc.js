@@ -10,6 +10,14 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  overrides: [
+    {
+      files: ['src/modules/projects/lib/projectsData.ts'],
+      rules: {
+        'max-lines': 'off',
+      },
+    },
+  ],
   rules: {
     // TypeScript
     '@typescript-eslint/no-explicit-any': 'error',
@@ -53,4 +61,3 @@ module.exports = {
     'max-depth': ['warn', 3],
   },
 }
-

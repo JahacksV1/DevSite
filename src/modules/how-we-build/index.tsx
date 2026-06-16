@@ -5,8 +5,6 @@
 import { HeroSection } from './components/HeroSection'
 import { MultiAgentSection } from './components/MultiAgentSection'
 import { ProcessSection } from './components/ProcessSection'
-import { ProofSection } from './components/ProofSection'
-import { CTASection } from './components/CTASection'
 
 const HowWeBuildPage = () => {
   return (
@@ -14,8 +12,6 @@ const HowWeBuildPage = () => {
       <HeroSection />
       <MultiAgentSection />
       <ProcessSection />
-      <ProofSection />
-      <CTASection />
     </main>
   )
 }

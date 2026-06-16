@@ -17,6 +17,7 @@
 ## What Makes Day One Different
 
 ### ❌ **We Are NOT:**
+
 - Traditional dev agency (6-month timelines, waterfall planning)
 - Freelancer marketplace (inconsistent quality, communication gaps)
 - No-code/low-code shop (limited customization, vendor lock-in)
@@ -24,6 +25,7 @@
 - Consultants who just give advice
 
 ### ✅ **We ARE:**
+
 - **AI-accelerated full-stack lab** - We build production code with multi-agent systems
 - **7-Day MVP specialists** - Productized service, repeatable process
 - **Context engineers** - We translate vision into executable AI blueprints
@@ -89,6 +91,7 @@ It's **context engineering** - we help you:
 ### ✅ **WHO WE WORK WITH:**
 
 **Founders with clear problems:**
+
 - Need custom software (not a website, not a template)
 - Have a business model (or working on one with us)
 - Value speed + quality equally
@@ -97,6 +100,7 @@ It's **context engineering** - we help you:
 - Mindset: "Just build it, I'll pay what it's worth"
 
 **Ideal clients say things like:**
+
 - "I've been planning this for months, I just need it BUILT"
 - "We tried no-code, hit limitations, need real code"
 - "Agencies quoted 6 months and $100k - too slow, too expensive"
@@ -120,6 +124,7 @@ It's **context engineering** - we help you:
 
 **We don't bill by the hour.**  
 We price based on:
+
 1. **Complexity** (how many systems, integrations, custom logic)
 2. **Speed** (7-day MVP vs. 4-week production app)
 3. **Value delivered** (what's the ROI? time saved? revenue enabled?)
@@ -127,9 +132,11 @@ We price based on:
 ### **Transparent Pricing Tiers**
 
 #### **7-Day MVP**
+
 **$12k - $18k** (fixed price, guaranteed timeline)
 
 **What's included:**
+
 - Discovery + Context Passport
 - Working MVP deployed live
 - Clean, documented codebase
@@ -137,6 +144,7 @@ We price based on:
 - Handoff session
 
 **Perfect for:**
+
 - Validating product-market fit
 - Fundraising demos
 - Launching to first customers
@@ -145,9 +153,11 @@ We price based on:
 ---
 
 #### **Production-Ready Build**
+
 **$20k - $40k** (scope-dependent)
 
 **What's included:**
+
 - Everything in 7-Day MVP, plus:
 - Advanced features & integrations
 - Security hardening & compliance
@@ -157,6 +167,7 @@ We price based on:
 - Team training session
 
 **Perfect for:**
+
 - Going to market with confidence
 - Scaling to hundreds/thousands of users
 - Enterprise-grade requirements
@@ -165,9 +176,11 @@ We price based on:
 ---
 
 #### **Ongoing Partnership**
+
 **$8k - $15k/month** (retainer)
 
 **What's included:**
+
 - New features every sprint
 - Bug fixes & maintenance
 - Performance monitoring
@@ -176,6 +189,7 @@ We price based on:
 - Strategic product guidance
 
 **Perfect for:**
+
 - Post-launch iteration
 - Growing startups
 - Continuous improvement
@@ -184,9 +198,11 @@ We price based on:
 ---
 
 ### **Custom Projects**
+
 **$40k+** (quote-based)
 
 For:
+
 - Multi-tenant SaaS platforms
 - AI-powered enterprise tools
 - Compliance-heavy applications (legal, healthcare, finance)
@@ -209,16 +225,18 @@ For:
 4. **Trust signal** - Shows confidence (we don't need to charge for our time to prove worth)
 
 **New CTA:**
+
 ```
 "Book Free Discovery Call"
 → 45-min session where we:
    - Understand your vision
-   - Identify technical challenges  
+   - Identify technical challenges
    - Outline a build plan
    - Give you a fixed quote
 ```
 
 **Alternative Premium CTA (if you want paid filtering):**
+
 ```
 "Book Paid Discovery Workshop - $500"
 → 2-hour deep dive where we:
@@ -231,6 +249,7 @@ For:
 ### **Secondary CTA: "See How We Build"**
 
 Link to:
+
 - Live demos (if you build them)
 - Architecture examples
 - Time-lapse videos of builds
@@ -242,6 +261,7 @@ Link to:
 ## Service Offering Language
 
 ### ❌ **AVOID (Too Basic):**
+
 - "Website development"
 - "App design"
 - "Software consulting"
@@ -249,6 +269,7 @@ Link to:
 - "Digital solutions"
 
 ### ✅ **USE (Day One Specific):**
+
 - "7-Day MVP Development"
 - "AI-accelerated full-stack builds"
 - "Multi-agent engineering"
@@ -263,24 +284,28 @@ Link to:
 ### **Hero Headline Options:**
 
 **Option A: Speed + Quality**
+
 ```
 Build Production Software in 7 Days
 (Not a prototype. Real code. Real deployment. Real business.)
 ```
 
 **Option B: Category Creation**
+
 ```
 The First AI-Accelerated Product Engineering Lab
 We build at the speed of AI, with the precision of senior engineers.
 ```
 
 **Option C: Direct Value**
+
 ```
 Your Idea, Built This Week
 Multi-agent systems. Clean architecture. Fixed timeline. Fixed price.
 ```
 
 **Option D: Problem-Focused** (RECOMMENDED)
+
 ```
 Stop Waiting Months for Your MVP
 We build production-ready software in 7 days using AI orchestration.
@@ -288,8 +313,9 @@ Traditional agencies: 12 weeks. Day One Labs: 7 days.
 ```
 
 ### **Subheadline:**
+
 ```
-We don't write every line by hand. We orchestrate AI agents that build clean, 
+We don't write every line by hand. We orchestrate AI agents that build clean,
 scalable code faster than traditional development - then we review, refine, and ship.
 
 7-Day MVPs from $12k | Production Apps from $20k | Same-week starts available
@@ -326,16 +352,16 @@ scalable code faster than traditional development - then we review, refine, and 
 
 ## Differentiation Matrix
 
-| Them | Day One Labs |
-|------|--------------|
-| "We build websites" | "We build production software systems" |
-| 8-12 week timelines | 7-day MVP, 4-week production |
-| Hourly billing | Fixed-price packages |
-| Junior devs + markups | AI agents + senior oversight |
-| Requirements gathering | Context engineering |
-| Agile sprints | Multi-agent orchestration |
-| "We'll get back to you" | Same-week project starts |
-| Change orders & scope creep | Fixed scope from Context Passport |
+| Them                        | Day One Labs                           |
+| --------------------------- | -------------------------------------- |
+| "We build websites"         | "We build production software systems" |
+| 8-12 week timelines         | 7-day MVP, 4-week production           |
+| Hourly billing              | Fixed-price packages                   |
+| Junior devs + markups       | AI agents + senior oversight           |
+| Requirements gathering      | Context engineering                    |
+| Agile sprints               | Multi-agent orchestration              |
+| "We'll get back to you"     | Same-week project starts               |
+| Change orders & scope creep | Fixed scope from Context Passport      |
 
 ---
 
@@ -344,18 +370,21 @@ scalable code faster than traditional development - then we review, refine, and 
 ### **Blog/Case Study Topics:**
 
 **Technical Depth (Shows Expertise):**
+
 - "How We Build a SaaS MVP in 7 Days Using AI Agents"
 - "Context Passports: The Secret to AI-Accelerated Development"
 - "Multi-Agent Orchestration: Architecture + UI + API Working Together"
 - "Clean Code at AI Speed: Our Review Process"
 
 **Business Value (Attracts Clients):**
+
 - "Why Your Agency Quoted 12 Weeks (And How We Do It in 7 Days)"
 - "The Real Cost of Slow Development: Lost Opportunities"
 - "From Idea to Deployed MVP: A Week-by-Week Breakdown"
 - "7-Day MVP vs. 12-Week Build: A Cost Comparison"
 
 **Case Studies (Proof):**
+
 - [Client] built an AI document analyzer in 1 week, raised $200k
 - [Client] replaced Salesforce with custom CRM, saved $40k/year
 - [Client] launched MVP, got users, pivoted in week 2
@@ -370,17 +399,20 @@ scalable code faster than traditional development - then we review, refine, and 
 [Textarea - helps us understand if it's a fit]
 
 **2. What's your timeline?**
+
 - ☐ Need it ASAP (this week/next week)
 - ☐ Normal (2-4 weeks)
 - ☐ Flexible (exploratory)
 
 **3. Do you have a budget in mind?**
+
 - ☐ $8k - $15k (7-Day MVP range)
 - ☐ $15k - $30k (Production build range)
 - ☐ $30k+ (Enterprise/complex)
 - ☐ Flexible based on scope
 
 **4. What have you tried so far?**
+
 - ☐ Nothing yet (just an idea)
 - ☐ No-code tools (hit limitations)
 - ☐ Talked to agencies (too slow/expensive)
@@ -388,11 +420,13 @@ scalable code faster than traditional development - then we review, refine, and 
 - ☐ In-house team (need help scaling)
 
 **5. How ready are you to start?**
+
 - ☐ Ready to start this week (have clarity)
 - ☐ Ready in 2-4 weeks (need to finalize details)
 - ☐ Just exploring (not committed yet)
 
 **Auto-DQ if:**
+
 - Budget under $8k
 - "Just exploring" + no urgency
 - Looking for "cheapest option" language in description
@@ -404,9 +438,9 @@ scalable code faster than traditional development - then we review, refine, and 
 ### **Testimonial Template:**
 
 ```
-"[Previous agency] quoted us 14 weeks and $65k for our MVP. 
-Day One Labs built it in 9 days for $16k - and the code quality 
-is better than I expected. We're live, we have users, and we're 
+"[Previous agency] quoted us 14 weeks and $65k for our MVP.
+Day One Labs built it in 9 days for $16k - and the code quality
+is better than I expected. We're live, we have users, and we're
 already planning Phase 2 with them."
 
 — [Name], Founder at [Company]
@@ -426,6 +460,7 @@ already planning Phase 2 with them."
 ## SEO Keywords (High-Intent)
 
 ### **Primary:**
+
 - "7-day MVP development"
 - "AI-accelerated software development"
 - "fast MVP development service"
@@ -433,6 +468,7 @@ already planning Phase 2 with them."
 - "rapid prototype to production"
 
 ### **Secondary:**
+
 - "multi-agent software development"
 - "AI-powered development agency"
 - "custom software in days not months"
@@ -440,6 +476,7 @@ already planning Phase 2 with them."
 - "quick MVP for fundraising"
 
 ### **Long-tail:**
+
 - "how to build an MVP in 7 days"
 - "fastest way to build production software"
 - "AI development agency vs traditional agency"
@@ -452,12 +489,12 @@ already planning Phase 2 with them."
 ### **Your Elevator Pitch:**
 
 ```
-"We're Day One Labs - an AI-accelerated product engineering lab. 
-We build production software in 7 days using multi-agent orchestration. 
+"We're Day One Labs - an AI-accelerated product engineering lab.
+We build production software in 7 days using multi-agent orchestration.
 
-Think of it like this: traditional developers write every line by hand. 
-We orchestrate AI agents (architecture, UI, API, security, testing) that 
-build clean code in parallel, then we review and refine it. 
+Think of it like this: traditional developers write every line by hand.
+We orchestrate AI agents (architecture, UI, API, security, testing) that
+build clean code in parallel, then we review and refine it.
 
 Same quality, 10x faster. Fixed price, fixed timeline.
 
@@ -475,7 +512,7 @@ We're not the right fit if you:
 - Budget under $8k
 - Just exploring with no intent to build soon
 
-We're FOR founders who value speed + quality, have a real problem 
+We're FOR founders who value speed + quality, have a real problem
 to solve, and are ready to move fast.
 ```
 
@@ -484,6 +521,7 @@ to solve, and are ready to move fast.
 ## Implementation Checklist
 
 ### **Homepage:**
+
 - [ ] Hero headline emphasizes speed (7-Day MVP)
 - [ ] Subheadline explains multi-agent approach
 - [ ] Primary CTA: "Book Discovery Call" (free or $500 workshop)
@@ -494,6 +532,7 @@ to solve, and are ready to move fast.
 - [ ] "Not a fit" section filters bad leads
 
 ### **Capabilities Page:**
+
 - [ ] Explain multi-agent orchestration (with visuals)
 - [ ] Show Context Passport concept
 - [ ] 7-Day MVP breakdown (day-by-day)
@@ -502,12 +541,14 @@ to solve, and are ready to move fast.
 - [ ] Tech stack transparency
 
 ### **Projects Page:**
+
 - [ ] Case studies show timeline (7 days, 2 weeks, etc.)
 - [ ] Include "before Day One" context (what they tried, why it failed)
 - [ ] Business results (revenue, users, funding raised)
 - [ ] Client quotes about speed
 
 ### **Pricing Page (Optional but Recommended):**
+
 - [ ] 7-Day MVP tier ($12k-18k)
 - [ ] Production Build tier ($20k-40k)
 - [ ] Retainer tier ($8k-15k/month)
@@ -519,6 +560,7 @@ to solve, and are ready to move fast.
 ## Brand Voice Guidelines
 
 ### **Tone:**
+
 - **Confident, not arrogant** - "We build fast" not "We're the best"
 - **Direct, not corporate** - "7 days" not "rapid development cycles"
 - **Technical, but accessible** - Explain AI orchestration simply
@@ -526,12 +568,14 @@ to solve, and are ready to move fast.
 - **Honest about fit** - We're not for everyone, and that's okay
 
 ### **Words We Use:**
+
 - Build, ship, deploy, orchestrate, engineer
 - Fast, clean, production-ready, scalable
 - AI-accelerated, multi-agent, context-driven
 - MVP, prototype-to-production, week one
 
 ### **Words We Avoid:**
+
 - Synergy, leverage, utilize, solutions
 - Cheap, budget-friendly, affordable
 - Consulting, advisory, strategy (we BUILD)

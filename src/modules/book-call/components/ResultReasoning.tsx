@@ -14,7 +14,9 @@ export const ResultReasoning = ({ result }: ResultReasoningProps) => {
 
   return (
     <div className="mb-8">
-      <h3 className="text-lg font-semibold text-text-primary mb-4">{titleMap[result.fit]}</h3>
+      <h3 className="text-lg font-semibold text-text-primary mb-4">
+        {titleMap[result.fit]}
+      </h3>
       <ul className="space-y-2">
         {result.reasoning.map((reason, index) => (
           <motion.li

@@ -30,6 +30,7 @@ src/
 ### When to Create a Global Hook
 
 Put in `src/hooks/` when:
+
 - Used by 2+ modules
 - Provides general utility (debounce, throttle)
 - Abstracts browser APIs
@@ -38,6 +39,7 @@ Put in `src/hooks/` when:
 ### When to Create a Feature Hook
 
 Put in `modules/[feature]/hooks/` when:
+
 - Only used within that module
 - Contains feature-specific business logic
 - Depends on feature-specific types/data
@@ -62,11 +64,11 @@ interface UseExampleReturn {
   value: string
   isLoading: boolean
   error: Error | null
-  
+
   // Actions
   setValue: (value: string) => void
   reset: () => void
-  
+
   // Computed
   isEmpty: boolean
 }
@@ -74,7 +76,7 @@ interface UseExampleReturn {
 // 3. Hook implementation
 export const useExample = ({
   initialValue,
-  onSuccess
+  onSuccess,
 }: UseExampleProps): UseExampleReturn => {
   // State
   const [value, setValue] = useState(initialValue)
@@ -103,13 +105,13 @@ export const useExample = ({
     value,
     isLoading,
     error,
-    
+
     // Actions
     setValue,
     reset,
-    
+
     // Computed
-    isEmpty
+    isEmpty,
   }
 }
 ```
@@ -122,16 +124,16 @@ export const useExample = ({
 
 ```typescript
 // ✅ GOOD - Clear purpose, "use" prefix
-useProjectFilters()      // Manages project filter state
-useScrollReveal()        // Triggers animations on scroll
-useContactForm()         // Handles contact form logic
-useDebounce()            // Debounces a value
-useLocalStorage()        // Syncs with localStorage
+useProjectFilters() // Manages project filter state
+useScrollReveal() // Triggers animations on scroll
+useContactForm() // Handles contact form logic
+useDebounce() // Debounces a value
+useLocalStorage() // Syncs with localStorage
 
 // ❌ BAD - Unclear or missing prefix
-projectFilters()         // Missing "use" prefix
-useData()                // Too generic
-useHandleStuff()         // "handle" doesn't belong in name
+projectFilters() // Missing "use" prefix
+useData() // Too generic
+useHandleStuff() // "handle" doesn't belong in name
 ```
 
 ### Return Value Naming
@@ -143,30 +145,30 @@ const {
   isLoading,
   isOpen,
   hasError,
-  
+
   // Values: descriptive nouns
   selectedCategory,
   filteredProjects,
   formData,
-  
+
   // Actions: verb prefix
-  setCategory,       // setState pattern
-  handleSubmit,      // event handlers
-  clearFilters,      // imperative actions
-  toggleMenu,        // toggle actions
-  
+  setCategory, // setState pattern
+  handleSubmit, // event handlers
+  clearFilters, // imperative actions
+  toggleMenu, // toggle actions
+
   // Computed: descriptive
   isEmpty,
   totalCount,
-  isValid
+  isValid,
 } = useExample()
 
 // ❌ BAD - Inconsistent naming
 const {
-  loading,           // Should be isLoading
-  category,          // Conflicts with setter
-  submit,            // Should be handleSubmit
-  count              // Not descriptive enough
+  loading, // Should be isLoading
+  category, // Conflicts with setter
+  submit, // Should be handleSubmit
+  count, // Not descriptive enough
 } = useExample()
 ```
 
@@ -215,7 +217,7 @@ export const useProjectData = (): UseProjectDataReturn => {
     projects,
     isLoading,
     error,
-    refetch: fetchProjects
+    refetch: fetchProjects,
   }
 }
 ```
@@ -232,23 +234,32 @@ interface UseProjectFiltersProps {
 }
 
 export const useProjectFilters = ({ projects }: UseProjectFiltersProps) => {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory | 'all'>('all')
+  const [selectedCategory, setSelectedCategory] = useState<
+    ProjectCategory | 'all'
+  >('all')
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredProjects = useMemo(() => {
     return projects
-      .filter(p => selectedCategory === 'all' || p.category === selectedCategory)
-      .filter(p => {
+      .filter(
+        (p) => selectedCategory === 'all' || p.category === selectedCategory
+      )
+      .filter((p) => {
         if (!searchTerm) return true
         const search = searchTerm.toLowerCase()
-        return p.title.toLowerCase().includes(search) ||
-               p.description.toLowerCase().includes(search)
+        return (
+          p.title.toLowerCase().includes(search) ||
+          p.description.toLowerCase().includes(search)
+        )
       })
   }, [projects, selectedCategory, searchTerm])
 
-  const handleCategoryChange = useCallback((category: ProjectCategory | 'all') => {
-    setSelectedCategory(category)
-  }, [])
+  const handleCategoryChange = useCallback(
+    (category: ProjectCategory | 'all') => {
+      setSelectedCategory(category)
+    },
+    []
+  )
 
   const handleSearchChange = useCallback((term: string) => {
     setSearchTerm(term)
@@ -266,7 +277,7 @@ export const useProjectFilters = ({ projects }: UseProjectFiltersProps) => {
     handleCategoryChange,
     handleSearchChange,
     clearFilters,
-    hasActiveFilters: selectedCategory !== 'all' || searchTerm !== ''
+    hasActiveFilters: selectedCategory !== 'all' || searchTerm !== '',
   }
 }
 ```
@@ -285,14 +296,16 @@ const contactSchema = z.object({
   email: z.string().email('Please enter a valid email'),
   company: z.string().optional(),
   budget: z.enum(['10k-20k', '20k-40k', '40k+', 'flexible']),
-  message: z.string().min(10, 'Message must be at least 10 characters')
+  message: z.string().min(10, 'Message must be at least 10 characters'),
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
 
 export const useContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error'
+  >('idle')
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -301,23 +314,23 @@ export const useContactForm = () => {
       email: '',
       company: '',
       budget: 'flexible',
-      message: ''
-    }
+      message: '',
+    },
   })
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
-      
+
       if (!response.ok) throw new Error('Failed to submit')
-      
+
       setSubmitStatus('success')
       form.reset()
     } catch (error) {
@@ -331,7 +344,7 @@ export const useContactForm = () => {
     form,
     isSubmitting,
     submitStatus,
-    onSubmit: form.handleSubmit(onSubmit)
+    onSubmit: form.handleSubmit(onSubmit),
   }
 }
 ```
@@ -354,7 +367,7 @@ export const useDisclosure = (initialState = false): UseDisclosureReturn => {
 
   const onOpen = useCallback(() => setIsOpen(true), [])
   const onClose = useCallback(() => setIsOpen(false), [])
-  const onToggle = useCallback(() => setIsOpen(prev => !prev), [])
+  const onToggle = useCallback(() => setIsOpen((prev) => !prev), [])
 
   return { isOpen, onOpen, onClose, onToggle }
 }
@@ -404,7 +417,7 @@ const breakpoints = {
   md: 768,
   lg: 1024,
   xl: 1280,
-  '2xl': 1536
+  '2xl': 1536,
 }
 
 type Breakpoint = keyof typeof breakpoints
@@ -415,12 +428,12 @@ export const useBreakpoint = (breakpoint: Breakpoint): boolean => {
   useEffect(() => {
     const query = `(min-width: ${breakpoints[breakpoint]}px)`
     const media = window.matchMedia(query)
-    
+
     const listener = (e: MediaQueryListEvent) => setMatches(e.matches)
-    
+
     setMatches(media.matches)
     media.addEventListener('change', listener)
-    
+
     return () => media.removeEventListener('change', listener)
   }, [breakpoint])
 
@@ -444,14 +457,14 @@ interface UseScrollRevealProps {
   once?: boolean
 }
 
-export const useScrollReveal = ({ 
-  threshold = 0.3, 
-  once = true 
+export const useScrollReveal = ({
+  threshold = 0.3,
+  once = true
 }: UseScrollRevealProps = {}) => {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { 
+  const isInView = useInView(ref, {
     amount: threshold,
-    once 
+    once
   })
 
   return { ref, isInView }
@@ -499,7 +512,7 @@ export const useData = (): UseDataReturn => { ... }
 return {
   // State
   data, isLoading, error,
-  // Actions  
+  // Actions
   refetch, reset,
   // Computed
   isEmpty, isStale

@@ -64,9 +64,9 @@ export const CAL_CONFIG = {
   theme: 'dark',
   styles: {
     branding: {
-      brandColor: '#00ffc6',      // Mint-cyan primary
-      darkBrandColor: '#00d4a3',  // Dimmed variant
-      highlightColor: '#a78bfa',  // Purple accent
+      brandColor: '#00ffc6', // Mint-cyan primary
+      darkBrandColor: '#00d4a3', // Dimmed variant
+      highlightColor: '#a78bfa', // Purple accent
     },
   },
   hideEventTypeDetails: false,
@@ -79,4 +79,3 @@ export const PRICE_RANGES = {
   standard: '$15k - $30k',
   enterprise: '$30k - $50k+',
 } as const
-

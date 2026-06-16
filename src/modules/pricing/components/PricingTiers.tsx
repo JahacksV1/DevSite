@@ -130,7 +130,9 @@ export const PricingTiers = () => {
                   <tier.icon
                     className={cn(
                       'w-6 h-6',
-                      tier.color === 'primary' ? 'text-primary' : 'text-secondary'
+                      tier.color === 'primary'
+                        ? 'text-primary'
+                        : 'text-secondary'
                     )}
                   />
                 </div>
@@ -194,7 +196,8 @@ export const PricingTiers = () => {
           className="mt-16 text-center"
         >
           <p className="text-text-secondary mb-4">
-            Need something bigger or more complex? We do custom builds starting at $60k+.
+            Need something bigger or more complex? We do custom builds starting
+            at $60k+.
           </p>
           <BookCall variant="ghost" className="group">
             Discuss Custom Project
@@ -205,4 +208,3 @@ export const PricingTiers = () => {
     </section>
   )
 }
-

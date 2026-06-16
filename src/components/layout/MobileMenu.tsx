@@ -2,7 +2,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { NavLink } from './NavLink'
-import { BookCall } from '@/components/ui'
 import { cn } from '@/lib/utils'
 
 interface MobileMenuProps {
@@ -12,8 +11,8 @@ interface MobileMenuProps {
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/how-we-build', label: 'How We Build' },
   { href: '/projects', label: 'Projects' },
+  { href: '/how-we-build', label: 'How We Build' },
   { href: '/pricing', label: 'Pricing' },
 ]
 
@@ -76,17 +75,24 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             >
               {navLinks.map((link) => (
                 <motion.div key={link.href} variants={itemVariants}>
-                  <NavLink href={link.href} onClick={onClose} className="w-full">
+                  <NavLink
+                    href={link.href}
+                    onClick={onClose}
+                    className="w-full"
+                  >
                     {link.label}
                   </NavLink>
                 </motion.div>
               ))}
-              
+
               {/* CTA Button */}
-              <motion.div variants={itemVariants} className="pt-4 mt-2 border-t border-border-subtle">
-                <BookCall variant="primary" size="md" className="w-full">
-                  Book a Call
-                </BookCall>
+              <motion.div
+                variants={itemVariants}
+                className="pt-4 mt-2 border-t border-border-subtle"
+              >
+                <NavLink href="/projects" onClick={onClose} className="w-full">
+                  View Projects →
+                </NavLink>
               </motion.div>
             </motion.div>
           </nav>
