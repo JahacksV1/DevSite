@@ -100,10 +100,12 @@ export const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-bg-primary font-bold text-sm">D</span>
+              <span className="text-bg-primary font-bold text-xs font-mono tracking-tight">
+                D1
+              </span>
             </motion.div>
             <span className="text-xl font-bold text-text-primary group-hover:text-primary transition-colors duration-200">
-              Day One Labs
+              Day One Devs
             </span>
           </Link>
 
