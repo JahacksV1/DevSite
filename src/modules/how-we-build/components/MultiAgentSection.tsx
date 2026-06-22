@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import {
   CheckCircle2,
-  GitBranch,
   Layers,
   ServerCog,
   ShieldCheck,
