@@ -27,10 +27,10 @@ export const ResultActions = ({
             What happens next:
           </h4>
           <ol className="space-y-2 text-sm text-text-secondary">
-            <li>1. Book a free discovery call (no pressure, no commitment)</li>
-            <li>2. We&apos;ll create a Context Passport for your project</li>
-            <li>3. You&apos;ll get a fixed quote + exact timeline</li>
-            <li>4. If we&apos;re a fit, we can start this week</li>
+            <li>1. Book a quick intake call (no pressure, no commitment)</li>
+            <li>2. We review your current context and constraints</li>
+            <li>3. You get a scoped milestone recommendation</li>
+            <li>4. If aligned, we begin with the first deliverable</li>
           </ol>
         </div>
 
@@ -40,7 +40,7 @@ export const ResultActions = ({
           className="w-full"
           onClick={handleBookCall}
         >
-          Book Discovery Call
+          Book Intake Call
           <ArrowRight className="w-5 h-5 ml-2" />
         </Button>
 
@@ -62,9 +62,9 @@ export const ResultActions = ({
             What we recommend:
           </h4>
           <ul className="space-y-2 text-sm text-text-secondary">
-            <li>→ Book a discovery call anyway (it&apos;s free)</li>
-            <li>→ We&apos;ll be honest if we&apos;re not the right fit</li>
-            <li>→ We can recommend alternatives if needed</li>
+            <li>→ Book intake anyway so we can scope accurately</li>
+            <li>→ We&apos;ll confirm the safest first milestone</li>
+            <li>→ We can suggest alternatives if scope/budget mismatch</li>
           </ul>
         </div>
 
@@ -75,7 +75,7 @@ export const ResultActions = ({
             className="w-full"
             onClick={handleBookCall}
           >
-            Book Call Anyway
+            Book Intake Call
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
           <Button
@@ -105,20 +105,20 @@ export const ResultActions = ({
     <div className="space-y-4">
       <div className="bg-bg-tertiary border border-warning/20 rounded-lg p-6">
         <h4 className="font-semibold text-text-primary mb-2">
-          Based on your responses, we might not be the best fit right now.
+          Based on your responses, alignment may be limited right now.
         </h4>
         <p className="text-sm text-text-secondary mb-4">
-          {formData.budget === 'under-8k' && (
+          {formData.budget === 'under-3k' && (
             <>
-              Our typical projects start at $10k. For smaller budgets, you might
-              have better luck with Upwork or Fiverr.
+              Your budget likely supports a very small sprint or advisory pass.
+              If you want, we can still discuss narrow scope options.
             </>
           )}
           {formData.timeline === 'exploring' &&
-            formData.budget !== 'under-8k' && (
+            formData.budget !== 'under-3k' && (
               <>
-                We work best with people ready to start building soon. Feel free
-                to reach out when you&apos;re ready!
+                You appear to still be in exploration mode. We can revisit once
+                you are ready to commit to a concrete first milestone.
               </>
             )}
         </p>

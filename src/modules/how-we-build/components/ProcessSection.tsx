@@ -2,48 +2,48 @@
 
 import { motion } from 'framer-motion'
 import {
+  GitBranch,
+  Layers,
   MessageSquare,
-  FileText,
-  Eye,
   Rocket,
-  HeadphonesIcon,
+  ShieldCheck,
 } from 'lucide-react'
 
 const steps = [
   {
     icon: MessageSquare,
-    day: 'Day 1',
-    title: 'Discovery + Scoping',
+    phase: 'Step 1',
+    title: 'Share Context',
     description:
-      'We get on a call, understand what you need, and define the scope. By end of day we have a clear project brief, tech stack, and milestone plan.',
+      'Send your repo, live URL, screenshots, or a short brief. We first make sure we understand your real starting point.',
   },
   {
-    icon: FileText,
-    day: 'Day 2-3',
-    title: 'Multi-Agent Build',
+    icon: Layers,
+    phase: 'Step 2',
+    title: 'Scope First Milestone',
     description:
-      'Agents handle architecture, frontend, backend, and tests in parallel — all working from the same brief. What takes weeks sequentially gets done in days.',
+      'Define one clear deliverable that can ship and be validated. We separate immediate scope from later improvements.',
   },
   {
-    icon: Eye,
-    day: 'Day 4-5',
-    title: 'Human Review + Refinement',
+    icon: GitBranch,
+    phase: 'Step 3',
+    title: 'Implement in Controlled Steps',
     description:
-      'Engineers go through every part of the codebase. Security, architecture, edge cases — anything the agents missed gets caught and fixed here.',
+      'Frontend, backend, and database work are coordinated with clear boundaries and small reviewable changes.',
+  },
+  {
+    icon: ShieldCheck,
+    phase: 'Step 4',
+    title: 'Verify and Harden',
+    description:
+      'TypeScript, linting, build checks, and integration behavior are verified before release so handoff is stable.',
   },
   {
     icon: Rocket,
-    day: 'Day 6-7',
+    phase: 'Step 5',
     title: 'Deploy + Handoff',
     description:
-      'We deploy to production, transfer the GitHub repo, and walk you through the codebase. You own everything — code, infra, IP.',
-  },
-  {
-    icon: HeadphonesIcon,
-    day: 'Day 8-30',
-    title: 'Post-Launch Support',
-    description:
-      "Bug fixes, questions, small adjustments. We stay available for 30 days after launch so you're not left figuring things out on your own.",
+      'Deploy to production, transfer repo ownership, and provide clear notes on what changed and what should come next.',
   },
 ]
 
@@ -63,11 +63,11 @@ export const ProcessSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
-            The Day One Process
+            Practical Delivery Process
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-            From idea to deployed app in 7-14 days (typical). Here&apos;s
-            exactly what happens.
+            We keep execution transparent and milestone-based, whether we are
+            building from scratch or stabilizing an existing app.
           </p>
         </motion.div>
 
@@ -75,7 +75,7 @@ export const ProcessSection = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           {steps.map((step, index) => (
             <motion.div
-              key={step.day}
+              key={step.phase}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -92,7 +92,7 @@ export const ProcessSection = () => {
               {/* Content */}
               <div className="flex-1 pb-8 border-b border-border-subtle last:border-0">
                 <div className="text-sm font-semibold text-primary mb-2 uppercase tracking-wide">
-                  {step.day}
+                  {step.phase}
                 </div>
                 <h3 className="text-xl font-bold text-text-primary mb-3">
                   {step.title}
@@ -105,7 +105,7 @@ export const ProcessSection = () => {
           ))}
         </div>
 
-        {/* Why It Works */}
+        {/* Core principles */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,21 +114,27 @@ export const ProcessSection = () => {
           className="mt-16 grid md:grid-cols-3 gap-8 text-center"
         >
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">10x</div>
+            <div className="text-2xl font-bold text-primary mb-2">
+              Milestone Scope
+            </div>
             <div className="text-text-secondary">
-              Faster than traditional dev (parallel work, not sequential)
+              Clear deliverables before implementation starts.
             </div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">95+</div>
+            <div className="text-2xl font-bold text-primary mb-2">
+              Verification
+            </div>
             <div className="text-text-secondary">
-              Lighthouse scores standard (performance built in)
+              Type, lint, build, and integration checks before handoff.
             </div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-primary mb-2">100%</div>
+            <div className="text-2xl font-bold text-primary mb-2">
+              Ownership
+            </div>
             <div className="text-text-secondary">
-              Code ownership (you own the repos, IP, everything)
+              You own repo access, deployments, and implementation notes.
             </div>
           </div>
         </motion.div>

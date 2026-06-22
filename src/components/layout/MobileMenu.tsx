@@ -10,7 +10,7 @@ interface MobileMenuProps {
 }
 
 const navLinks = [
-  { href: '/', label: 'Home' },
+  { href: '/', label: 'Portfolio' },
   { href: '/projects', label: 'Projects' },
   { href: '/how-we-build', label: 'How We Build' },
   { href: '/pricing', label: 'Pricing' },
@@ -90,8 +90,8 @@ export const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 variants={itemVariants}
                 className="pt-4 mt-2 border-t border-border-subtle"
               >
-                <NavLink href="/projects" onClick={onClose} className="w-full">
-                  View Projects →
+                <NavLink href="/" onClick={onClose} className="w-full">
+                  View Portfolio →
                 </NavLink>
               </motion.div>
             </motion.div>

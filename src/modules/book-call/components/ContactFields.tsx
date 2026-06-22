@@ -18,7 +18,7 @@ export const ContactFields = ({
   return (
     <div className="space-y-4">
       <h3 className="text-xl font-semibold text-text-primary mb-4">
-        Contact Information
+        Contact Details
       </h3>
 
       <Input

@@ -2,7 +2,8 @@ export interface PreQualData {
   name: string
   email: string
   projectDescription: string
-  budget: 'under-8k' | '8k-15k' | '15k-30k' | '30k-plus' | 'flexible'
+  budget: 'under-3k' | '3k-8k' | '8k-20k' | '20k-plus' | 'flexible'
+  pricingModel: 'fixed' | 'hourly' | 'not-sure'
   timeline: 'this-week' | '2-4-weeks' | 'flexible' | 'exploring'
   previousAttempts: Array<
     'nothing' | 'no-code' | 'agencies' | 'freelancers' | 'in-house'

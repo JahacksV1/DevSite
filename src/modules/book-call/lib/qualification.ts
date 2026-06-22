@@ -13,7 +13,7 @@ export function calculateQualification(data: PreQualData): QualificationResult {
     return {
       fit: 'great',
       score: totalScore,
-      message: "Great! You're a perfect fit for Day One Labs.",
+      message: "Great, your project looks like a strong fit.",
       reasoning: getGreatFitReasoning(data),
       action: 'book-cal',
     }
@@ -40,10 +40,10 @@ export function calculateQualification(data: PreQualData): QualificationResult {
 
 function getBudgetScore(budget: PreQualData['budget']): number {
   const scores = {
-    'under-8k': 0,
-    '8k-15k': 50,
-    '15k-30k': 75,
-    '30k-plus': 100,
+    'under-3k': 20,
+    '3k-8k': 45,
+    '8k-20k': 75,
+    '20k-plus': 95,
     flexible: 60,
   }
   return scores[budget]
@@ -62,22 +62,22 @@ function getTimelineScore(timeline: PreQualData['timeline']): number {
 function getGreatFitReasoning(data: PreQualData): string[] {
   const reasons: string[] = []
 
-  if (data.budget === '15k-30k' || data.budget === '30k-plus') {
-    reasons.push('Your budget aligns with our Production Build tier')
-  } else if (data.budget === '8k-15k') {
-    reasons.push('Your budget fits our MVP Launch tier perfectly')
+  if (data.budget === '8k-20k' || data.budget === '20k-plus') {
+    reasons.push('Your budget supports a focused first milestone and follow-up phases')
+  } else if (data.budget === '3k-8k') {
+    reasons.push('A scoped starter milestone could be a practical path')
   }
 
   if (data.timeline === 'this-week' || data.timeline === '2-4-weeks') {
-    reasons.push('Your timeline matches our typical delivery (1-4 weeks)')
+    reasons.push('Your timeline supports momentum-based milestone delivery')
   }
 
   if (data.previousAttempts.includes('agencies')) {
-    reasons.push("You've experienced slow agency timelines - we're 10x faster")
+    reasons.push('You already validated that you need a leaner execution approach')
   }
 
   if (data.previousAttempts.includes('no-code')) {
-    reasons.push('You hit no-code limitations - we build real, scalable code')
+    reasons.push('You hit no-code limits and need a scalable implementation path')
   }
 
   return reasons.length > 0
@@ -88,20 +88,18 @@ function getGreatFitReasoning(data: PreQualData): string[] {
 function getPossibleFitReasoning(data: PreQualData): string[] {
   const concerns: string[] = []
 
-  if (data.budget === 'under-8k') {
-    concerns.push('Your budget is below our typical range ($10k-35k)')
+  if (data.budget === 'under-3k') {
+    concerns.push('We will likely need to scope a very narrow first milestone')
   } else if (data.budget === 'flexible') {
-    concerns.push("We'll need to discuss budget to ensure alignment")
+    concerns.push("We'll align scope and budget after reviewing your starting point")
   }
 
   if (data.timeline === 'flexible' || data.timeline === 'exploring') {
-    concerns.push(
-      'Your timeline is flexible - we work best with clear deadlines'
-    )
+    concerns.push('Timeline is open-ended, so milestone planning will matter')
   }
 
   if (data.previousAttempts.includes('nothing')) {
-    concerns.push("You're early in the process - we can help shape your vision")
+    concerns.push('You are early in planning, which may require extra scoping clarity')
   }
 
   return concerns.length > 0
@@ -112,14 +110,12 @@ function getPossibleFitReasoning(data: PreQualData): string[] {
 function getNotAFitReasoning(data: PreQualData): string[] {
   const reasons: string[] = []
 
-  if (data.budget === 'under-8k') {
-    reasons.push('Our minimum project size is $10k for quality work')
+  if (data.budget === 'under-3k') {
+    reasons.push('Current budget likely supports advisory or a very small sprint only')
   }
 
   if (data.timeline === 'exploring') {
-    reasons.push(
-      'You are in exploration mode - we work with people ready to build'
-    )
+    reasons.push('You appear to be exploring options rather than prioritizing an immediate milestone')
   }
 
   return reasons.length > 0

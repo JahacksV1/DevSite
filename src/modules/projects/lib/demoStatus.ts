@@ -11,37 +11,48 @@ export interface DemoStatusDetail extends DemoStatusBadge {
   note: string
 }
 
+const liveBadge: DemoStatusBadge = {
+  label: 'Live Demo',
+  className: 'bg-success/10 border-success/30 text-success',
+}
+
+const authBadge: DemoStatusBadge = {
+  label: 'Login Required',
+  className: 'bg-primary/10 border-primary/30 text-primary',
+}
+
 const privateBadge: DemoStatusBadge = {
-  label: 'Private',
+  label: 'Case Study Only',
   className: 'bg-text-muted/10 border-text-muted/30 text-text-muted',
 }
 
+const inDevelopmentBadge: DemoStatusBadge = {
+  label: 'In Development',
+  className: 'bg-warning/10 border-warning/30 text-warning',
+}
+
 export const demoStatusBadges: Record<DemoStatus, DemoStatusBadge> = {
-  'Live — Public': privateBadge,
-  'Live — Auth Required': privateBadge,
+  'Live — Public': liveBadge,
+  'Live — Auth Required': authBadge,
   'Private — Case Study Only': privateBadge,
-  'In Development': privateBadge,
+  'In Development': inDevelopmentBadge,
 }
 
 export const demoStatusDetails: Record<DemoStatus, DemoStatusDetail> = {
   'Live — Public': {
-    ...privateBadge,
-    label: 'Private',
-    note: 'This project is private. Screenshots below show the actual interface.',
+    ...liveBadge,
+    note: 'This project is live and publicly accessible.',
   },
   'Live — Auth Required': {
-    ...privateBadge,
-    label: 'Private',
-    note: 'This project is private. Screenshots below show the actual interface.',
+    ...authBadge,
+    note: 'This project is live but requires authentication.',
   },
   'Private — Case Study Only': {
     ...privateBadge,
-    label: 'Private',
     note: 'This project is private. This case study uses sanitized screenshots, feature breakdowns, and architecture notes.',
   },
   'In Development': {
-    ...privateBadge,
-    label: 'Private',
+    ...inDevelopmentBadge,
     note: 'This project is actively in development and not yet released.',
   },
 }

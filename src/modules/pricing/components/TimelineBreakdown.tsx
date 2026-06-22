@@ -14,46 +14,46 @@ import { cn } from '@/lib/utils'
 const timelineItems = [
   {
     icon: MessageSquare,
-    name: 'Discovery',
+    name: 'Scope & Starting Point',
     percentage: '20-30%',
     description:
-      'Understanding your vision, user flows, business model. The clearer the requirements, the faster everything else goes.',
+      'New build, fragile MVP, or active codebase repair — this sets the shape of the first milestone.',
   },
   {
     icon: Zap,
-    name: 'The Actual Building',
+    name: 'Core Implementation',
     percentage: '30-40%',
     description:
-      "This is where we shine. Multi-agent orchestration builds in days what takes weeks traditionally. But it's not the whole project.",
+      'Frontend, backend, database, and integration work for the scoped deliverable. This is only part of the timeline.',
     highlight: true,
   },
   {
     icon: GitBranch,
-    name: 'Iteration Cycles',
+    name: 'Review & Iteration',
     percentage: '15-25%',
     description:
-      'You see it, realize you want something tweaked. This is normal. We build in time for feedback and refinement.',
+      'Feedback loops refine behavior and UX. We keep room for this to avoid rushed release quality.',
   },
   {
     icon: Plug,
-    name: 'Integration Setup',
+    name: 'Integration Reliability',
     percentage: '10-20%',
     description:
-      'Connecting Stripe, setting up domains, third-party API keys, deployment. Not coding — just connecting accounts.',
+      'Stripe, domains, API keys, webhooks, and deployment settings take careful setup and verification.',
   },
   {
     icon: TestTube,
-    name: 'Testing & Polish',
+    name: 'Verification & Handoff',
     percentage: '10-15%',
     description:
-      'We test, you test, edge cases get caught. Production-ready means actually ready, not "mostly works."',
+      'Type, lint, build, and critical-flow checks run before release, then we hand off clear implementation notes.',
   },
   {
     icon: Shield,
-    name: 'Compliance & Security',
+    name: 'Optional Enterprise Layers',
     percentage: '0-30%',
     description:
-      "Enterprise only. If you need SOC 2, HIPAA, or security audits, there's review time we can't skip.",
+      'SSO, compliance prep, advanced permissions, and security hardening are layered in when your product actually needs them.',
   },
 ]
 
@@ -76,8 +76,8 @@ export const TimelineBreakdown = () => {
             What Actually Takes Time
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-            We&apos;re transparent: The coding is the fast part. Here&apos;s
-            where the rest of the time goes.
+            Timelines depend on starting condition and scope, not one generic
+            build template.
           </p>
         </motion.div>
 
@@ -152,14 +152,13 @@ export const TimelineBreakdown = () => {
             The Honest Truth
           </h3>
           <p className="text-text-secondary text-center leading-relaxed">
-            We build the code faster than traditional developers because of
-            multi-agent orchestration. But discovery, iteration, integrations,
-            and testing? Those take the same time as anyone else. We just
-            don&apos;t hide that from you. Typical project:{' '}
+            We do not quote from a generic weekly template. We scope milestone
+            one first, then estimate based on your codebase condition,
+            integrations, and verification requirements. Typical delivery:{' '}
             <span className="font-semibold text-primary">
-              1-4 weeks depending on complexity
+              milestone-based and stage-dependent
             </span>
-            , with building being the fastest part.
+            , with the first release scoped for momentum.
           </p>
         </motion.div>
       </div>

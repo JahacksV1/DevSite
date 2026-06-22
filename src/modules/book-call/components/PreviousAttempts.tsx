@@ -34,7 +34,7 @@ export const PreviousAttempts = ({
               value={option.value}
               checked={selectedAttempts.includes(option.value)}
               onChange={() => onToggle(option.value)}
-              className="mr-3 w-4 h-4 text-primary rounded focus:ring-primary"
+              className="choice-checkbox"
             />
             <span className="text-text-primary">{option.label}</span>
           </label>

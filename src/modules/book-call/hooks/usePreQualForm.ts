@@ -6,7 +6,8 @@ const INITIAL_FORM_DATA: PreQualData = {
   name: '',
   email: '',
   projectDescription: '',
-  budget: '15k-30k',
+  budget: '8k-20k',
+  pricingModel: 'fixed',
   timeline: '2-4-weeks',
   previousAttempts: [],
 }

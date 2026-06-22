@@ -1,5 +1,5 @@
 /**
  * Homepage Route
- * Re-exports the HomePage component from the home module
+ * Re-exports the UpworkPortfolio component as the default landing route
  */
-export { default } from '@/modules/home'
+export { UpworkPortfolio as default } from '@/modules/upwork'

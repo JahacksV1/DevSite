@@ -20,17 +20,18 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'DevSite - Enterprise Software Development',
-    template: '%s | DevSite',
+    default: 'Day One Devs - Full-Stack Apps That Ship',
+    template: '%s | Day One Devs',
   },
   description:
-    'Custom SaaS development, AI integration, and enterprise automation for $10k-50k projects. Full-stack architects for complex problems.',
+    'We build and repair full-stack apps for founders and teams: MVPs, fragile codebase stabilization, and production deploys with Next.js, TypeScript, Supabase, Vercel, and Stripe.',
   keywords: [
-    'custom SaaS development',
-    'enterprise web applications',
-    'AI integration developers',
-    'business process automation',
-    'custom CRM development',
+    'full-stack development',
+    'MVP development',
+    'codebase stabilization',
+    'Supabase developer',
+    'Vercel deployment',
+    'Stripe integration',
   ],
 }
 

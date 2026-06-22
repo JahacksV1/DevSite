@@ -5,24 +5,22 @@ import Link from 'next/link'
 import { Mail, Linkedin, Github, Twitter } from 'lucide-react'
 
 /**
- * Footer - Site-wide footer with contact & social links
- * Clean, minimal design with placeholders for easy updates
+ * Footer - Site-wide footer with links and contact
  */
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  // TODO: Update these with real contact info
   const contact = {
-    email: 'hello@yourcompany.com', // Update with real email
-    linkedin: 'https://linkedin.com/in/yourprofile', // Update with real LinkedIn
-    github: 'https://github.com/yourcompany', // Update with real GitHub
-    twitter: '', // Optional: Add Twitter URL or leave empty to hide
+    email: 'hello@dayonelabs.io',
+    linkedin: '',
+    github: '',
+    twitter: '',
   }
 
   const quickLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'How We Build', href: '/how-we-build' },
+    { label: 'Portfolio', href: '/' },
     { label: 'Projects', href: '/projects' },
+    { label: 'How We Build', href: '/how-we-build' },
     { label: 'Pricing', href: '/pricing' },
   ]
 
@@ -38,26 +36,28 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* TODO: Add logo/photo here later */}
             <div className="mb-4">
               <h3 className="text-xl font-bold text-text-primary mb-2">
-                DevSite
+                Day One Devs
               </h3>
               <p className="text-sm text-text-secondary leading-relaxed">
-                Enterprise software for complex problems.
+                Full-stack apps that ship, from MVP builds to codebase
+                stabilization and production handoff.
               </p>
             </div>
 
             {/* Tech Stack */}
             <div className="flex flex-wrap gap-2">
-              {['Next.js', 'TypeScript', 'PostgreSQL'].map((tech) => (
+              {['Next.js', 'TypeScript', 'Supabase', 'Vercel', 'Stripe'].map(
+                (tech) => (
                 <span
                   key={tech}
                   className="px-2 py-1 text-xs font-mono rounded bg-bg-tertiary text-text-muted border border-border-subtle"
                 >
                   {tech}
                 </span>
-              ))}
+                )
+              )}
             </div>
           </motion.div>
 
@@ -107,29 +107,30 @@ export const Footer = () => {
 
             {/* Social Links */}
             <div className="flex items-center gap-4">
-              {/* LinkedIn */}
-              <a
-                href={contact.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-bg-tertiary border border-border-subtle hover:border-primary hover:text-primary transition-all duration-200"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              {contact.linkedin && (
+                <a
+                  href={contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-bg-tertiary border border-border-subtle hover:border-primary hover:text-primary transition-all duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              )}
 
-              {/* GitHub */}
-              <a
-                href={contact.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-bg-tertiary border border-border-subtle hover:border-primary hover:text-primary transition-all duration-200"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
+              {contact.github && (
+                <a
+                  href={contact.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-bg-tertiary border border-border-subtle hover:border-primary hover:text-primary transition-all duration-200"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              )}
 
-              {/* Twitter (conditionally rendered) */}
               {contact.twitter && (
                 <a
                   href={contact.twitter}
@@ -154,11 +155,10 @@ export const Footer = () => {
           className="pt-8 border-t border-border-subtle"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted">
-            <p>© {currentYear} DevSite. All rights reserved.</p>
+            <p>© {currentYear} Day One Devs. All rights reserved.</p>
             <p className="flex items-center gap-2">
-              Built with{' '}
-              <span className="text-primary font-semibold">Next.js</span> &{' '}
-              <span className="text-secondary font-semibold">TypeScript</span>
+              If you found us through Upwork, keep communication and contracts
+              on Upwork.
             </p>
           </div>
         </motion.div>

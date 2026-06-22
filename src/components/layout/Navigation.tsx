@@ -10,7 +10,7 @@ import { NavLink } from './NavLink'
 import { MobileMenu } from './MobileMenu'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
+  { href: '/', label: 'Portfolio' },
   { href: '/projects', label: 'Projects' },
   { href: '/how-we-build', label: 'How We Build' },
   { href: '/pricing', label: 'Pricing' },
@@ -127,10 +127,10 @@ export const Navigation = () => {
 
           <div className="hidden md:block">
             <Link
-              href="/projects"
+              href="/"
               className="px-4 py-2 rounded-lg bg-primary/10 border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/20 transition-all duration-200"
             >
-              View Projects
+              View Portfolio
             </Link>
           </div>
 

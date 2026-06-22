@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { UpworkPortfolio } from '@/modules/upwork'
 
 export const metadata: Metadata = {
-  title: 'Portfolio — AI-Assisted Full-Stack Development',
+  title: 'Portfolio — Full-Stack Build and Repair',
   description:
-    'Portfolio of shipped software projects: MVPs, AI workflow systems, SaaS platforms, document automation, and internal tools built by a two-person AI-assisted engineering team.',
+    'Real shipped products across SaaS, document automation, AI workflows, and codebase stabilization. Explore stack, process, and intake for milestone-based delivery.',
 }
 
 export default function UpworkPage() {

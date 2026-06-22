@@ -118,6 +118,35 @@
     @apply hover:shadow-[0_0_30px_rgba(0,255,198,0.4)]
            transition-shadow duration-200;
   }
+
+  /* Branded selection controls for intake forms */
+  .choice-radio,
+  .choice-checkbox {
+    @apply mr-3 w-4 h-4 cursor-pointer appearance-none bg-bg-tertiary border border-border-default transition-all duration-150;
+  }
+
+  .choice-radio {
+    @apply rounded-full;
+  }
+
+  .choice-checkbox {
+    @apply rounded;
+  }
+
+  .choice-radio:checked {
+    @apply border-primary bg-primary;
+    box-shadow: inset 0 0 0 3px var(--bg-primary);
+  }
+
+  .choice-checkbox:checked {
+    @apply border-primary bg-primary;
+    box-shadow: inset 0 0 0 2px var(--bg-primary);
+  }
+
+  .choice-radio:focus-visible,
+  .choice-checkbox:focus-visible {
+    @apply ring-2 ring-primary/50 ring-offset-1 ring-offset-bg-secondary;
+  }
 }
 
 @layer utilities {

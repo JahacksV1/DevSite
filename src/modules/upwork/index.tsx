@@ -1,9 +1,13 @@
 'use client'
 
 import {
-  UpworkCapabilities,
+  UpworkEngineeringStandard,
   UpworkHeader,
-  UpworkHowWeWork,
+  UpworkIntake,
+  UpworkEntryPoints,
+  UpworkQualityLadder,
+  UpworkStack,
+  UpworkWorkflows,
 } from './components/UpworkSections'
 import { UpworkProjectGrid } from './components/UpworkProjectGrid'
 
@@ -11,9 +15,13 @@ export const UpworkPortfolio = () => {
   return (
     <div className="min-h-screen">
       <UpworkHeader />
+      <UpworkEntryPoints />
+      <UpworkEngineeringStandard />
+      <UpworkWorkflows />
+      <UpworkStack />
       <UpworkProjectGrid />
-      <UpworkCapabilities />
-      <UpworkHowWeWork />
+      <UpworkQualityLadder />
+      <UpworkIntake />
     </div>
   )
 }

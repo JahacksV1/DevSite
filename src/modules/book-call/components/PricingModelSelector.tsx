@@ -1,29 +1,29 @@
 import type { PreQualData } from '@/types/preQual'
-import { budgetOptions } from '../lib/formOptions'
+import { pricingModelOptions } from '../lib/formOptions'
 
-interface BudgetSelectorProps {
-  selectedBudget: PreQualData['budget']
-  onSelect: (budget: PreQualData['budget']) => void
+interface PricingModelSelectorProps {
+  selectedModel: PreQualData['pricingModel']
+  onSelect: (model: PreQualData['pricingModel']) => void
 }
 
-export const BudgetSelector = ({
-  selectedBudget,
+export const PricingModelSelector = ({
+  selectedModel,
   onSelect,
-}: BudgetSelectorProps) => {
+}: PricingModelSelectorProps) => {
   return (
     <div className="space-y-3">
       <label className="block text-sm font-medium text-text-secondary">
-        What budget range are you planning for this first milestone?
+        How would you like to structure engagement?
       </label>
       <div className="space-y-2">
-        {budgetOptions.map((option) => (
+        {pricingModelOptions.map((option) => (
           <label
             key={option.value}
             className={`
               flex items-center p-4 rounded-lg border cursor-pointer
               transition-all duration-200
               ${
-                selectedBudget === option.value
+                selectedModel === option.value
                   ? 'border-primary bg-primary/5 shadow-glow'
                   : 'border-border-subtle hover:border-primary/50'
               }
@@ -31,11 +31,11 @@ export const BudgetSelector = ({
           >
             <input
               type="radio"
-              name="budget"
+              name="pricingModel"
               value={option.value}
-              checked={selectedBudget === option.value}
+              checked={selectedModel === option.value}
               onChange={(e) =>
-                onSelect(e.target.value as PreQualData['budget'])
+                onSelect(e.target.value as PreQualData['pricingModel'])
               }
               className="choice-radio"
             />

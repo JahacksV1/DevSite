@@ -13,7 +13,7 @@ export const TimelineSelector = ({
   return (
     <div className="space-y-3">
       <label className="block text-sm font-medium text-text-secondary">
-        What&apos;s your timeline?
+        What timeline are you targeting?
       </label>
       <div className="space-y-2">
         {timelineOptions.map((option) => (
@@ -37,7 +37,7 @@ export const TimelineSelector = ({
               onChange={(e) =>
                 onSelect(e.target.value as PreQualData['timeline'])
               }
-              className="mr-3 w-4 h-4 text-secondary focus:ring-secondary"
+              className="choice-radio"
             />
             <span className="text-text-primary">{option.label}</span>
           </label>

@@ -7,44 +7,44 @@ import { cn } from '@/lib/utils'
 
 const faqs = [
   {
-    question: 'You say you build fast — why does my project take 2-4 weeks?',
+    question: 'Do you only take brand-new builds?',
     answer:
-      'Because "building" is only 30-40% of the project timeline. The rest is discovery (understanding your vision), iteration (you see it and want refinements), integration setup (connecting accounts and APIs), and testing. We cannot skip those — they are what make your app actually work for your business.',
+      'No. We join at any stage: new builds, fragile MVP stabilization, AI-generated codebase cleanup, and targeted support (deployments, Supabase, Stripe, integrations, debugging).',
   },
   {
-    question: 'Can you build faster if I am ready to move quickly?',
+    question: 'How do you use AI without creating messy code?',
     answer:
-      'Yes. If you have crystal-clear requirements, all accounts ready (GitHub, hosting, Stripe, etc.), fast feedback turnaround, and no complex integrations, we can ship in 7-10 days. But most projects benefit from proper discovery and iteration time.',
+      'AI accelerates implementation, but every release goes through engineering review. We verify architecture, type safety, lint/build checks, and integration behavior before handoff.',
   },
   {
-    question: 'What if I just want a proof of concept fast?',
+    question: 'How is pricing decided?',
     answer:
-      'We can build a working demo in 3-5 days for $4k-6k. It will not be production-ready (no scalability, basic security, rough edges), but it will prove the concept. Then you can decide whether to build the real thing.',
+      'Pricing is milestone-based. After intake, we scope the first deliverable clearly and quote that milestone. Additional layers (payments, observability, compliance, enterprise integration) are added only when needed.',
   },
   {
-    question: 'Is it actually good code, or is it AI-generated mess?',
+    question: 'What does production-ready mean for you?',
     answer:
-      'It is production-grade. AI agents build fast, but senior engineers review every line. We validate architecture, harden security, optimize performance. The result is clean, scalable code — just delivered faster than traditional development.',
+      'Readable structure, passing TypeScript/lint/build checks, stable deployment flow, and validation of auth, error handling, and integration behavior before release.',
   },
   {
-    question: 'What if I need changes after launch?',
+    question: 'What if my codebase is messy or half-finished?',
     answer:
-      'All projects include 7-30 days of support (depending on tier). After that, small tweaks are $500-1k. Bigger changes become a new project or you can move to a monthly retainer for ongoing development.',
+      'That is common. We start by reproducing issues, tracing architecture and integrations, then applying focused fixes in controlled steps with clear notes on what changed.',
   },
   {
     question: 'Do you work hourly or fixed-price?',
     answer:
-      'Fixed-price only. We quote upfront after discovery and stick to it. No hourly surprises, no scope creep. If requirements change mid-project, we will be transparent about additional costs before doing the work.',
+      'Mostly milestone-based fixed pricing. If a project needs ongoing support after the first scope, we can also structure recurring feature work.',
   },
   {
-    question: 'What if we are not a good fit?',
+    question: 'How do we start?',
     answer:
-      'We will tell you in the discovery call (no charge, no pressure). If your budget is under $8k, timeline is "whenever," or you need extensive hand-holding, we will recommend other options. We are honest about fit.',
+      'Send your repo, live URL, screenshots, or a short brief. We identify the safest first milestone and recommend the clearest path forward.',
   },
   {
     question: 'Can I see examples of your work?',
     answer:
-      'Yes. Check our Projects page for case studies. Some work is under NDA, but we can show code samples and architecture in the discovery call. We can also connect you with past clients for references.',
+      'Yes. Review our project case studies for architecture details, integration scope, and delivery outcomes across SaaS, document automation, AI workflows, and internal tools.',
   },
 ]
 

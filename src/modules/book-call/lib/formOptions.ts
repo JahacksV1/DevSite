@@ -1,11 +1,17 @@
 import type { PreQualData } from '@/types/preQual'
 
 export const budgetOptions = [
-  { value: 'under-8k' as const, label: 'Under $8k' },
-  { value: '8k-15k' as const, label: '$8k - $15k' },
-  { value: '15k-30k' as const, label: '$15k - $30k' },
-  { value: '30k-plus' as const, label: '$30k+' },
+  { value: 'under-3k' as const, label: 'Under $3k' },
+  { value: '3k-8k' as const, label: '$3k - $8k' },
+  { value: '8k-20k' as const, label: '$8k - $20k' },
+  { value: '20k-plus' as const, label: '$20k+' },
   { value: 'flexible' as const, label: 'Flexible / Not sure yet' },
+]
+
+export const pricingModelOptions = [
+  { value: 'fixed' as const, label: 'Fixed milestone pricing' },
+  { value: 'hourly' as const, label: 'Hourly support' },
+  { value: 'not-sure' as const, label: 'Not sure yet' },
 ]
 
 export const timelineOptions = [
@@ -30,5 +36,6 @@ export const attemptOptions = [
 ]
 
 export type BudgetValue = PreQualData['budget']
+export type PricingModelValue = PreQualData['pricingModel']
 export type TimelineValue = PreQualData['timeline']
 export type AttemptValue = PreQualData['previousAttempts'][number]

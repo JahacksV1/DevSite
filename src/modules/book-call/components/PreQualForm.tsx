@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/Card'
 import { ContactFields } from './ContactFields'
 import { ProjectDescription } from './ProjectDescription'
 import { BudgetSelector } from './BudgetSelector'
+import { PricingModelSelector } from './PricingModelSelector'
 import { TimelineSelector } from './TimelineSelector'
 import { PreviousAttempts } from './PreviousAttempts'
 import type { PreQualData, QualificationResult } from '@/types/preQual'
@@ -56,6 +57,11 @@ export const PreQualForm = ({ hookData }: PreQualFormProps) => {
           onSelect={(budget) => updateField('budget', budget)}
         />
 
+        <PricingModelSelector
+          selectedModel={formData.pricingModel}
+          onSelect={(pricingModel) => updateField('pricingModel', pricingModel)}
+        />
+
         <TimelineSelector
           selectedTimeline={formData.timeline}
           onSelect={(timeline) => updateField('timeline', timeline)}
@@ -67,12 +73,12 @@ export const PreQualForm = ({ hookData }: PreQualFormProps) => {
         />
 
         <Button type="submit" variant="primary" size="lg" className="w-full">
-          Analyze Project Fit
+          Scope First Milestone
         </Button>
 
         <p className="text-sm text-text-muted text-center">
-          We&apos;ll instantly analyze if we&apos;re a good fit. No spam, no
-          commitment.
+          We review your context and recommend the clearest next step. No spam,
+          no pressure.
         </p>
       </form>
     </Card>

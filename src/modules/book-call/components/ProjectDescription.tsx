@@ -19,7 +19,7 @@ export const ProjectDescription = ({
     <div>
       <Textarea
         label="Describe Your Project"
-        placeholder="I need a SaaS platform for managing... (2-3 sentences is perfect)"
+        placeholder="What are you trying to build or fix, what is currently blocked, and what should milestone one accomplish?"
         value={formData.projectDescription}
         onChange={(e) => onUpdate('projectDescription', e.target.value)}
         error={errors.projectDescription}

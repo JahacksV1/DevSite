@@ -92,24 +92,6 @@ export const ProjectCard = ({
           </div>
         )}
 
-
-        {/* Badges */}
-        <div className="absolute top-3 left-3">
-          <span
-            className={cn(
-              'px-2.5 py-1 rounded-full text-xs font-semibold border backdrop-blur-sm',
-              status.className
-            )}
-          >
-            {status.label}
-          </span>
-        </div>
-        <div className="absolute top-3 right-3">
-          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-bg-primary/80 backdrop-blur-sm border border-border-subtle text-text-secondary">
-            {project.category}
-          </span>
-        </div>
-
         {/* Screenshot count dots */}
         {project.screenshots.length > 1 && (
           <div className="absolute bottom-3 right-3 flex gap-1">
@@ -128,6 +110,19 @@ export const ProjectCard = ({
 
       {/* Info */}
       <div className="p-5 flex flex-col flex-1">
+        <div className="flex flex-wrap gap-2 mb-3">
+          <span
+            className={cn(
+              'px-2.5 py-1 rounded-full text-xs font-semibold border',
+              status.className
+            )}
+          >
+            {status.label}
+          </span>
+          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-bg-tertiary border border-border-subtle text-text-secondary">
+            {project.category}
+          </span>
+        </div>
         <div className="mb-3">
           <h3 className="text-lg font-bold text-text-primary group-hover:text-primary transition-colors leading-tight">
             {project.title}
