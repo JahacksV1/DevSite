@@ -11,10 +11,7 @@ export const DESKTOP_SCREENSHOT_HEIGHT_2X = DESKTOP_SCREENSHOT_HEIGHT * 2
 export const MOBILE_SCREENSHOT_WIDTH_2X = MOBILE_SCREENSHOT_WIDTH * 2
 export const MOBILE_SCREENSHOT_HEIGHT_2X = MOBILE_SCREENSHOT_HEIGHT * 2
 
-/** Skip Next.js optimizer so pre-compressed PNG/WebP assets are not re-encoded */
-export const projectScreenshotImageProps = {
-  unoptimized: true,
-} as const
+export const projectScreenshotImageProps = {} as const
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug)

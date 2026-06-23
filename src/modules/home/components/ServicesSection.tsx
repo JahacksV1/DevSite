@@ -113,15 +113,11 @@ export const ServicesSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon
             return (
-              <motion.div
+              <div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
                 className={cn(
                   'group p-6 rounded-xl',
                   'bg-bg-secondary border border-border-subtle',
@@ -165,7 +161,7 @@ export const ServicesSection = () => {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             )
           })}
         </div>

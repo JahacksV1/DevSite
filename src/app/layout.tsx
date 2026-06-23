@@ -15,10 +15,13 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
-  display: 'swap',
+  display: 'optional',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dayonedevs.com'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Day One Devs - Full-Stack Apps That Ship',
     template: '%s | Day One Devs',
@@ -33,6 +36,15 @@ export const metadata: Metadata = {
     'Vercel deployment',
     'Stripe integration',
   ],
+  openGraph: {
+    type: 'website',
+    siteName: 'Day One Devs',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Day One Devs' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.png'],
+  },
 }
 
 export default function RootLayout({
@@ -42,11 +54,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://app.cal.com" />
+        <link rel="dns-prefetch" href="https://app.cal.com" />
+      </head>
       <body className="min-h-screen bg-bg-primary font-sans antialiased flex flex-col">
-        {/* Preload Cal.com script for instant modal */}
         <Script
           src="https://app.cal.com/embed/embed.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Day One Devs',
+              url: siteUrl,
+              description:
+                'Full-stack development agency specializing in MVPs, SaaS platforms, AI workflow systems, and codebase stabilization.',
+              sameAs: ['https://www.upwork.com/agencies/dayonedevs'],
+              offers: {
+                '@type': 'Offer',
+                description: 'Custom software development — MVPs, internal tools, AI integrations, SaaS platforms.',
+              },
+            }),
+          }}
         />
         <CalProvider>
           <NavigationProgress />
