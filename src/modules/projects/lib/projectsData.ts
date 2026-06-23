@@ -40,6 +40,124 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'muniflow-platform',
+    slug: 'muniflow-platform',
+    title: 'MuniFlow Platform',
+    subtitle: 'Municipal Bond Deal Execution Platform — An App Full of Apps',
+    category: 'Enterprise',
+    description:
+      'A modular enterprise platform for managing municipal bond transactions end-to-end. Organized as a host app containing 22 feature modules — each a distinct workflow: deal creation, contacts and team management, collaborative term sheets with version history, closing document assembly, in-app messaging, a real-time notification system, a per-deal email inbox, and an interactive US issuers directory with geographic drill-down.',
+    challenge:
+      'Municipal bond deals involve dozens of parties — bond counsel, underwriters, trustees, fiscal agents, issuers — coordinating across fragmented email threads, Word documents, and spreadsheets. Each deal is legally distinct, requires versioned documentation, and involves sensitive financial data. The platform needed to feel like a product, not a collection of admin screens, while enforcing the strict access control and audit requirements of public finance.',
+    solution: [
+      'Home workspace with deal hierarchy grouped by issuer, type, or recency — with a 5-section progressive deal creation wizard',
+      'Interactive US issuers map with national → state → county drill-down, search, and issuer group rooms',
+      'Deal contacts with horizontal role-column kanban layout, shadow contacts (pending invitees visible before they join), and real-time sync',
+      'Email-first invite system: admins enter an email, the platform detects new vs existing users and routes the experience appropriately',
+      'Collaborative term sheets with nested drag-and-drop field reorder, inline typed editors, field-level comments, change request workflow, and side-by-side version diff',
+      'Closing transcript assembly workspace with section/item reordering, document linking, and a register of closing events',
+      'In-app 1:1 messaging between deal participants with Supabase realtime subscriptions',
+      'Per-deal email inboxes via Postmark inbound webhooks for capturing deal-related correspondence',
+      'Real-time notification center (global + deal-scoped) with bell dropdown in app chrome',
+      'Lighthouse cross-app API bridge: OAuth-style tokens let satellite tools (Bond Generator, Muni Clerk) pull published term sheet data securely',
+    ],
+    techStack: [
+      'Next.js 16',
+      'React 18',
+      'TypeScript',
+      'MUI 7',
+      'Tailwind',
+      'TanStack Query',
+      'Supabase',
+      'OpenAI',
+      'Resend',
+      'Sentry',
+      'Playwright',
+    ],
+    techDetails: [
+      {
+        name: 'Next.js 16 (Pages Router)',
+        purpose:
+          'Monolith host for ~107 API routes and 22 UI modules; feature flags in env control which surfaces are active',
+      },
+      {
+        name: 'TanStack React Query 5',
+        purpose:
+          'All server state: deal data, contacts, term sheet fields, notifications — with 5-min stale time and user-scoped cache keys',
+      },
+      {
+        name: 'Supabase (Postgres + Auth + Realtime + Storage)',
+        purpose:
+          '59-table schema for deals, memberships, contacts, term sheet versions, closing packets, messages, and notifications; realtime subscriptions for messaging and notification push',
+      },
+      {
+        name: 'MUI 7 + @dnd-kit + react-beautiful-dnd',
+        purpose:
+          'Component library for dense data surfaces; dnd-kit powers 3-level term sheet reorder (sections → subsections → fields); react-beautiful-dnd for closing transcript section/item reorder',
+      },
+      {
+        name: 'react-simple-maps + d3-geo + topojson-client',
+        purpose:
+          'Interactive US issuers map: TopoJSON FIPS-coded geography, state/county drill-down, zoomable SVG with issuer data overlay',
+      },
+      {
+        name: 'Resend',
+        purpose:
+          'Invitation emails from invitations@muniflow.io — new user vs existing user routing with distinct call-to-action per path',
+      },
+      {
+        name: 'OpenAI',
+        purpose:
+          'Document list parsing pipeline for closing indexes; fine-tuning pipeline for municipal-domain model improvements (feature-flagged, in development)',
+      },
+      {
+        name: 'ESLint boundaries + Vitest + Playwright',
+        purpose:
+          'Enforced 5-layer module architecture (pages → components → hooks → services → db); unit tests for term sheet rules engine; E2E for critical deal flows',
+      },
+    ],
+    uniqueFeatures: [
+      'Shadow contacts: pending invitees appear in the deal contacts grid immediately — before they create an account — maintaining team visibility across the full deal lifecycle',
+      'Deal context rules engine: a catalog of municipal finance "knobs" (financing type, rate mode, tax status, maturity structure) that deterministically activates the correct term sheet field set per deal family',
+      'Lighthouse cross-app bridge: OAuth-style authorization codes let external tools (Bond Generator, Muni Clerk) fetch published term sheet data from the platform without sharing database credentials',
+      'Term sheet version diff: side-by-side comparison of any two published versions with a "show only changes" toggle — modeled after code review for financial documents',
+      'Feature passport system: each of 22 modules has a living passport.md tracking stage, maturity, API completeness, and known gaps — used to gate what ships per release',
+    ],
+    architectureHighlights: [
+      'Modular monolith with ESLint boundaries enforcing a 5-layer clean architecture per feature — prevents components from reaching the database and hooks from bypassing service logic',
+      'Dual Supabase client pattern: anon/JWT client for user-scoped reads, service role admin client for writes that need to bypass RLS; deal membership table is the authoritative ACL for all deal-scoped access',
+      'API middleware stack: withRequestId → withApiAuth or withDealAuth — every deal route validates membership before the handler runs',
+      '59-table Postgres schema with 110 foreign keys organized by domain: deal core, term sheet versioning, closing packets, messaging, notifications, issuers, compliance audit logs',
+      'Bundle splitting by feature module: webpack splitChunks creates separate chunks for auth, deal pages, term sheet, closing assembly — public auth pages skip React Query and MUI for ~190KB savings',
+    ],
+    relevantFor: [
+      'Enterprise SaaS and multi-tenant platform architecture',
+      'Legal and financial document workflows',
+      'Collaborative editing with versioning and audit trails',
+      'Complex data modeling with enforced module boundaries',
+      'Real-time features with Supabase subscriptions',
+      'Multi-role invite and team management systems',
+    ],
+    results:
+      'Production platform with 22 active feature modules, 107 API endpoints, and a 59-table schema supporting the full municipal bond deal lifecycle. Demonstrates full-stack enterprise architecture at a scale that most agency portfolios never reach.',
+    demoStatus: 'Private — Case Study Only',
+    screenshots: [
+      '/projects/muniflow-01-home-dashboard.png',
+      '/projects/muniflow-02-issuers-map.png',
+      '/projects/muniflow-03-deal-creation.png',
+      '/projects/muniflow-04-contacts-kanban.png',
+      '/projects/muniflow-05-term-sheet-draft.png',
+      '/projects/muniflow-06-term-sheet-diff.png',
+      '/projects/muniflow-07-closing-transcript.png',
+      '/projects/muniflow-08-deal-overview.png',
+      '/projects/muniflow-09-messaging.png',
+      '/projects/muniflow-10-team-invites.png',
+    ],
+    screenshotLayout: 'desktop',
+    featured: true,
+    productionGrade: true,
+  },
+  {
     id: 'home-service-demos',
     slug: 'home-service-demos',
     title: 'Home Service Demo Sites',
