@@ -28,7 +28,7 @@ export const BrandLogo = ({
         height={size}
         priority={priority}
         className={cn(
-          'shrink-0 rounded-[22%] h-14 w-14 md:h-16 md:w-16',
+          'shrink-0 rounded-[22%] h-16 w-16 md:h-[4.75rem] md:w-[4.75rem]',
           imageClassName
         )}
       />
