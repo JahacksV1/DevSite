@@ -1,8 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CONTACT_EMAIL } from '@/lib/constants'
+import { CONTACT_EMAIL, SITE_LOGO, SITE_NAME } from '@/lib/constants'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Linkedin, Github, Twitter } from 'lucide-react'
 
 /**
@@ -37,14 +38,23 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="mb-4">
-              <h3 className="text-xl font-bold text-text-primary mb-2">
-                Day One Devs
-              </h3>
-              <p className="text-sm text-text-secondary leading-relaxed">
-                Full-stack apps that ship, from MVP builds to codebase
-                stabilization and production handoff.
-              </p>
+            <div className="mb-4 flex items-start gap-4">
+              <Image
+                src={SITE_LOGO}
+                alt={`${SITE_NAME} logo`}
+                width={64}
+                height={64}
+                className="shrink-0 rounded-[22%] h-16 w-16"
+              />
+              <div>
+                <h3 className="text-xl font-bold text-text-primary mb-1">
+                  {SITE_NAME}
+                </h3>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  Full-stack apps that ship, from MVP builds to codebase
+                  stabilization and production handoff.
+                </p>
+              </div>
             </div>
 
             {/* Tech Stack */}
@@ -156,7 +166,7 @@ export const Footer = () => {
           className="pt-8 border-t border-border-subtle"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted">
-            <p>© {currentYear} Day One Devs. All rights reserved.</p>
+            <p>© {currentYear} {SITE_NAME}. All rights reserved.</p>
             <p className="flex items-center gap-2">
               If you found us through Upwork, keep communication and contracts
               on Upwork.
