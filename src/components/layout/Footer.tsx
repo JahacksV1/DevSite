@@ -44,7 +44,7 @@ export const Footer = () => {
                 alt={`${SITE_NAME} logo`}
                 width={64}
                 height={64}
-                className="shrink-0 rounded-[22%] h-16 w-16"
+                className="shrink-0 rounded-[22%] h-20 w-20"
               />
               <div>
                 <h3 className="text-xl font-bold text-text-primary mb-1">

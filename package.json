@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "normalize-screenshots": "node scripts/normalize-project-screenshots.mjs",
+    "generate-brand-icons": "node scripts/generate-brand-icons.mjs",
     "prepare": "husky install"
   },
   "dependencies": {
