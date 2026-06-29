@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { Lock, Zap } from 'lucide-react'
+import { Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { demoStatusBadges } from '../lib/demoStatus'
+import { getCategoryBadgeClassName } from '../lib/categoryBadge'
 import type { Project } from '../lib/projectsData'
 import {
   getScreenshotDimensions,
@@ -22,7 +22,6 @@ export const ProjectCard = ({
   index,
   onViewDetails,
 }: ProjectCardProps) => {
-  const status = demoStatusBadges[project.demoStatus]
   const heroShot = project.screenshots[0]
   const isMobile = isMobileScreenshotProject(project)
   const dimensions = getScreenshotDimensions(project.screenshotLayout)
@@ -76,16 +75,10 @@ export const ProjectCard = ({
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-6">
             <div className="w-12 h-12 rounded-xl bg-bg-tertiary border border-border-subtle flex items-center justify-center">
-              {project.demoStatus === 'Private — Case Study Only' ? (
-                <Lock className="w-5 h-5 text-text-muted" />
-              ) : (
-                <Zap className="w-5 h-5 text-text-muted" />
-              )}
+              <Lock className="w-5 h-5 text-text-muted" />
             </div>
             <p className="text-xs text-text-muted text-center leading-relaxed">
-              {project.demoStatus === 'Private — Case Study Only'
-                ? 'Private project — screenshots in case study'
-                : 'Screenshots coming soon'}
+              Screenshots coming soon
             </p>
           </div>
         )}
@@ -113,12 +106,9 @@ export const ProjectCard = ({
           <span
             className={cn(
               'px-2.5 py-1 rounded-full text-xs font-semibold border',
-              status.className
+              getCategoryBadgeClassName(project.category)
             )}
           >
-            {status.label}
-          </span>
-          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-bg-tertiary border border-border-subtle text-text-secondary">
             {project.category}
           </span>
         </div>

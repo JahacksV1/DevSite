@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { demoStatusBadges } from '@/modules/projects/lib/demoStatus'
+import { getCategoryBadgeClassName } from '@/modules/projects/lib/categoryBadge'
 import { projects, type Project } from '@/modules/projects/lib/projectsData'
 import {
   getScreenshotDimensions,
@@ -20,12 +20,6 @@ const getProofTags = (project: Project) => {
   const tags: string[] = []
 
   if (project.productionGrade) tags.push('Production-Grade')
-  if (
-    project.demoStatus === 'Live — Public' ||
-    project.demoStatus === 'Live — Auth Required'
-  ) {
-    tags.push('Live Deploy')
-  }
   if (hasTech(project, 'supabase')) tags.push('Supabase')
   if (hasTech(project, 'stripe')) tags.push('Stripe')
   if (hasTech(project, 'openai')) tags.push('OpenAI')
@@ -62,7 +56,6 @@ export const UpworkProjectGrid = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => {
-            const status = demoStatusBadges[project.demoStatus]
             const heroShot = project.screenshots[0]
             const isMobile = isMobileScreenshotProject(project)
             const dimensions = getScreenshotDimensions(project.screenshotLayout)
@@ -136,12 +129,9 @@ export const UpworkProjectGrid = () => {
                       <span
                         className={cn(
                           'px-2.5 py-1 rounded-full text-xs font-semibold border',
-                          status.className
+                          getCategoryBadgeClassName(project.category)
                         )}
                       >
-                        {status.label}
-                      </span>
-                      <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-bg-tertiary border border-border-subtle text-text-secondary">
                         {project.category}
                       </span>
                     </div>

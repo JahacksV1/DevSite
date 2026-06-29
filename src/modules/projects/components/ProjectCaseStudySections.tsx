@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ExternalLink, Users } from 'lucide-react'
+import { Users } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { Project } from '../lib/projectsData'
 
@@ -50,22 +50,6 @@ export const ProjectCaseStudySidebar = ({
         </div>
       )}
 
-      {project.demoUrl && project.demoStatus === 'Live — Public' && (
-        <a
-          href={project.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            'flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl',
-            'bg-gradient-to-br from-primary to-primary/80',
-            'text-bg-primary font-semibold text-sm',
-            'hover:shadow-[0_0_20px_rgba(0,255,198,0.35)] transition-all duration-200'
-          )}
-        >
-          <ExternalLink className="w-4 h-4" />
-          View Live Project
-        </a>
-      )}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { CONTACT_EMAIL } from '@/lib/constants'
 import Link from 'next/link'
 import { Mail, Linkedin, Github, Twitter } from 'lucide-react'
 
@@ -11,7 +12,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const contact = {
-    email: 'hello@dayonelabs.io',
+    email: CONTACT_EMAIL,
     linkedin: '',
     github: '',
     twitter: '',

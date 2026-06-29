@@ -8,6 +8,7 @@ export const SITE_NAME = 'DevSite' // Update with final name
 export const SITE_DESCRIPTION =
   'Custom SaaS development, AI integration, and enterprise automation for $10k-50k projects.'
 export const SITE_URL = 'https://example.com' // Update with final domain
+export const CONTACT_EMAIL = 'jah-amiel@muniflow.io'
 
 // Navigation links
 export const NAV_LINKS = [

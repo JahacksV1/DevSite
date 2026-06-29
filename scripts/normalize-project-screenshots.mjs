@@ -8,7 +8,8 @@
  *
  * Usage:
  *   npm run normalize-screenshots
- *   npm run normalize-screenshots -- --file social-q-01-composer.png
+ *   npm run normalize-screenshots -- --trim
+ *   npm run normalize-screenshots -- --file social-q-01-composer.png --trim
  *   npm run normalize-screenshots -- --layout mobile --dry-run
  */
 
@@ -32,11 +33,13 @@ function parseArgs(argv) {
     dryRun: false,
     layout: 'auto',
     file: null,
+    trim: false,
   }
 
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i]
     if (arg === '--dry-run') options.dryRun = true
+    else if (arg === '--trim') options.trim = true
     else if (arg === '--layout') options.layout = argv[++i]
     else if (arg === '--file') options.file = argv[++i]
     else if (arg === '--help' || arg === '-h') options.help = true
@@ -51,6 +54,7 @@ function printHelp() {
 Options:
   --layout auto|desktop|mobile   Target layout (default: auto from aspect ratio)
   --file <name>                  Process one file in public/projects/
+  --trim                         Trim uniform border whitespace before resize
   --dry-run                      Preview changes without writing files
   --help                         Show this help
 `)
@@ -106,27 +110,37 @@ async function processImage(filename, options) {
   const outputName = `${baseName}.png`
   const outputPath = path.join(PROJECTS_DIR, outputName)
 
-  let pipeline = sharp(inputPath).rotate().png({
-    compressionLevel: 9,
-    adaptiveFiltering: true,
-  })
-
+  let pipeline = sharp(inputPath).rotate()
   let action = 'convert'
-  if (width > target.width || height > target.height) {
+
+  if (options.trim) {
+    pipeline = pipeline.trim({ threshold: 12 })
+    action = 'trim'
+  }
+
+  let workingBuffer = await pipeline.toBuffer()
+  let workingMeta = await sharp(workingBuffer).metadata()
+  let workWidth = workingMeta.width ?? width
+  let workHeight = workingMeta.height ?? height
+
+  pipeline = sharp(workingBuffer)
+
+  if (workWidth > target.width || workHeight > target.height) {
     pipeline = pipeline.resize({
-      width: Math.min(width, target.width),
-      height: Math.min(height, target.height),
+      width: target.width,
+      height: target.height,
       fit: 'inside',
       withoutEnlargement: true,
     })
-    action = 'resize+convert'
-  } else if (width < target.width / 2 || height < target.height / 2) {
-    console.warn(
-      `  ⚠ ${filename} is ${width}×${height} — below 2× ${layout} target (${target.width}×${target.height}). Capture at higher resolution for Retina sharpness.`
-    )
+    action = options.trim ? 'trim+resize' : 'resize+convert'
   }
 
-  const outputBuffer = await pipeline.toBuffer()
+  const outputBuffer = await pipeline
+    .png({
+      compressionLevel: 9,
+      adaptiveFiltering: true,
+    })
+    .toBuffer()
   const outputMeta = await sharp(outputBuffer).metadata()
   const formatNote = format === 'png' ? 'png' : `${format} → png`
 
@@ -137,6 +151,12 @@ async function processImage(filename, options) {
   if (options.dryRun) return
 
   await writeFile(outputPath, outputBuffer)
+
+  if (workWidth < target.width / 2 || workHeight < target.height / 2) {
+    console.warn(
+      `  ⚠ ${filename} is ${workWidth}×${workHeight} after trim — below 2× ${layout} target (${target.width}×${target.height}). Capture at higher resolution for Retina sharpness.`
+    )
+  }
 
   if (path.basename(inputPath) !== outputName) {
     await unlink(inputPath)
