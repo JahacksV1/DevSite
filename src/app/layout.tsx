@@ -87,7 +87,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Day One Devs',
-              logo: `${siteUrl}/dayonelogo.png`,
+              logo: `${siteUrl}/dayonelogo-transparent.png`,
               url: siteUrl,
               description:
                 'Full-stack development agency specializing in MVPs, SaaS platforms, AI workflow systems, and codebase stabilization.',

@@ -5,10 +5,10 @@
 
 // Site metadata
 export const SITE_NAME = 'Day One Devs'
-export const SITE_LOGO = '/dayonelogo.png'
+export const SITE_LOGO = '/dayonelogo-transparent.png'
 export const SITE_DESCRIPTION =
   'Custom SaaS development, AI integration, and enterprise automation for $10k-50k projects.'
-export const SITE_URL = 'https://example.com' // Update with final domain
+export const SITE_URL = 'https://dayonedevs.com'
 export const CONTACT_EMAIL = 'jah-amiel@muniflow.io'
 
 // Navigation links
