@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { BrandLogo } from './BrandLogo'
 import { NavLink } from './NavLink'
 import { MobileMenu } from './MobileMenu'
 
@@ -90,23 +91,16 @@ export const Navigation = () => {
             className="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary rounded-lg"
           >
             <motion.div
-              className={cn(
-                'w-8 h-8 rounded-lg',
-                'bg-gradient-to-br from-primary to-primary-dim',
-                'flex items-center justify-center',
-                'transition-shadow duration-300',
-                'group-hover:shadow-glow'
-              )}
+              className="transition-shadow duration-300 group-hover:shadow-glow rounded-[22%]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-bg-primary font-bold text-xs font-mono tracking-tight">
-                D1
-              </span>
+              <BrandLogo
+                showWordmark
+                priority
+                wordmarkClassName="group-hover:text-primary transition-colors duration-200"
+              />
             </motion.div>
-            <span className="text-xl font-bold text-text-primary group-hover:text-primary transition-colors duration-200">
-              Day One Devs
-            </span>
           </Link>
 
           <div ref={navContainerRef} className="relative hidden md:flex items-center gap-1">

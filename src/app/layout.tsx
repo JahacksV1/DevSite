@@ -45,6 +45,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: ['/og-image.png'],
   },
+  icons: {
+    icon: '/dayonelogo.png',
+    apple: '/dayonelogo.png',
+  },
 }
 
 export default function RootLayout({
@@ -70,6 +74,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Day One Devs',
+              logo: `${siteUrl}/dayonelogo.png`,
               url: siteUrl,
               description:
                 'Full-stack development agency specializing in MVPs, SaaS platforms, AI workflow systems, and codebase stabilization.',
