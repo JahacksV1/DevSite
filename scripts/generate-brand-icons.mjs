@@ -14,6 +14,8 @@
  * - iOS home screen: APPLE_ICON_PX
  */
 
+import { execFileSync } from 'node:child_process'
+import { writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
@@ -59,8 +61,15 @@ async function main() {
   await squircle.clone().png().toFile(transparentLogoPath)
 
   await writeFavicon(faviconMark, FAVICON_32_PX, path.join(root, 'src/app/icon.png'))
-  await writeFavicon(faviconMark, FAVICON_32_PX, path.join(root, 'public/favicon-32x32.png'))
+  const favicon32Path = path.join(root, 'public/favicon-32x32.png')
+  await writeFavicon(faviconMark, FAVICON_32_PX, favicon32Path)
   await writeFavicon(faviconMark, FAVICON_16_PX, path.join(root, 'public/favicon-16x16.png'))
+
+  const faviconIco = execFileSync('npx', ['--yes', 'png-to-ico', favicon32Path], {
+    cwd: root,
+    encoding: 'buffer',
+  })
+  writeFileSync(path.join(root, 'public/favicon.ico'), faviconIco)
 
   await squircle
     .clone()
@@ -104,7 +113,7 @@ async function main() {
     .png()
     .toFile(path.join(root, 'public/og-image.png'))
 
-  console.log('Generated icons from dayonelogo.png + dayonelogo-mark.png')
+  console.log('Generated favicon.ico, PNG icons, and og-image.png')
 }
 
 main().catch((error) => {
