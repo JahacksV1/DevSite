@@ -1,10 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { Lock, Zap } from 'lucide-react'
+import { Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { demoStatusBadges } from '../lib/demoStatus'
+import { getCategoryBadgeClassName } from '../lib/categoryBadge'
 import type { Project } from '../lib/projectsData'
 import {
   getScreenshotDimensions,
@@ -23,16 +22,12 @@ export const ProjectCard = ({
   index,
   onViewDetails,
 }: ProjectCardProps) => {
-  const status = demoStatusBadges[project.demoStatus]
   const heroShot = project.screenshots[0]
   const isMobile = isMobileScreenshotProject(project)
   const dimensions = getScreenshotDimensions(project.screenshotLayout)
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.08 }}
+    <div
       className={cn(
         'group rounded-xl overflow-hidden flex flex-col',
         'bg-bg-secondary border border-border-subtle',
@@ -59,6 +54,7 @@ export const ProjectCard = ({
                 width={dimensions.width}
                 height={dimensions.height}
                 {...projectScreenshotImageProps}
+                priority={index < 3}
                 className="h-full w-auto max-h-full rounded-2xl object-contain shadow-lg ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.03]"
                 sizes="180px"
               />
@@ -70,6 +66,7 @@ export const ProjectCard = ({
                 alt={`${project.title} screenshot`}
                 fill
                 {...projectScreenshotImageProps}
+                priority={index < 3}
                 className="object-cover object-top"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
@@ -78,16 +75,10 @@ export const ProjectCard = ({
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-6">
             <div className="w-12 h-12 rounded-xl bg-bg-tertiary border border-border-subtle flex items-center justify-center">
-              {project.demoStatus === 'Private — Case Study Only' ? (
-                <Lock className="w-5 h-5 text-text-muted" />
-              ) : (
-                <Zap className="w-5 h-5 text-text-muted" />
-              )}
+              <Lock className="w-5 h-5 text-text-muted" />
             </div>
             <p className="text-xs text-text-muted text-center leading-relaxed">
-              {project.demoStatus === 'Private — Case Study Only'
-                ? 'Private project — screenshots in case study'
-                : 'Screenshots coming soon'}
+              Screenshots coming soon
             </p>
           </div>
         )}
@@ -109,17 +100,15 @@ export const ProjectCard = ({
       </div>
 
       {/* Info */}
+
       <div className="p-5 flex flex-col flex-1">
         <div className="flex flex-wrap gap-2 mb-3">
           <span
             className={cn(
               'px-2.5 py-1 rounded-full text-xs font-semibold border',
-              status.className
+              getCategoryBadgeClassName(project.category)
             )}
           >
-            {status.label}
-          </span>
-          <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-bg-tertiary border border-border-subtle text-text-secondary">
             {project.category}
           </span>
         </div>
@@ -164,6 +153,6 @@ export const ProjectCard = ({
         </div>
 
       </div>
-    </motion.div>
+    </div>
   )
 }

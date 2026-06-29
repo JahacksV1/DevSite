@@ -1,34 +1,22 @@
 'use client'
 
-import { Layers, Lock, Sparkles, Users } from 'lucide-react'
+import { Layers, Sparkles, Users } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import type { DemoStatusDetail } from '../lib/demoStatus'
 import type { Project } from '../lib/projectsData'
 
 interface ProjectDetailSectionsProps {
   project: Project
-  status: DemoStatusDetail
   headingClassName?: string
   bodyClassName?: string
 }
 
 export const ProjectDetailSections = ({
   project,
-  status,
   headingClassName = 'text-xs font-bold text-text-muted uppercase tracking-widest mb-4',
   bodyClassName = 'text-text-secondary leading-relaxed',
 }: ProjectDetailSectionsProps) => {
   return (
     <>
-      {project.demoStatus === 'Private — Case Study Only' && (
-        <div className="mb-6 flex gap-3 p-4 rounded-xl bg-bg-tertiary border border-border-subtle">
-          <Lock className="w-4 h-4 text-text-muted shrink-0 mt-0.5" />
-          <p className="text-xs text-text-muted leading-relaxed">
-            {status.note}
-          </p>
-        </div>
-      )}
-
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div className="space-y-6">
           <div>

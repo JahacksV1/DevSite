@@ -74,9 +74,9 @@ export const Navigation = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
       className={cn(
-        'fixed top-0 left-0 right-0 z-50',
+        'fixed top-0 left-0 right-0 z-50 will-change-transform',
         'transition-all duration-300',
         isScrolled
           ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle shadow-lg shadow-black/10'

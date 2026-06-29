@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, Layers, Lock, Sparkles } from 'lucide-react'
-import { demoStatusDetails } from '../lib/demoStatus'
 import type { Project } from '../lib/projectsData'
 import {
   ProjectCaseStudyFooter,
@@ -16,8 +15,6 @@ interface Props {
 }
 
 export const ProjectCaseStudy = ({ project }: Props) => {
-  const status = demoStatusDetails[project.demoStatus]
-
   return (
     <div className="min-h-screen">
       <div className="container-main pt-8 pb-0">
@@ -35,10 +32,8 @@ export const ProjectCaseStudy = ({ project }: Props) => {
           <ProjectScreenshotGallery
             title={project.title}
             screenshots={project.screenshots}
-            status={status}
             category={project.category}
             screenshotLayout={project.screenshotLayout}
-            maxHeightClassName="max-h-[520px] md:max-h-[580px]"
             roundedClassName="rounded-2xl"
           />
         </div>
@@ -61,19 +56,18 @@ export const ProjectCaseStudy = ({ project }: Props) => {
             </p>
           </motion.div>
 
-          {project.demoStatus === 'Private — Case Study Only' && (
-            <div className="mb-10 flex gap-3 p-5 rounded-xl bg-bg-tertiary border border-border-subtle">
-              <Lock className="w-5 h-5 text-text-muted shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-text-secondary mb-1">
-                  Private Project
-                </p>
-                <p className="text-sm text-text-muted leading-relaxed">
-                  {status.note}
-                </p>
-              </div>
+          <div className="mb-10 flex gap-3 p-5 rounded-xl bg-bg-tertiary border border-border-subtle">
+            <Lock className="w-5 h-5 text-text-muted shrink-0 mt-0.5" />
+            <div>
+              <p className="text-sm font-semibold text-text-secondary mb-1">
+                Portfolio Case Study
+              </p>
+              <p className="text-sm text-text-muted leading-relaxed">
+                This entry uses sanitized screenshots, feature breakdowns, and
+                architecture notes. These products are not publicly accessible.
+              </p>
             </div>
-          )}
+          </div>
 
           <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-2 space-y-10">

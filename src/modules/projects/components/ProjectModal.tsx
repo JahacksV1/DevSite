@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { demoStatusDetails } from '../lib/demoStatus'
 import type { Project } from '../lib/projectsData'
 import { ProjectDetailSections } from './ProjectDetailSections'
 import { ProjectScreenshotGallery } from './ProjectScreenshotGallery'
@@ -15,8 +14,6 @@ interface ProjectModalProps {
 
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   if (!project) return null
-
-  const status = demoStatusDetails[project.demoStatus]
 
   return (
     <AnimatePresence>
@@ -42,7 +39,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           <ProjectScreenshotGallery
             title={project.title}
             screenshots={project.screenshots}
-            status={status}
             category={project.category}
             screenshotLayout={project.screenshotLayout}
             headerActions={
@@ -74,10 +70,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               </p>
             </div>
 
-            <ProjectDetailSections
-              project={project}
-              status={status}
-            />
+            <ProjectDetailSections project={project} />
           </div>
         </motion.div>
       </div>

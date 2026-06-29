@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import { ArrowRight, Code2 } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui'
@@ -8,19 +5,11 @@ import { Button } from '@/components/ui'
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
+      {/* Background — CSS-only animations, zero JS, compositor-thread only */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
         <div className="absolute inset-0 bg-gradient-to-b from-bg-primary via-bg-secondary to-bg-primary" />
-        <motion.div
-          className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-primary/15 blur-3xl"
-          animate={{ x: [0, 50, 0], y: [0, -30, 0], scale: [1, 1.2, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-secondary/15 blur-3xl"
-          animate={{ x: [0, -50, 0], y: [0, 30, 0], scale: [1, 1.3, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-primary/15 blur-3xl hero-orb-1" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-secondary/15 blur-3xl hero-orb-2" />
       </div>
 
       <div className="container-main text-center">
@@ -38,7 +27,7 @@ export const HeroSection = () => {
             <span className="block text-text-primary mb-2">
               Software That Works.
             </span>
-            <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+            <span className="block bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-once">
               Delivered With Discipline.
             </span>
           </h1>

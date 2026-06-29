@@ -1,5 +1,6 @@
 import { ArrowRight, Mail } from 'lucide-react'
 import { Button } from '@/components/ui'
+import { CONTACT_EMAIL } from '@/lib/constants'
 import { openCalModal } from '@/lib/integrations/cal'
 import type { QualificationResult, PreQualData } from '@/types/preQual'
 
@@ -83,7 +84,7 @@ export const ResultActions = ({
             size="lg"
             className="w-full"
             onClick={() =>
-              (window.location.href = 'mailto:hello@dayonelabs.io')
+              (window.location.href = `mailto:${CONTACT_EMAIL}`)
             }
           >
             Email Us Instead
@@ -136,7 +137,7 @@ export const ResultActions = ({
               size="md"
               className="w-full sm:w-auto"
               onClick={() =>
-                (window.location.href = 'mailto:hello@dayonelabs.io')
+                (window.location.href = `mailto:${CONTACT_EMAIL}`)
               }
             >
               <Mail className="w-4 h-4 mr-2" />

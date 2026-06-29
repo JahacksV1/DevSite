@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import type { DemoStatusDetail } from '../lib/demoStatus'
+import { getCategoryBadgeClassName } from '../lib/categoryBadge'
 import {
   getScreenshotDimensions,
   projectScreenshotImageProps,
@@ -14,8 +14,7 @@ import type { Project } from '../lib/projectsData'
 interface ProjectScreenshotGalleryProps {
   title: string
   screenshots: string[]
-  status: DemoStatusDetail
-  category: string
+  category: Project['category']
   screenshotLayout?: Project['screenshotLayout']
   maxHeightClassName?: string
   roundedClassName?: string
@@ -25,7 +24,6 @@ interface ProjectScreenshotGalleryProps {
 export const ProjectScreenshotGallery = ({
   title,
   screenshots,
-  status,
   category,
   screenshotLayout = 'desktop',
   maxHeightClassName,
@@ -33,18 +31,11 @@ export const ProjectScreenshotGallery = ({
   headerActions,
 }: ProjectScreenshotGalleryProps) => {
   const [activeShot, setActiveShot] = useState(0)
-  const scrollRef = useRef<HTMLDivElement>(null)
   const hasScreenshots = screenshots.length > 0
   const hasMultiple = screenshots.length > 1
   const isMobile = screenshotLayout === 'mobile'
   const dimensions = getScreenshotDimensions(screenshotLayout)
-  const resolvedMaxHeight =
-    maxHeightClassName ??
-    (isMobile ? 'max-h-[520px] md:max-h-[580px]' : 'max-h-[480px] md:max-h-[540px]')
-
-  useEffect(() => {
-    scrollRef.current?.scrollTo({ top: 0 })
-  }, [activeShot])
+  const activeSrc = screenshots[activeShot]
 
   const prevShot = () => {
     setActiveShot((index) => Math.max(0, index - 1))
@@ -57,19 +48,14 @@ export const ProjectScreenshotGallery = ({
   return (
     <div className={cn('w-full overflow-hidden', roundedClassName)}>
       <div className="flex items-center justify-between gap-3 px-4 py-3 md:px-6 bg-bg-secondary border-b border-border-subtle">
-        <div className="flex flex-wrap items-center gap-2">
-          <span
-            className={cn(
-              'px-3 py-1 rounded-full text-xs font-semibold border',
-              status.className
-            )}
-          >
-            {status.label}
-          </span>
-          <span className="px-3 py-1 rounded-full text-xs font-medium bg-bg-tertiary border border-border-subtle text-text-secondary">
-            {category}
-          </span>
-        </div>
+        <span
+          className={cn(
+            'px-3 py-1 rounded-full text-xs font-semibold border',
+            getCategoryBadgeClassName(category)
+          )}
+        >
+          {category}
+        </span>
         {headerActions}
       </div>
 
@@ -79,45 +65,35 @@ export const ProjectScreenshotGallery = ({
         {hasScreenshots ? (
           <>
             <div
-              ref={scrollRef}
               className={cn(
-                'overflow-y-auto overflow-x-hidden overscroll-contain',
-                resolvedMaxHeight
+                'w-full',
+                maxHeightClassName,
+                isMobile && 'px-4 py-6 md:px-8 md:py-8'
               )}
             >
-              <div className={cn('grid', isMobile && 'px-4 py-6 md:px-8 md:py-8')}>
-                {screenshots.map((src, index) => (
-                  <div
-                    key={src}
+              <div className={cn(isMobile && 'flex justify-center')}>
+                <div className={cn(isMobile && 'w-full max-w-[320px] sm:max-w-[360px]')}>
+                  <Image
+                    key={activeSrc}
+                    src={activeSrc}
+                    alt={`${title} screenshot ${activeShot + 1}`}
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    {...projectScreenshotImageProps}
+                    priority={activeShot === 0}
+                    draggable={false}
                     className={cn(
-                      'row-start-1 col-start-1 transition-opacity duration-300',
-                      isMobile && 'flex justify-center',
-                      index !== activeShot && 'opacity-0 pointer-events-none'
+                      'block h-auto w-full',
+                      isMobile &&
+                        'rounded-[1.75rem] shadow-2xl ring-1 ring-white/10'
                     )}
-                  >
-                    <div className={cn(isMobile && 'w-full max-w-[320px] sm:max-w-[360px]')}>
-                      <Image
-                        src={src}
-                        alt={`${title} screenshot ${index + 1}`}
-                        width={dimensions.width}
-                        height={dimensions.height}
-                        {...projectScreenshotImageProps}
-                        priority={index === 0}
-                        draggable={false}
-                        className={cn(
-                          'block h-auto w-full',
-                          isMobile &&
-                            'rounded-[1.75rem] shadow-2xl ring-1 ring-white/10'
-                        )}
-                        sizes={
-                          isMobile
-                            ? '(max-width: 640px) 280px, 360px'
-                            : '(max-width: 1024px) 100vw, 1024px'
-                        }
-                      />
-                    </div>
-                  </div>
-                ))}
+                    sizes={
+                      isMobile
+                        ? '(max-width: 640px) 280px, 360px'
+                        : '(max-width: 1024px) 100vw, 1024px'
+                    }
+                  />
+                </div>
               </div>
             </div>
 
@@ -182,7 +158,7 @@ export const ProjectScreenshotGallery = ({
               <Lock className="w-7 h-7 text-text-muted" />
             </div>
             <p className="text-sm text-text-muted text-center max-w-xs leading-relaxed">
-              {status.note || 'Screenshots coming soon.'}
+              Screenshots coming soon.
             </p>
           </div>
         )}
