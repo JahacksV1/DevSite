@@ -31,8 +31,8 @@ export const NavLink = ({
       data-nav-link={href}
       onClick={onClick}
       className={cn(
-        'relative px-4 py-2 rounded-lg',
-        'text-base font-medium',
+        'relative px-2.5 md:px-3 lg:px-4 py-2 rounded-lg whitespace-nowrap',
+        'text-sm lg:text-base font-medium',
         'transition-all duration-200',
         isActive
           ? 'text-primary'
