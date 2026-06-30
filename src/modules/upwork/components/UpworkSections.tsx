@@ -51,23 +51,23 @@ export const UpworkHeader = () => {
             working software you can review at every step.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto">
             <Link
               href="#proof"
               className={cn(
-                'flex items-center gap-2 px-6 py-3 rounded-xl',
+                'inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl w-full sm:w-auto',
                 'bg-gradient-to-br from-primary to-primary/80',
                 'text-bg-primary font-semibold',
                 'hover:shadow-[0_0_20px_rgba(0,255,198,0.35)] transition-all duration-200'
               )}
             >
               View Project Proof
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
             <Link
               href="#intake"
               className={cn(
-                'flex items-center gap-2 px-6 py-3 rounded-xl',
+                'inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl w-full sm:w-auto',
                 'bg-bg-tertiary border border-border-subtle text-text-secondary font-semibold',
                 'hover:border-primary hover:text-primary transition-all duration-200'
               )}

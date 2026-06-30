@@ -17,9 +17,12 @@ const navLinks = [
   { href: '/pricing', label: 'Pricing' },
 ]
 
+/** Tablet and up — centered nav fits from here; below is mobile drawer only. */
+const DESKTOP_NAV_MIN_WIDTH = 768
+
 /**
  * Navigation - Main navigation component
- * Features: sticky, blur backdrop, scroll-aware, glow effects
+ * Mobile: logo + drawer. md+: logo | centered tabs | optional CTA (xl+).
  */
 export const Navigation = () => {
   const pathname = usePathname()
@@ -28,6 +31,8 @@ export const Navigation = () => {
   const [indicator, setIndicator] = useState({ left: 0, width: 0, visible: false })
   const navContainerRef = useRef<HTMLDivElement>(null)
   const { scrollY } = useScroll()
+
+  const showPortfolioCta = pathname !== '/'
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setIsScrolled(latest > 10)
@@ -45,7 +50,7 @@ export const Navigation = () => {
 
     const containerRect = container.getBoundingClientRect()
     const activeRect = active.getBoundingClientRect()
-    const inset = 8
+    const inset = 6
 
     setIndicator({
       left: activeRect.left - containerRect.left + inset,
@@ -65,7 +70,7 @@ export const Navigation = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) setIsOpen(false)
+      if (window.innerWidth >= DESKTOP_NAV_MIN_WIDTH) setIsOpen(false)
     }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
@@ -85,10 +90,20 @@ export const Navigation = () => {
       )}
     >
       <div className="container-main">
-        <nav className="flex items-center justify-between h-16 md:h-20">
+        <nav
+          className={cn(
+            'h-16 md:h-20',
+            'flex items-center justify-between gap-4',
+            'md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-6'
+          )}
+        >
           <Link
             href="/"
-            className="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary rounded-lg"
+            className={cn(
+              'group flex items-center min-w-0 shrink-0',
+              'justify-self-start',
+              'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary rounded-lg'
+            )}
           >
             <motion.div
               className="transition-shadow duration-300 group-hover:shadow-glow rounded-[22%]"
@@ -98,12 +113,16 @@ export const Navigation = () => {
               <BrandLogo
                 showWordmark
                 priority
-                wordmarkClassName="group-hover:text-primary transition-colors duration-200"
+                imageClassName="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16"
+                wordmarkClassName="group-hover:text-primary transition-colors duration-200 hidden sm:inline"
               />
             </motion.div>
           </Link>
 
-          <div ref={navContainerRef} className="relative hidden md:flex items-center gap-1">
+          <div
+            ref={navContainerRef}
+            className="relative hidden md:flex items-center justify-center gap-0.5 justify-self-center"
+          >
             {indicator.visible && (
               <motion.span
                 className="absolute bottom-0 h-0.5 rounded-full bg-gradient-to-r from-primary to-primary-dim pointer-events-none"
@@ -119,42 +138,48 @@ export const Navigation = () => {
             ))}
           </div>
 
-          <div className="hidden md:block">
-            <Link
-              href="/"
-              className="px-4 py-2 rounded-lg bg-primary/10 border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/20 transition-all duration-200"
-            >
-              View Portfolio
-            </Link>
-          </div>
-
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className={cn(
-              'md:hidden p-2 rounded-lg',
-              'text-text-secondary hover:text-text-primary',
-              'hover:bg-bg-tertiary',
-              'transition-colors duration-200',
-              'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
+          <div className="flex items-center justify-end justify-self-end min-w-[3rem] md:min-w-0">
+            {showPortfolioCta && (
+              <Link
+                href="/"
+                className={cn(
+                  'hidden xl:inline-flex whitespace-nowrap px-4 py-2 rounded-lg',
+                  'bg-primary/10 border border-primary/30 text-primary text-sm font-semibold',
+                  'hover:bg-primary/20 transition-all duration-200'
+                )}
+              >
+                View Portfolio
+              </Link>
             )}
-            whileTap={{ scale: 0.95 }}
-            aria-label={
-              isOpen ? 'Close navigation menu' : 'Open navigation menu'
-            }
-            aria-expanded={isOpen}
-          >
-            <motion.div
-              initial={false}
-              animate={{ rotate: isOpen ? 90 : 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" aria-hidden="true" />
-              ) : (
-                <Menu className="w-6 h-6" aria-hidden="true" />
+
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className={cn(
+                'md:hidden p-2 rounded-lg',
+                'text-text-secondary hover:text-text-primary',
+                'hover:bg-bg-tertiary',
+                'transition-colors duration-200',
+                'focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
               )}
-            </motion.div>
-          </motion.button>
+              whileTap={{ scale: 0.95 }}
+              aria-label={
+                isOpen ? 'Close navigation menu' : 'Open navigation menu'
+              }
+              aria-expanded={isOpen}
+            >
+              <motion.div
+                initial={false}
+                animate={{ rotate: isOpen ? 90 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {isOpen ? (
+                  <X className="w-6 h-6" aria-hidden="true" />
+                ) : (
+                  <Menu className="w-6 h-6" aria-hidden="true" />
+                )}
+              </motion.div>
+            </motion.button>
+          </div>
         </nav>
       </div>
 

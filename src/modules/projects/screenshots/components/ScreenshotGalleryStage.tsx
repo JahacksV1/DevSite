@@ -3,7 +3,7 @@
 import { useMemo } from 'react'
 import { cn } from '@/lib/utils'
 import type { Project } from '../../lib/projectsData'
-import { getScreenshotDimensions, isMobileScreenshotLayout } from '../assets'
+import { isMobileScreenshotLayout } from '../assets'
 import { ScreenshotImage } from './ScreenshotImage'
 
 interface ScreenshotGalleryStageProps {
@@ -45,7 +45,6 @@ export function ScreenshotGalleryStage({
   maxHeightClassName,
 }: ScreenshotGalleryStageProps) {
   const isMobile = isMobileScreenshotLayout(layout)
-  const dimensions = getScreenshotDimensions(layout)
   const mountedIndices = useMemo(
     () => getMountedIndices(displayedIndex, requestedIndex, screenshots.length),
     [displayedIndex, requestedIndex, screenshots.length]
@@ -65,22 +64,27 @@ export function ScreenshotGalleryStage({
           isMobile && 'px-4 py-6 md:px-8 md:py-8'
         )}
       >
-        <div className="grid">
+        {/* Only the in-flow (displayed) slide sets height; others are absolute overlays. */}
+        <div className="relative w-full">
           {screenshots.map((src, index) => {
             const isDisplayed = index === displayedIndex
             const isNeighbor = Math.abs(index - displayedIndex) === 1
             const shouldMount = mountedIndices.has(index)
+
+            if (!shouldMount && !isDisplayed) {
+              return null
+            }
 
             return (
               <div
                 key={src}
                 aria-hidden={!isDisplayed}
                 className={cn(
-                  'row-start-1 col-start-1',
-                  isMobile && 'flex justify-center w-full',
+                  'w-full',
+                  isMobile && 'flex justify-center',
                   isDisplayed
-                    ? 'z-10 opacity-100'
-                    : 'z-0 opacity-0 pointer-events-none'
+                    ? 'relative z-10 opacity-100'
+                    : 'absolute inset-x-0 top-0 z-0 opacity-0 pointer-events-none'
                 )}
               >
                 <div
@@ -88,26 +92,24 @@ export function ScreenshotGalleryStage({
                     'w-full',
                     isMobile && 'max-w-[320px] sm:max-w-[360px]'
                   )}
-                  style={{ aspectRatio: `${dimensions.width} / ${dimensions.height}` }}
                 >
-                  {shouldMount ? (
-                    <ScreenshotImage
-                      src={src}
-                      alt={`${title} screenshot ${index + 1}`}
-                      layout={layout}
-                      context="gallery"
-                      priority={index <= 1 || index === screenshots.length - 1}
-                      fetchPriority={
-                        isDisplayed ? 'high' : isNeighbor ? 'low' : 'auto'
-                      }
-                      onPainted={() => onSlidePainted(index)}
-                      className={
-                        isMobile
-                          ? 'rounded-[1.75rem] shadow-2xl ring-1 ring-white/10'
-                          : undefined
-                      }
-                    />
-                  ) : null}
+                  <ScreenshotImage
+                    src={src}
+                    alt={`${title} screenshot ${index + 1}`}
+                    layout={layout}
+                    context="gallery"
+                    naturalAspect
+                    priority={index <= 1 || index === screenshots.length - 1}
+                    fetchPriority={
+                      isDisplayed ? 'high' : isNeighbor ? 'low' : 'auto'
+                    }
+                    onPainted={() => onSlidePainted(index)}
+                    className={
+                      isMobile
+                        ? 'rounded-[1.75rem] shadow-2xl ring-1 ring-white/10'
+                        : undefined
+                    }
+                  />
                 </div>
               </div>
             )

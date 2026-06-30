@@ -22,6 +22,8 @@ interface ScreenshotImageProps {
   sizes?: string
   fetchPriority?: 'high' | 'low' | 'auto'
   onPainted?: () => void
+  /** When true, omit fixed width/height so each asset uses its natural aspect ratio. */
+  naturalAspect?: boolean
 }
 
 async function notifyWhenPaintReady(
@@ -50,6 +52,7 @@ export function ScreenshotImage({
   sizes,
   fetchPriority,
   onPainted,
+  naturalAspect = false,
 }: ScreenshotImageProps) {
   const dimensions = getScreenshotDimensions(layout)
   const resolvedSizes = sizes ?? getScreenshotSizes(layout, context)
@@ -75,6 +78,19 @@ export function ScreenshotImage({
 
   if (fill) {
     return <Image {...sharedProps} fill className={className} />
+  }
+
+  if (naturalAspect) {
+    return (
+      <Image
+        {...sharedProps}
+        width={dimensions.width}
+        height={dimensions.height}
+        draggable={false}
+        className={cn('block h-auto w-full aspect-auto', className)}
+        style={{ width: '100%', height: 'auto' }}
+      />
+    )
   }
 
   return (
