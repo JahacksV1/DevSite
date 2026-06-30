@@ -1,15 +1,12 @@
 'use client'
 
-import Image from 'next/image'
-import { Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { getCategoryBadgeClassName } from '../lib/categoryBadge'
 import type { Project } from '../lib/projectsData'
 import {
-  getScreenshotDimensions,
-  isMobileScreenshotProject,
-  projectScreenshotImageProps,
-} from '../lib/projectUtils'
+  ScreenshotThumbnail,
+  useProjectScreenshotWarmup,
+} from '../screenshots'
 
 interface ProjectCardProps {
   project: Project
@@ -22,9 +19,7 @@ export const ProjectCard = ({
   index,
   onViewDetails,
 }: ProjectCardProps) => {
-  const heroShot = project.screenshots[0]
-  const isMobile = isMobileScreenshotProject(project)
-  const dimensions = getScreenshotDimensions(project.screenshotLayout)
+  const { warm } = useProjectScreenshotWarmup(project)
 
   return (
     <div
@@ -34,72 +29,15 @@ export const ProjectCard = ({
         'hover:border-primary/60 hover:shadow-[0_0_28px_rgba(0,255,198,0.10)]',
         'transition-all duration-300 cursor-pointer'
       )}
-      onClick={onViewDetails}
+      onClick={() => {
+        warm()
+        onViewDetails()
+      }}
+      onMouseEnter={warm}
+      onFocus={warm}
+      onTouchStart={warm}
     >
-      {/* Screenshot / Preview */}
-      <div
-        className={cn(
-          'relative h-52 overflow-hidden shrink-0',
-          isMobile
-            ? 'bg-zinc-950'
-            : 'bg-gradient-to-br from-bg-tertiary to-bg-elevated'
-        )}
-      >
-        {heroShot ? (
-          isMobile ? (
-            <div className="absolute inset-0 flex items-center justify-center p-4">
-              <Image
-                src={heroShot}
-                alt={`${project.title} screenshot`}
-                width={dimensions.width}
-                height={dimensions.height}
-                {...projectScreenshotImageProps}
-                priority={index < 3}
-                className="h-full w-auto max-h-full rounded-2xl object-contain shadow-lg ring-1 ring-white/10 transition-transform duration-500 group-hover:scale-[1.03]"
-                sizes="180px"
-              />
-            </div>
-          ) : (
-            <div className="absolute inset-3 rounded overflow-hidden shadow-sm group-hover:inset-2 transition-all duration-500">
-              <Image
-                src={heroShot}
-                alt={`${project.title} screenshot`}
-                fill
-                {...projectScreenshotImageProps}
-                priority={index < 3}
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-          )
-        ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-6">
-            <div className="w-12 h-12 rounded-xl bg-bg-tertiary border border-border-subtle flex items-center justify-center">
-              <Lock className="w-5 h-5 text-text-muted" />
-            </div>
-            <p className="text-xs text-text-muted text-center leading-relaxed">
-              Screenshots coming soon
-            </p>
-          </div>
-        )}
-
-        {/* Screenshot count dots */}
-        {project.screenshots.length > 1 && (
-          <div className="absolute bottom-3 right-3 flex gap-1">
-            {project.screenshots.map((_, i) => (
-              <div
-                key={i}
-                className={cn(
-                  'w-1.5 h-1.5 rounded-full',
-                  i === 0 ? 'bg-primary' : 'bg-white/30'
-                )}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Info */}
+      <ScreenshotThumbnail project={project} priority={index < 3} />
 
       <div className="p-5 flex flex-col flex-1">
         <div className="flex flex-wrap gap-2 mb-3">
@@ -123,7 +61,6 @@ export const ProjectCard = ({
           {project.description}
         </p>
 
-        {/* Relevant for */}
         {project.relevantFor.length > 0 && (
           <div className="mb-4 px-3 py-2 rounded-lg bg-primary/5 border border-primary/15">
             <p className="text-xs text-text-muted mb-1 font-semibold uppercase tracking-wide">
@@ -135,7 +72,6 @@ export const ProjectCard = ({
           </div>
         )}
 
-        {/* Tech tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.techStack.slice(0, 5).map((tech) => (
             <span
@@ -151,7 +87,6 @@ export const ProjectCard = ({
             </span>
           )}
         </div>
-
       </div>
     </div>
   )

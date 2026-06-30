@@ -23,6 +23,8 @@ const PROJECTS_DIR = path.join(__dirname, '..', 'public', 'projects')
 
 const LAYOUTS = {
   desktop: { width: 2048, height: 1164 },
+  /** 1× gallery display size — use for photo-heavy marketing screenshots */
+  gallery: { width: 1024, height: 582 },
   mobile: { width: 1702, height: 2048 },
 }
 
@@ -52,7 +54,7 @@ function printHelp() {
   console.log(`Normalize project screenshots
 
 Options:
-  --layout auto|desktop|mobile   Target layout (default: auto from aspect ratio)
+  --layout auto|desktop|gallery|mobile   Target layout (default: auto from aspect ratio)
   --file <name>                  Process one file in public/projects/
   --trim                         Trim uniform border whitespace before resize
   --dry-run                      Preview changes without writing files
